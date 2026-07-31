@@ -1,0 +1,1806 @@
+/*-- -------------------------- -->
+<---        Fresh Hero          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #hero-fresh-1 {
+        padding: (110/16rem) 1rem (60/16rem);
+        background-color: var(--pistachioSage);
+
+        /* min-height, not height, so copy can push the hero taller on narrow screens */
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        /* `safe` falls back to flex-start when the content doesn't fit, so
+           overflow never lands above the scroll origin. Unprefixed line first
+           as the fallback for older engines. */
+        justify-content: center;
+        justify-content: safe center;
+
+        .cs-container {
+            /* margin-inline, not margin — a vertical auto margin would
+               re-centre the overflow and undo the safe alignment above */
+            margin-inline: auto;
+            max-width: (1280/16rem);
+            display: flex;
+            flex-direction: column;
+            gap: (32/16rem);
+            align-items: center;
+        }
+
+        .cs-content {
+            width: 100%;
+            max-width: (760/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: capitalize;
+            color: var(--salt);
+            margin-bottom: (14/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 15.5vw, 5.6rem);
+            font-weight: 700;
+            line-height: 0.92;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            text-wrap: balance;
+            color: var(--salt);
+            max-width: unset;
+            margin: 0 0 (24/16rem) 0;
+        }
+
+        /* ===== CTA Button ===== */
+
+        .cs-button-solid {
+            background-color: var(--mustard);
+            border-color: var(--mustard);
+            color: var(--headerColor);
+
+            &::before {
+                background-color: var(--headerColor);
+            }
+
+            &:hover {
+                color: var(--vanilla);
+                border-color: var(--headerColor);
+            }
+        }
+
+        /* ===== Proof Row =====
+           Dark type throughout, not salt — salt sits at roughly 1.8:1 on
+           pistachio. The display headline gets away with it at 90px; a 32px
+           figure and a 10px label do not. Charcoal reads at ~7:1 and echoes
+           the dark text in the CTA. The dashed rule is the same motif as the
+           perforation on the Fresh tickets. */
+
+        .cs-stats {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: (16/16rem);
+            max-width: (480/16rem);
+            margin: (32/16rem) 0 0;
+            padding: (20/16rem) 0 0;
+            border-top: (1.5/16rem) dashed rgba(47, 52, 50, 0.3);
+        }
+
+        .cs-stat {
+            display: flex;
+            flex-direction: column;
+            gap: (4/16rem);
+            min-width: 0;
+        }
+
+        .cs-stat-number {
+            font-family: var(--headerFont);
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            color: var(--charcoal);
+        }
+
+        .cs-stat-label {
+            font-family: var(--bodyFont);
+            font-size: (10/16rem);
+            font-weight: 700;
+            line-height: 1.4;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(47, 52, 50, 0.7);
+        }
+
+        /* ===== Hero Image =====
+           A single frame beside the copy rather than the Fuel rail — so no
+           viewport bleed and no edge fade here. No fixed height either: the
+           frame takes the photo's own ratio, so the bowl never gets cropped.
+           That's why there's no object-fit — the box already matches the
+           image, and cover would have nothing left to crop to. */
+
+        .cs-gallery {
+            position: relative;
+            align-self: stretch;
+            border-radius: (12/16rem);
+            overflow: hidden;
+        }
+
+        .cs-gallery-picture {
+            display: block;
+        }
+
+        .cs-gallery-img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #hero-fresh-1 {
+        padding: (130/16rem) 1rem (70/16rem);
+
+        .cs-stats {
+            margin-top: (36/16rem);
+            gap: (20/16rem);
+        }
+
+        .cs-gallery {
+            align-self: center;
+            max-width: (620/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #hero-fresh-1 {
+        /* extra top padding clears the overlaid nav — adjust to your nav height */
+        padding: (150/16rem) 1rem (90/16rem);
+
+        .cs-container {
+            flex-direction: row;
+            align-items: center;
+            gap: (82/16rem);
+        }
+
+        /* Copy and image share the row on a 1.3 : 1 ratio — change the 1.3 alone
+           to retune the split. basis 0 on both is load-bearing: with basis auto
+           the image's intrinsic width sets its base size and crushes the copy. */
+        .cs-content {
+            flex: 1.3 1 0;
+            min-width: 0;
+        }
+
+        .cs-stats {
+            margin-top: (40/16rem);
+            padding-top: (24/16rem);
+            gap: (24/16rem);
+        }
+
+        .cs-stat-number {
+            font-size: (32/16rem);
+        }
+
+        /* width-driven here too — the image sits centred in the row at whatever
+           height its ratio gives it, instead of being stretched to a fixed one */
+        .cs-gallery {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: none;
+            align-self: center;
+        }
+
+        /* 8.75vw resolves to 89.6px at 1024 — exactly where the mobile clamp
+           caps out — so the headline continues growing instead of dropping
+           ~18px at the breakpoint */
+        .cs-title {
+            font-size: clamp(5.6rem, 8.75vw, 6.75rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---        Who It's For        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #audience-fresh-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--salt);
+        /* clip the scrollbar-width overshoot from the desktop viewport bleed */
+        overflow-x: clip;
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: (48/16rem);
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: capitalize;
+            color: var(--pistachioSage);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            max-width: unset;
+            margin: 0;
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            color: rgba(47, 52, 50, 0.55);
+            line-height: 1.6;
+            max-width: (400/16rem);
+        }
+
+        /* ===== Carousel ===== */
+
+        .cs-track {
+            list-style: none;
+            display: flex;
+            gap: (12/16rem);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x proximity;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--pistachioSage);
+                outline-offset: 4px;
+            }
+        }
+
+        /* ===== Cards =====
+           Absolutely-positioned image + overlay fill the card; the caption sits
+           in normal flow pinned to the bottom via justify-end. min-height drives
+           the card height and the image covers it. Cards stay dark (photo +
+           overlay) regardless of section bg. */
+
+        .cs-item {
+            position: relative;
+            flex: 0 0 78%;
+            scroll-snap-align: start;
+            min-height: (340/16rem);
+            border-radius: (14/16rem);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-color: var(--charcoal); /* fallback before image paints */
+        }
+
+        .cs-item-picture {
+            position: absolute;
+            inset: 0;
+        }
+
+        .cs-item-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Dark overlay, heavier at the base so the title stays legible while the
+           top of the photo still reads. Literal rgba - not a token - so the
+           gradient can't interpolate through grey. */
+        .cs-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(15, 13, 10, 0.9) 0%,
+                rgba(15, 13, 10, 0.45) 45%,
+                rgba(15, 13, 10, 0.1) 100%
+            );
+            pointer-events: none;
+        }
+
+        /* relative so the caption stacks above the absolute overlay */
+        .cs-item-caption {
+            position: relative;
+            padding: (24/16rem);
+        }
+
+        .cs-card-title {
+            font-size: clamp(1.8rem, 4.5vw, 2.2rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            color: var(--salt);
+            margin: 0;
+        }
+
+        /* ===== Controls ===== */
+
+        .cs-carousel-controls {
+            display: flex;
+            align-items: center;
+            gap: (24/16rem);
+        }
+
+        .cs-progress {
+            flex: 1 1 auto;
+            height: (3/16rem);
+            background-color: rgba(47, 52, 50, 0.12);
+            border-radius: (100/16rem);
+            overflow: hidden;
+        }
+
+        /* 0% is load-bearing — without it the div fills its parent and the bar
+           flashes full before the script runs */
+        .cs-progress-fill {
+            width: 0%;
+            height: 100%;
+            background-color: var(--pistachioSage);
+            border-radius: (100/16rem);
+            transition: width 0.15s linear;
+        }
+
+        .cs-arrows {
+            display: flex;
+            gap: (8/16rem);
+            flex: none;
+        }
+
+        /* aria-disabled, not :disabled — the button stays in the tab order, so
+           the guard lives in the click handler rather than pointer-events */
+        .cs-arrow {
+            width: (48/16rem);
+            height: (48/16rem);
+            background-color: transparent;
+            border: 1px solid rgba(47, 52, 50, 0.25);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--charcoal);
+            transition: border-color 0.3s, background-color 0.3s, color 0.3s, opacity 0.3s;
+
+            svg {
+                width: (20/16rem);
+                height: (20/16rem);
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--pistachioSage);
+                outline-offset: 2px;
+            }
+
+            &[aria-disabled="true"] {
+                opacity: 0.2;
+                cursor: default;
+            }
+        }
+
+    } /* end #audience-fresh-1 */
+
+} /* end mobile */
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+
+    #audience-fresh-1 {
+
+        .cs-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: (48/16rem);
+        }
+
+        .cs-header-left {
+            flex: 1 1 auto;
+        }
+
+        .cs-text {
+            flex: 0 0 auto;
+            text-align: right;
+        }
+
+        .cs-track {
+            gap: (16/16rem);
+        }
+
+        .cs-item {
+            flex: 0 0 44%;
+            min-height: (380/16rem);
+        }
+
+    }
+
+} /* end tablet */
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+    #audience-fresh-1 {
+
+        /* Stretch the rail from the container's left edge to the viewport's right
+           edge. The gap to the right edge is (100vw - 100%) / 2, so the total is
+           100% + that, which reduces to 50% + 50vw. Expressed in container
+           percentages it stays correct whether or not the container has hit its
+           max-width — a fixed 640px half-width only works above 1312px. */
+        .cs-carousel {
+            width: calc(50% + 50vw);
+        }
+
+        .cs-track {
+            padding-right: (48/16rem);
+            scroll-padding-right: (48/16rem);
+        }
+
+        .cs-item {
+            flex: 0 0 28%;
+            min-height: (440/16rem);
+        }
+
+        .cs-arrow {
+            &:hover {
+                background-color: var(--pistachioSage);
+                border-color: var(--pistachioSage);
+                color: var(--salt);
+            }
+
+            &[aria-disabled="true"]:hover {
+                background-color: transparent;
+                border-color: rgba(47, 52, 50, 0.25);
+                color: var(--charcoal);
+            }
+        }
+
+    }
+
+} /* end desktop */
+
+/*-- -------------------------- -->
+<---      What's Included       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #included-fresh-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgLightAlt);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        /* ===== Section header ===== */
+
+        .cs-header {
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+            margin: 0 0 (32/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--caramel);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            max-width: unset;
+            margin: 0;
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            color: rgba(47, 52, 50, 0.55);
+            line-height: 1.6;
+            max-width: (400/16rem);
+        }
+
+        /* ===== Ticket stubs ===== */
+
+        .cs-tickets {
+            display: grid;
+            gap: (24/16rem);
+        }
+
+        .cs-ticket {
+            --rot: -1deg;
+            position: relative;
+            background-color: #fff;
+            border: (1.5/16rem) solid rgba(47, 52, 50, 0.18);
+            border-radius: (6/16rem);
+            padding: (26/16rem) (20/16rem) (24/16rem);
+        }
+
+        /* scale(1) is deliberate — it keeps the function list matching the hover
+           state so the transform interpolates cleanly instead of via matrix */
+        .cs-stamp {
+            width: (52/16rem);
+            height: (52/16rem);
+            border-radius: 50%;
+            border: (2.5/16rem) solid var(--pistachioSage);
+            color: var(--pistachioSage);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: (16/16rem);
+            transform: rotate(-8deg) scale(1);
+
+            svg {
+                width: (24/16rem);
+                height: (24/16rem);
+            }
+        }
+
+        .cs-item-title {
+            font-size: (24/16rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            margin: 0 0 (8/16rem);
+
+            /* the perforation — drawn rather than marked up */
+            &::after {
+                content: "";
+                display: block;
+                border-top: (1.5/16rem) dashed rgba(47, 52, 50, 0.25);
+                margin: (14/16rem) 0;
+            }
+        }
+
+        .cs-item-text {
+            line-height: 1.6;
+        }
+    }
+}
+
+/* Tablet - 600px */
+@media only screen and (min-width: 37.5rem) {
+    #included-fresh-1 {
+        .cs-tickets {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #included-fresh-1 {
+        /* baseline-aligned split: title anchors the left, the sentence sits on
+           the right rag. flex-end keeps the two blocks sharing a bottom edge
+           regardless of how many lines either one runs to. */
+        .cs-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: (48/16rem);
+        }
+
+        .cs-header-left {
+            flex: 1 1 auto;
+        }
+
+        .cs-text {
+            flex: 0 0 auto;
+            text-align: right;
+        }
+
+        .cs-tickets {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #included-fresh-1 {
+        .cs-header {
+            margin-bottom: (40/16rem);
+        }
+
+        .cs-tickets {
+            gap: (28/16rem);
+        }
+
+        /* transitions live here, not on mobile — nothing hovers on touch, so
+           declaring them at the base was animating properties that never change.
+           the angle rides on --rot so the nth-child and hover rules set different
+           properties and can't collide on source order */
+        .cs-ticket {
+            transform: rotate(var(--rot)) translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:nth-child(even) {
+                --rot: 1deg;
+            }
+
+            .cs-stamp {
+                transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    background-color 0.3s ease, color 0.3s ease;
+            }
+
+            &:hover {
+                --rot: 0deg;
+                transform: rotate(var(--rot)) translateY((-4/16rem));
+                box-shadow: 0 (10/16rem) (24/16rem) rgba(47, 52, 50, 0.12);
+
+                .cs-stamp {
+                    transform: rotate(0deg) scale(1.08);
+                    background-color: var(--pistachioSage);
+                    color: var(--pageBgLight);
+                }
+            }
+        }
+    }
+}
+
+/* Large Desktop - 1200px */
+@media only screen and (min-width: 75rem) {
+    #included-fresh-1 {
+        .cs-tickets {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+/* Reduced motion — kill the lift/stamp motion, keep the end states instant */
+@media (prefers-reduced-motion: reduce) {
+    #included-fresh-1 {
+        .cs-ticket,
+        .cs-stamp {
+            transition: none;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---       Why MADE Fresh       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #why-fresh-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgDarkAlt);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (40/16rem);
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            text-align: center;
+            max-width: (620/16rem);
+        }
+
+        /* pistachio earns its keep here — on the dark bg it clears contrast
+           easily, unlike the salt-backed sections where it had to go caramel */
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--pistachioSage);
+            margin-bottom: (12/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--salt);
+            max-width: unset;
+            margin: 0 0 (14/16rem);
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            line-height: 1.6;
+            /* literal salt rgba so the alpha reads correctly on the dark bg */
+            color: rgba(254, 251, 234, 0.72);
+            margin: 0 auto;
+            max-width: (560/16rem);
+        }
+
+        /* ===== Equation (two pillars + connector) =====
+           Stacked on mobile, "meets" sits between the two cards.
+           Becomes a horizontal row at tablet. */
+
+        .cs-equation {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: (16/16rem);
+        }
+
+        .cs-pillar {
+            flex: 1;
+            border: (1/16rem) solid rgba(254, 251, 234, 0.16);
+            border-radius: (12/16rem);
+            padding: (24/16rem) (20/16rem);
+        }
+
+        .cs-pillar-icon {
+            width: (46/16rem);
+            height: (46/16rem);
+            border-radius: 50%;
+            border: (2/16rem) solid var(--pistachioSage);
+            color: var(--pistachioSage);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: (14/16rem);
+
+            svg {
+                width: (22/16rem);
+                height: (22/16rem);
+            }
+        }
+
+        .cs-pillar-title {
+            font-family: var(--headerFont);
+            font-size: (28/16rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--salt);
+            margin: 0 0 (8/16rem);
+        }
+
+        .cs-pillar-text {
+            line-height: 1.6;
+            color: rgba(254, 251, 234, 0.7);
+        }
+
+        /* ===== Connector =====
+           The operator in the equation — display-sized word, arrow from tablet
+           up. The bare text node becomes an anonymous flex item, so it picks up
+           the type styles from here. flex:none keeps the block from being
+           squeezed when it joins the row at tablet. */
+
+        .cs-meets {
+            flex: none;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (10/16rem);
+            padding: (4/16rem) (8/16rem);
+            font-family: var(--headerFont);
+            font-size: (28/16rem);
+            line-height: 1;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--pistachioSage);
+        }
+
+        /* word only on mobile — the pillars stack there, so a horizontal arrow
+           would run across the gap rather than along it */
+        .cs-meets-arrow {
+            display: none;
+        }
+
+        /* ===== Closing line ===== */
+
+        .cs-closer {
+            width: 100%;
+            text-align: center;
+            font-family: var(--headerFont);
+            font-size: clamp(1.4rem, 3.5vw, 1.95rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--salt);
+            border-top: (1/16rem) dashed rgba(254, 251, 234, 0.2);
+            padding-top: (32/16rem);
+            margin: 0;
+        }
+
+        .cs-closer-accent {
+            color: var(--pistachioSage);
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #why-fresh-1 {
+        .cs-equation {
+            flex-direction: row;
+            align-items: stretch;
+        }
+
+        /* display is load-bearing — it's undoing the mobile display:none. Width
+           only; the 0 0 64 12 viewBox drives the height, so there's no second
+           magic number to keep in sync. */
+        .cs-meets-arrow {
+            display: block;
+            width: (76/16rem);
+            height: auto;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #why-fresh-1 {
+        .cs-container {
+            gap: (52/16rem);
+        }
+
+        .cs-equation {
+            gap: (24/16rem);
+        }
+
+        .cs-meets {
+            font-size: (36/16rem);
+            gap: (12/16rem);
+        }
+
+        .cs-meets-arrow {
+            width: (96/16rem);
+        }
+
+        /* transitions live here, not on mobile — nothing hovers on touch, so
+           declaring them at the base was animating properties that never change */
+        .cs-pillar {
+            padding: (30/16rem) (28/16rem);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+
+            .cs-pillar-icon {
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            &:hover {
+                transform: translateY((-4/16rem));
+                border-color: rgba(178, 195, 129, 0.55);
+
+                .cs-pillar-icon {
+                    background-color: var(--pistachioSage);
+                    color: var(--pageBgDarkAlt);
+                }
+            }
+        }
+    }
+}
+
+/* Reduced motion — kill the lift/fill motion, keep end states instant */
+@media (prefers-reduced-motion: reduce) {
+    #why-fresh-1 {
+        .cs-pillar,
+        .cs-pillar-icon {
+            transition: none;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---      Signature Offerings   -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #fresh-offerings-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--salt);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            margin-bottom: (32/16rem);
+        }
+
+        .cs-topper {
+            display: block;
+            font-family: var(--bodyFont);
+            font-size: var(--topperFontSize);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: capitalize;
+            color: var(--pistachioSage);
+            margin-bottom: (10/16rem);
+        }
+
+        /* 700, not 900 — Kenyan Coffee only ships a 700 face, so anything
+           heavier gets a synthesised faux bold on top of an already-heavy
+           display face */
+        .cs-title {
+            font-family: var(--headerFont);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            max-width: unset;
+            margin: 0;
+        }
+
+        /* ===== List ===== */
+
+        .cs-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: (1.5/16rem) dashed rgba(47, 52, 50, 0.25);
+        }
+
+        .cs-offering {
+            display: flex;
+            align-items: flex-start;
+            gap: (20/16rem);
+            padding: (28/16rem) 0;
+            border-bottom: (1.5/16rem) dashed rgba(47, 52, 50, 0.25);
+        }
+
+        .cs-offering-icon {
+            flex: none;
+            width: (32/16rem);
+            height: (32/16rem);
+            color: var(--pistachioSage);
+
+            svg {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+
+        .cs-offering-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cs-offering-title {
+            font-family: var(--headerFont);
+            font-size: (22/16rem);
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            margin: 0 0 (6/16rem);
+        }
+
+        .cs-offering-text {
+            font-family: var(--bodyFont);
+            font-size: (15/16rem);
+            line-height: 1.6;
+            color: var(--bodyTextColor);
+            margin: 0;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #fresh-offerings-1 {
+        .cs-header {
+            margin-bottom: (44/16rem);
+        }
+
+        .cs-offering {
+            gap: (28/16rem);
+            padding: (34/16rem) 0;
+        }
+
+        .cs-offering-icon {
+            width: (38/16rem);
+            height: (38/16rem);
+        }
+
+        .cs-offering-title {
+            font-size: (26/16rem);
+        }
+
+        .cs-offering-text {
+            font-size: (16/16rem);
+            max-width: (640/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---           Marquee          -->
+<--- -------------------------- -*/
+
+/* Keyframe names are global, so this lives at the top level rather than nested
+   inside a selector and a media query where it only looks scoped. */
+@keyframes cs-marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #marquee-fresh-1 {
+        /* full shorthand first, then zero the inline axis — the rail runs edge
+           to edge while the header keeps its own gutter via .cs-container.
+           Writing `var(--sectionPadding) 0` instead resolves to three values
+           and silently eats the bottom padding. */
+        padding: var(--sectionPadding);
+        padding-inline: 0;
+        background-color: var(--pageBgLightAlt);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            text-align: center;
+            max-width: (620/16rem);
+            margin: 0 auto (40/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--caramel);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            max-width: unset;
+            margin: 0 0 (16/16rem);
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            line-height: 1.6;
+            color: rgba(47, 52, 50, 0.55);
+            margin: 0 auto;
+            max-width: (480/16rem);
+        }
+
+        /* ===== Marquee ===== */
+
+        .cs-marquee {
+            overflow: hidden;
+        }
+
+        .cs-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: cs-marquee-scroll 34s linear infinite;
+            will-change: transform;
+        }
+
+        /* hover:hover gates the pause to real pointers — on touch, :hover
+           latches after a tap and the rail stays frozen until you tap elsewhere */
+        @media (hover: hover) {
+            .cs-marquee:hover .cs-marquee-track {
+                animation-play-state: paused;
+            }
+        }
+
+        /* margin:0 is load-bearing — a global ul margin would widen the groups
+           unevenly against the track's max-content width and break the -50%
+           landing point. The 7px side padding meets its twin to form the same
+           14px as the internal gap, so the seam is invisible. */
+        .cs-marquee-group {
+            display: flex;
+            flex: none;
+            gap: (14/16rem);
+            margin: 0;
+            padding: 0 (7/16rem);
+            list-style: none;
+        }
+
+        .cs-marquee-item {
+            flex: none;
+            width: (220/16rem);
+            height: (300/16rem);
+            border-radius: (10/16rem);
+            overflow: hidden;
+            background-color: rgba(47, 52, 50, 0.08);
+        }
+
+        .cs-marquee-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #marquee-fresh-1 {
+        .cs-header {
+            margin-bottom: (56/16rem);
+        }
+
+        .cs-marquee-track {
+            animation-duration: 44s;
+        }
+
+        .cs-marquee-group {
+            gap: (20/16rem);
+        }
+
+        .cs-marquee-item {
+            width: (300/16rem);
+            height: (400/16rem);
+        }
+    }
+}
+
+/* Reduced motion — the rail stops and becomes a manual scroller */
+@media (prefers-reduced-motion: reduce) {
+    #marquee-fresh-1 {
+        .cs-marquee {
+            overflow-x: auto;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        .cs-marquee-track {
+            animation: none;
+        }
+
+        /* the duplicate exists only to hide the loop seam — with no loop it's
+           just six more images to scroll past */
+        .cs-marquee-group[aria-hidden="true"] {
+            display: none;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---        Testimonials        -->
+<--- -------------------------- -*/
+
+/* NOTE: the markup for this section is commented out pending real client
+   testimonials. Styles are kept so it can be re-enabled without rework. */
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #testimonials-fresh-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgDarkAlt);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        /* ===== Section header ===== */
+
+        .cs-content {
+            max-width: (640/16rem);
+            margin-bottom: (36/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--pistachioSage);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--salt);
+            max-width: unset;
+            margin: 0;
+        }
+
+        /* ===== Cards ===== */
+
+        .cs-card-group {
+            list-style: none;
+            display: grid;
+            gap: (18/16rem);
+        }
+
+        .cs-item {
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: (16/16rem);
+            padding: (32/16rem) (30/16rem);
+        }
+
+        /* Oversized opening quote mark — purely decorative. The tight
+           line-height plus a short fixed height lets the glyph overhang its own
+           box, so it reads large without pushing the quote down 54px. */
+        .cs-quote-mark {
+            font-family: var(--headerFont);
+            font-size: (54/16rem);
+            line-height: 0.6;
+            height: (30/16rem);
+            color: var(--pistachioSage);
+        }
+
+        /* flex-grow is load-bearing — it stretches the shorter quote so both
+           attribution blocks sit on the same baseline across a grid row */
+        .cs-quote {
+            line-height: 1.6;
+            color: rgba(254, 251, 234, 0.92);
+            flex: 1 1 auto;
+        }
+
+        .cs-attr {
+            display: flex;
+            flex-direction: column;
+            gap: (3/16rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: (18/16rem);
+        }
+
+        .cs-name {
+            font-size: (15/16rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--salt);
+        }
+
+        .cs-role {
+            font-size: (13/16rem);
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .cs-team {
+            color: var(--pistachioSage);
+            font-weight: 600;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #testimonials-fresh-1 {
+        .cs-card-group {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #testimonials-fresh-1 {
+        .cs-content {
+            margin-bottom: (44/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---         Booking CTA        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #booking-fresh-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pistachioSage);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: (36/16rem);
+        }
+
+        /* ===== Pitch ===== */
+
+        .cs-content {
+            max-width: (560/16rem);
+        }
+
+        /* charcoal at ~7:1 on pistachio — the salt used on the caramel Fuel
+           version drops to about 1.8:1 here */
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: rgba(47, 52, 50, 0.75);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--salt);
+            max-width: unset;
+            margin: 0 0 (14/16rem);
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            line-height: 1.6;
+            color: rgba(47, 52, 50, 0.8);
+            max-width: (460/16rem);
+        }
+
+        /* ===== Form card ===== */
+
+        .cs-form {
+            background-color: var(--salt);
+            border-radius: (16/16rem);
+            padding: (28/16rem) (24/16rem);
+        }
+
+        /* ===== Progress meter ===== */
+
+        .cs-meter {
+            margin-bottom: (24/16rem);
+        }
+
+        .cs-meter-meta {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: (12/16rem);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-step-label {
+            font-size: (12/16rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+        }
+
+        .cs-meter-count {
+            font-family: var(--headerFont);
+            font-size: (18/16rem);
+            line-height: 1;
+            color: var(--caramel);
+        }
+
+        .cs-meter-track {
+            height: (6/16rem);
+            background-color: rgba(47, 52, 50, 0.12);
+            border-radius: (100/16rem);
+            overflow: hidden;
+        }
+
+        /* 0 width at rest — the script owns this value. Without it the div
+           fills its parent and the bar flashes complete before first paint. */
+        .cs-meter-fill {
+            width: 0%;
+            height: 100%;
+            background-color: var(--caramel);
+            border-radius: (100/16rem);
+            transition: width 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        /* ===== Steps ===== */
+
+        .cs-step[hidden] {
+            display: none;
+        }
+
+        .cs-field {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: (7/16rem);
+            margin-bottom: (18/16rem);
+        }
+
+        /* completion tick — pure CSS, the script only toggles .cs-done */
+        .cs-field.cs-done .cs-label::after {
+            content: "✓";
+            margin-left: (6/16rem);
+            color: var(--pistachioSage);
+            font-weight: 700;
+        }
+
+        /* Stacked, not side-by-side — "Request a Proposal" has no room to share
+           a 360px row, and width:100% on the buttons resolves their flex basis
+           to the full row, which pushes the sibling out of the card. */
+        .cs-actions {
+            display: flex;
+            flex-direction: column;
+            gap: (10/16rem);
+            margin-top: (4/16rem);
+
+            .cs-button-solid {
+                margin-top: 0;
+            }
+
+            /* plain text button — font-family is required, buttons don't inherit */
+            .cs-back {
+                align-self: center;
+                background-color: transparent;
+                border: none;
+                font-family: var(--bodyFont);
+                font-size: (14/16rem);
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: rgba(47, 52, 50, 0.6);
+                padding: (10/16rem) (12/16rem);
+                transition: color 0.25s ease;
+
+                &:hover {
+                    color: var(--caramel);
+                }
+
+                &:focus-visible {
+                    outline: 2px solid var(--charcoal);
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .cs-label {
+            font-size: (12/16rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+        }
+
+        .cs-optional {
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            color: rgba(47, 52, 50, 0.5);
+        }
+
+        /* font-family is load-bearing here — form controls don't inherit it.
+           min-height keeps date inputs the same height as text inputs; iOS
+           renders them shorter and won't stretch to match. */
+        .cs-input {
+            width: 100%;
+            min-height: (45/16rem);
+            font-family: var(--bodyFont);
+            font-size: (15/16rem);
+            line-height: 1.4;
+            color: var(--headerColor);
+            background-color: #fff;
+            border: 1px solid rgba(47, 52, 50, 0.2);
+            border-radius: (8/16rem);
+            padding: (12/16rem) (14/16rem);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+            &::placeholder {
+                color: rgba(47, 52, 50, 0.4);
+            }
+
+            &:focus {
+                outline: none;
+                border-color: var(--caramel);
+                box-shadow: 0 0 0 3px rgba(201, 107, 43, 0.3);
+            }
+        }
+
+        /* native select caret replaced with a caramel chevron data-URI */
+        .cs-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c96b2b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right (14/16rem) center;
+            padding-right: (40/16rem);
+            cursor: pointer;
+        }
+
+        .cs-button-solid {
+            width: 100%;
+            margin-top: (4/16rem);
+
+            &:focus-visible {
+                outline: 2px solid var(--charcoal);
+                outline-offset: 2px;
+            }
+        }
+
+        .cs-form-note {
+            font-size: (12/16rem);
+            line-height: 1.4;
+            color: rgba(47, 52, 50, 0.55);
+            text-align: center;
+            margin: (14/16rem) 0 0;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #booking-fresh-1 {
+        .cs-container {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: (64/16rem);
+        }
+
+        .cs-content {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        /* Narrowed from 560 so the copy column can carry the same 5rem title
+           cap as every other section — at a 560px basis the column drops to
+           ~368px at 1024 and the headline shatters into five lines. */
+        .cs-form {
+            flex: 0 1 (480/16rem);
+            padding: (36/16rem) (32/16rem);
+        }
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    #booking-fresh-1 {
+        .cs-meter-fill {
+            transition: none;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---        Secondary CTA       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #secondary-cta-fresh-1 {
+        padding: 0 0 (48/16rem) 0;
+        background-color: var(--pageBgDarkAlt);
+        overflow: hidden;
+
+        /* pistachio, not mustard — the button below is caramel, and this is the
+           only place the Fresh accent appears on a dark section */
+        .cs-marquee {
+            width: 100%;
+            margin: 0 0 (40/16rem) 0;
+            padding: (10/16rem) 0;
+            background-color: var(--mustard);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cs-marquee-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            will-change: transform;
+        }
+
+        .cs-marquee-group {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .cs-marquee-item,
+        .cs-marquee-star {
+            font-family: var(--bodyFont);
+            font-size: (13/16rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            color: var(--charcoal);
+            display: block;
+        }
+
+        .cs-marquee-star {
+            font-size: (11/16rem);
+            padding: 0 (20/16rem);
+            opacity: 0.7;
+        }
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            padding: 0 (16/16rem);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: (32/16rem);
+        }
+
+        .cs-title {
+            /* 64px - 120px */
+            font-size: ~"clamp(4rem, 17vw, 7.5rem)";
+            font-family: var(--headerFont);
+            font-weight: 700;
+            line-height: 0.92em;
+            letter-spacing: 0.01em;
+            text-align: left;
+            text-transform: uppercase;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            color: var(--salt);
+
+            span {
+                display: block;
+                color: var(--caramel);
+            }
+        }
+
+        .cs-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .cs-button-solid {
+            background-color: var(--caramel);
+            border-color: var(--caramel);
+            color: var(--salt);
+            min-width: (180/16rem);
+            padding: (16/16rem) (28/16rem);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: (8/16rem);
+            white-space: nowrap;
+
+            svg {
+                width: (16/16rem);
+                height: (16/16rem);
+                flex: none;
+                transition: transform 0.25s ease;
+            }
+
+            &::before {
+                background-color: var(--mustard);
+            }
+
+            &:hover {
+                color: var(--charcoal);
+                border-color: var(--mustard);
+
+                svg {
+                    transform: translateX((3/16rem));
+                }
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #secondary-cta-fresh-1 {
+        padding: 0 0 (64/16rem) 0;
+
+        .cs-marquee {
+            margin-bottom: (56/16rem);
+            padding: (12/16rem) 0;
+        }
+
+        .cs-marquee-item,
+        .cs-marquee-star {
+            font-size: (14/16rem);
+        }
+
+        .cs-container {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: (48/16rem);
+        }
+
+        .cs-title {
+            /* 56px - 120px */
+            font-size: ~"clamp(3.5rem, 7.5vw, 7.5rem)";
+            width: 50%;
+        }
+
+        .cs-content {
+            align-self: flex-end;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #secondary-cta-fresh-1 {
+        padding: 0 0 (48/16rem) 0;
+
+        .cs-marquee {
+            margin-bottom: (48/16rem);
+        }
+
+        .cs-container {
+            gap: (80/16rem);
+        }
+
+        .cs-title {
+            width: 45%;
+        }
+    }
+}

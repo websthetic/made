@@ -1,0 +1,1405 @@
+---
+title: "Fuel | Made"
+description: "Meta description for the page"
+permalink: "/fuel/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/fuel.css">
+{% endblock %}
+
+{% block body %}
+
+<!-- ============================================ -->
+<!--              Fuel Hero                       -->
+<!-- ============================================ -->
+
+<section id="hero-fuel-1">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">MADE Fuel</span>
+            <h1 class="cs-title">Built for Athletes. Engineered for Performance.</h1>
+            <a href="#booking-fuel-1" class="cs-button-solid">Request A Season Proposal</a>
+        </div>
+
+        <div class="cs-gallery">
+            <div class="cs-gallery-track">
+
+                <div class="cs-gallery-card">
+                    <picture class="cs-gallery-picture">
+                        <img class="cs-gallery-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-1.png" alt="Greek lemon chicken with roasted potatoes, tzatziki, and farm stand salad" width="600" height="800" fetchpriority="high" decoding="async">
+                    </picture>
+                    <span class="cs-gallery-tag">Individual</span>
+                    <span class="cs-gallery-label">Greek Lemon Chicken</span>
+                </div>
+
+                <div class="cs-gallery-card">
+                    <picture class="cs-gallery-picture">
+                        <img class="cs-gallery-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-2.png" alt="Chicken pesto with roasted tomatoes, wild mushrooms, and penne" width="600" height="800" decoding="async">
+                    </picture>
+                    <span class="cs-gallery-tag">Individual</span>
+                    <span class="cs-gallery-label">Chicken Pesto</span>
+                </div>
+
+                <div class="cs-gallery-card">
+                    <picture class="cs-gallery-picture">
+                        <img class="cs-gallery-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-3.png" alt="Jerk chicken with coconut rice, kidney beans, and mango salsa" width="600" height="800" loading="lazy" decoding="async">
+                    </picture>
+                    <span class="cs-gallery-tag">Individual</span>
+                    <span class="cs-gallery-label">Jerk Chicken</span>
+                </div>
+
+                <div class="cs-gallery-card">
+                    <picture class="cs-gallery-picture">
+                        <img class="cs-gallery-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-4.png" alt="Chipotle chicken with lime cilantro rice, pico de gallo, and pinto beans" width="600" height="800" loading="lazy" decoding="async">
+                    </picture>
+                    <span class="cs-gallery-tag">Family Tray</span>
+                    <span class="cs-gallery-label">Chipotle Chicken</span>
+                </div>
+
+                <div class="cs-gallery-card">
+                    <picture class="cs-gallery-picture">
+                        <img class="cs-gallery-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-5.png" alt="Chicken parmesan with mozzarella, tomato sauce, penne, and basil" width="600" height="800" loading="lazy" decoding="async">
+                    </picture>
+                    <span class="cs-gallery-tag">Family Tray</span>
+                    <span class="cs-gallery-label">Chicken Parmesan</span>
+                </div>
+
+                <div class="cs-gallery-card">
+                    <picture class="cs-gallery-picture">
+                        <img class="cs-gallery-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-6.png" alt="Chimichurri flank steak with herb roasted potatoes and cauliflower" width="600" height="800" loading="lazy" decoding="async">
+                    </picture>
+                    <span class="cs-gallery-tag">Family Tray</span>
+                    <span class="cs-gallery-label">Chimichurri Steak</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    var section = document.getElementById('hero-fuel-1');
+    if (!section) return;
+
+    var track = section.querySelector('.cs-gallery-track');
+    if (!track) return;
+
+    var STEP = 2;
+    var INTERVAL = 4000;
+    var DURATION = 900;
+    var CLONES = 4;
+
+    var cards = Array.prototype.slice.call(track.children);
+    var total = cards.length;
+    if (total <= STEP) return;
+
+    for (var i = 0; i < CLONES; i++) {
+        var copy = cards[i % total].cloneNode(true);
+        copy.setAttribute('aria-hidden', 'true');
+        track.appendChild(copy);
+    }
+
+    var index = 0;
+    var animating = false;
+    var guard = null;
+    var timer = null;
+    var stride = measure();
+
+    function measure() {
+        var gap = parseFloat(window.getComputedStyle(track).columnGap) || 0;
+        return cards[0].getBoundingClientRect().width + gap;
+    }
+
+    function place(i, animate) {
+        if (!animate) track.classList.add('cs-notransition');
+        track.style.transform = 'translateX(' + -i * stride + 'px)';
+    }
+
+    function settle() {
+        void track.offsetWidth;
+        track.classList.remove('cs-notransition');
+    }
+
+    function release() {
+        clearTimeout(guard);
+        guard = null;
+        animating = false;
+    }
+
+    function tick() {
+        if (animating) return;
+        animating = true;
+        index += STEP;
+        place(index, true);
+        guard = setTimeout(release, DURATION + 300);
+    }
+
+    function start() {
+        if (timer) return;
+        timer = setInterval(tick, INTERVAL);
+    }
+
+    function stop() {
+        clearInterval(timer);
+        timer = null;
+    }
+
+    track.addEventListener('transitionend', function (e) {
+        if (e.target !== track || e.propertyName !== 'transform') return;
+        release();
+
+        if (index >= total) {
+            index -= total;
+            place(index, false);
+            settle();
+        }
+    });
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            stride = measure();
+            place(index, false);
+            settle();
+            release();
+        }, 150);
+    });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    section.addEventListener('mouseenter', stop);
+    section.addEventListener('mouseleave', start);
+    section.addEventListener('focusin', stop);
+    section.addEventListener('focusout', start);
+
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            stop();
+        } else {
+            start();
+        }
+    });
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+                start();
+            } else {
+                stop();
+            }
+        }, { threshold: 0 }).observe(section);
+    } else {
+        start();
+    }
+})();
+</script>
+
+<!-- ============================================ -->
+<!--               Who It's For                   -->
+<!-- ============================================ -->
+
+<section id="audience-fuel-1">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <div class="cs-header-left">
+                <span class="cs-topper">Who It's For</span>
+                <h2 class="cs-title">Every Label <br>Has A Name On It</h2>
+            </div>
+            <p class="cs-text">Same kitchen, same standard; portioned for whoever is eating.</p>
+        </div>
+
+        <div class="cs-carousel">
+            <ul class="cs-track" id="audience-track" data-lenis-prevent tabindex="0" role="group" aria-label="Who MADE Fuel is for">
+
+                <!-- ATHLETES -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-athletes.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">Athletes</h3>
+                    </div>
+                </li>
+
+                <!-- COACHES -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-coaches.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">Coaches</h3>
+                    </div>
+                </li>
+
+                <!-- ADs -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-ads.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">ADs</h3>
+                    </div>
+                </li>
+
+                <!-- UNIVERSITY PROGRAMS -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-university.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">University Programs</h3>
+                    </div>
+                </li>
+
+                <!-- PRO TEAMS -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-pro-teams.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">Pro Teams</h3>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="cs-carousel-controls">
+            <div class="cs-progress" aria-hidden="true">
+                <div class="cs-progress-fill" id="audience-progress"></div>
+            </div>
+            <div class="cs-arrows">
+                <button class="cs-arrow" id="audience-prev" type="button" aria-label="Previous audience" aria-disabled="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                </button>
+                <button class="cs-arrow" id="audience-next" type="button" aria-label="Next audience" aria-disabled="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+(function () {
+    var track   = document.getElementById('audience-track');
+    var fill    = document.getElementById('audience-progress');
+    var prevBtn = document.getElementById('audience-prev');
+    var nextBtn = document.getElementById('audience-next');
+    if (!track || !fill) return;
+
+    var stride = measure();
+
+    function measure() {
+        var card = track.querySelector('.cs-item');
+        if (!card) return 0;
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        return card.getBoundingClientRect().width + gap;
+    }
+
+    function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        var pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+        fill.style.width = pct + '%';
+        if (prevBtn) prevBtn.setAttribute('aria-disabled', String(track.scrollLeft <= 4));
+        if (nextBtn) nextBtn.setAttribute('aria-disabled', String(track.scrollLeft >= max - 4));
+    }
+
+    function step(direction) {
+        if (!stride) stride = measure();
+        track.scrollBy({ left: direction * stride, behavior: 'smooth' });
+    }
+
+    track.addEventListener('scroll', update, { passive: true });
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            stride = measure();
+            update();
+        }, 150);
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+        if (prevBtn.getAttribute('aria-disabled') === 'true') return;
+        step(-1);
+    });
+
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+        if (nextBtn.getAttribute('aria-disabled') === 'true') return;
+        step(1);
+    });
+
+    update();
+})();
+</script>
+
+<!-- ============================================ -->
+<!--            What's Included                   -->
+<!-- ============================================ -->
+
+<section id="fuel-included">
+    <div class="cs-container">
+        <div class="cs-header">
+            <div class="cs-header-left">
+                <span class="cs-topper">What's Included</span>
+                <h2 class="cs-title">Everything But<br>The Dishes</h2>
+            </div>
+            <p class="cs-text">All four come with every program. There's no tier where the dietary work costs extra.</p>
+        </div>
+
+        <div class="cs-tickets">
+
+            <div class="cs-ticket">
+                <span class="cs-stamp" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18"/><path d="M5 11a7 7 0 0 1 14 0"/><path d="M4 15h16"/><path d="M8 7V4"/><path d="M12 7V3"/><path d="M16 7V4"/></svg>
+                </span>
+                <h3 class="cs-item-title">Custom Menus</h3>
+                <p class="cs-item-text">Built with your staff around the sport, the phase, and what the room will actually eat.</p>
+            </div>
+
+            <div class="cs-ticket">
+                <span class="cs-stamp" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h4"/></svg>
+                </span>
+                <h3 class="cs-item-title">Macro Tracking</h3>
+                <p class="cs-item-text">Calories and protein printed on every label. No app, no spreadsheet, no guesswork.</p>
+            </div>
+
+            <div class="cs-ticket">
+                <span class="cs-stamp" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h12v10H1z"/><path d="M13 11h4l4 3v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                </span>
+                <h3 class="cs-item-title">Delivery + Setup</h3>
+                <p class="cs-item-text">Delivered hot to field, facility, or away game within the delivery radius.</p>
+            </div>
+
+            <div class="cs-ticket">
+                <span class="cs-stamp" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+                </span>
+                <h3 class="cs-item-title">Dietary Needs</h3>
+                <p class="cs-item-text">Accommodated across the whole menu, not a separate tray at the back.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--               How It Works                   -->
+<!-- ============================================ -->
+
+<section id="how-it-works-fuel">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <span class="cs-topper">How It's Made</span>
+            <h2 class="cs-title">From Your Schedule<br>To Their Plate</h2>
+        </div>
+
+        <div class="cs-flow">
+
+            <!-- Desktop only. Hidden at mobile, where each step carries its own
+                 image instead. Both sets point at the same three URLs, so the
+                 duplication costs no extra requests. -->
+            <div class="cs-plate">
+                <div class="cs-plate-frame">
+                    <picture class="cs-plate-layer cs-active" data-step="0">
+                        <img src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works.png" alt="Building a custom menu with team staff" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
+                    <picture class="cs-plate-layer" data-step="1">
+                        <img src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-2.png" alt="Chefs cooking scratch-made meals" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
+                    <picture class="cs-plate-layer" data-step="2">
+                        <img src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-3.png" alt="Meals delivered to the team on time" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+            </div>
+
+            <ol class="cs-steps">
+
+                <li class="cs-step cs-active" data-step="0">
+                    <picture class="cs-step-media">
+                        <img src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works.png" alt="Building a custom menu with team staff" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
+                    <span class="cs-step-index">Step 01</span>
+                    <p class="cs-step-word">Build</p>
+                    <h3 class="cs-step-title">We Build The Menu</h3>
+                    <p class="cs-step-text">We sit down with your staff and build around the sport, the phase, and the room's dietary needs.</p>
+                    <ul class="cs-step-list">
+                        <li class="cs-step-list-item">Sport and phase mapping</li>
+                        <li class="cs-step-list-item">Allergy and dietary intake</li>
+                        <li class="cs-step-list-item">Tasting before you commit</li>
+                    </ul>
+                </li>
+
+                <li class="cs-step" data-step="1">
+                    <picture class="cs-step-media">
+                        <img src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-2.png" alt="Chefs cooking scratch-made meals" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
+                    <span class="cs-step-index">Step 02</span>
+                    <p class="cs-step-word">Cook</p>
+                    <h3 class="cs-step-title">Our Chefs Cook It</h3>
+                    <p class="cs-step-text">Scratch-made by a professional chef team. Whole ingredients, no processed fillers, no shortcuts.</p>
+                    <ul class="cs-step-list">
+                        <li class="cs-step-list-item">Cooked fresh, not batch-frozen</li>
+                        <li class="cs-step-list-item">Portioned per athlete</li>
+                        <li class="cs-step-list-item">Macros on every label</li>
+                    </ul>
+                </li>
+
+                <li class="cs-step" data-step="2">
+                    <picture class="cs-step-media">
+                        <img src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-3.png" alt="Meals delivered to the team on time" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
+                    <span class="cs-step-index">Step 03</span>
+                    <p class="cs-step-word">Deliver</p>
+                    <h3 class="cs-step-title">We Deliver On Time</h3>
+                    <p class="cs-step-text">Hot to the field, facility, or away game — timed to when the team actually eats.</p>
+                    <ul class="cs-step-list">
+                        <li class="cs-step-list-item">Camp, season, and game days</li>
+                        <li class="cs-step-list-item">Home or away in radius</li>
+                        <li class="cs-step-list-item">One invoice, one contact</li>
+                    </ul>
+                </li>
+
+            </ol>
+
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    var section = document.getElementById('how-it-works-fuel');
+    if (!section) return;
+
+    var steps  = Array.prototype.slice.call(section.querySelectorAll('.cs-step'));
+    var layers = Array.prototype.slice.call(section.querySelectorAll('.cs-plate-layer'));
+    if (!steps.length || !layers.length) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    var mq = window.matchMedia('(min-width: 64rem)');
+    var io = null;
+
+    function activate(i) {
+        steps.forEach(function (step, n) {
+            step.classList.toggle('cs-active', n === i);
+        });
+        layers.forEach(function (layer, n) {
+            layer.classList.toggle('cs-active', n === i);
+        });
+    }
+
+    /* A thin band across the middle of the viewport — a step is "current" only
+       while it straddles the centre line. Three callbacks for the whole
+       section, versus reading scroll position every frame. */
+    function start() {
+        if (io) return;
+
+        /* Progressive enhancement: without this class every step renders at full
+           opacity, so a no-JS visitor reads all three rather than two dimmed ones. */
+        section.classList.add('cs-js');
+
+        io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                activate(steps.indexOf(entry.target));
+            });
+        }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+        steps.forEach(function (step) { io.observe(step); });
+    }
+
+    /* On mobile the section is a plain stacked read: each step shows its own
+       image, no pin, no crossfade, no dimming. Torn down rather than left
+       running so a narrow-to-wide resize doesn't strand a stale active step. */
+    function stop() {
+        if (!io) return;
+        io.disconnect();
+        io = null;
+        section.classList.remove('cs-js');
+        activate(0);
+    }
+
+    function sync() {
+        if (mq.matches) {
+            start();
+        } else {
+            stop();
+        }
+    }
+
+    if (mq.addEventListener) {
+        mq.addEventListener('change', sync);
+    } else if (mq.addListener) {
+        mq.addListener(sync);
+    }
+
+    sync();
+})();
+</script>
+
+<!-- ============================================ -->
+<!--           What's On The Menu                 -->
+<!-- ============================================ -->
+
+<section id="menu-fuel-1">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Whole-Food Sports Performance</span>
+            <h2 class="cs-title">What's On The Menu?</h2>
+            <p class="cs-text">
+                Composed, scratch-made dishes across five formats. Every meal $15.
+            </p>
+        </div>
+
+        <!-- ===== Menu carousel — featured 8 =====
+             A curated preview. Dish names and ingredient lists are verbatim
+             from the MADE FUEL menu; the full list lives behind the CTA.
+             TODO: meal-prep-1 and meal-prep-3 are each used twice, and several
+             alt texts describe a dish the image doesn't show. The wrong alt text
+             is the more urgent half — it reads as fact to screen reader users.
+             Swap in the real shots before this goes to the client. -->
+        <div class="cs-carousel" role="region" aria-label="Featured menu items">
+            <!-- data-lenis-prevent keeps Lenis from swallowing the horizontal swipe on touch -->
+            <ul class="cs-track" id="menu-track" tabindex="0" data-lenis-prevent>
+
+                <li class="cs-item">
+                    <div class="cs-shot">
+                        <picture class="cs-picture">
+                            <img class="cs-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-3.png" alt="Jerk chicken with coconut rice, kidney beans, and mango salsa" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">Jerk Chicken</h3>
+                        <p class="cs-item-text">24 Hour Marinated Chicken Legs · Coconut Rice · Kidney Beans · Mango Salsa</p>
+                        <ul class="cs-tags">
+                            <li class="cs-tag cs-protein">High Protein</li>
+                        </ul>
+                        <div class="cs-score">
+                            <span class="cs-score-key">850 cal · 45g protein</span>
+                            <span class="cs-score-value">$15</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="cs-item">
+                    <div class="cs-shot">
+                        <picture class="cs-picture">
+                            <img class="cs-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-2.png" alt="Chicken pesto with roasted tomatoes, wild mushrooms, and penne" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">Chicken Pesto</h3>
+                        <p class="cs-item-text">Chicken Breast · Homemade Pesto · Roasted Tomatoes · Wild Mushrooms · Penne</p>
+                        <ul class="cs-tags">
+                            <li class="cs-tag cs-protein">High Protein</li>
+                        </ul>
+                        <div class="cs-score">
+                            <span class="cs-score-key">880 cal · 45g protein</span>
+                            <span class="cs-score-value">$15</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="cs-item">
+                    <div class="cs-shot">
+                        <picture class="cs-picture">
+                            <img class="cs-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-1.png" alt="Recovery pho ga with rice noodles and poached chicken" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">Recovery Phở Gà</h3>
+                        <p class="cs-item-text">Chicken Broth · Rice Noodles · Poached Chicken · Thai Basil · Cilantro · Bean Sprouts · Lime</p>
+                        <ul class="cs-tags">
+                            <li class="cs-tag cs-recovery">Recovery</li>
+                        </ul>
+                        <div class="cs-score">
+                            <span class="cs-score-key">Per Meal</span>
+                            <span class="cs-score-value">$15</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="cs-item">
+                    <div class="cs-shot">
+                        <picture class="cs-picture">
+                            <img class="cs-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-4.png" alt="Adobo chicken bowl with pinto beans, pico, and basmati rice" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">Adobo Chicken Bowl</h3>
+                        <p class="cs-item-text">Marinated Chicken · Pinto Beans · Pico · Lime Crema · Cabbage Slaw · Basmati Rice</p>
+                        <ul class="cs-tags">
+                            <li class="cs-tag cs-protein">High Protein</li>
+                        </ul>
+                        <div class="cs-score">
+                            <span class="cs-score-key">Per Meal</span>
+                            <span class="cs-score-value">$15</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="cs-item">
+                    <div class="cs-shot">
+                        <picture class="cs-picture">
+                            <img class="cs-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-6.png" alt="Wild Atlantic salmon with spring pea risotto" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">Wild Atlantic Salmon</h3>
+                        <p class="cs-item-text">Atlantic Salmon · Peas · Cauliflower Risotto · Lemon · Herbs · Grana Padano</p>
+                        <ul class="cs-tags">
+                            <li class="cs-tag cs-recovery">Recovery</li>
+                            <li class="cs-tag cs-protein">High Protein</li>
+                        </ul>
+                        <div class="cs-score">
+                            <span class="cs-score-key">Per Meal</span>
+                            <span class="cs-score-value">$15</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="cs-item">
+                    <div class="cs-shot">
+                        <picture class="cs-picture">
+                            <img class="cs-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-5.png" alt="Korean beef with jasmine rice and cucumber carrot salad" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">Korean Beef + Rice</h3>
+                        <p class="cs-item-text">Gochujang-Style Sauce · Jasmine Rice · Cucumber and Carrot Salad</p>
+                        <ul class="cs-tags">
+                            <li class="cs-tag cs-protein">High Protein</li>
+                        </ul>
+                        <div class="cs-score">
+                            <span class="cs-score-key">Per Meal</span>
+                            <span class="cs-score-value">$15</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="cs-item">
+                    <div class="cs-shot">
+                        <picture class="cs-picture">
+                            <img class="cs-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-3.png" alt="Mediterranean shawarma bowl with herbed wild rice and tomato salad" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">Mediterranean Shawarma Bowl</h3>
+                        <p class="cs-item-text">Chicken Thigh · Garlic Yogurt Sauce · Herbed Wild Rice · Tomato Salad</p>
+                        <ul class="cs-tags">
+                            <li class="cs-tag cs-protein">High Protein</li>
+                        </ul>
+                        <div class="cs-score">
+                            <span class="cs-score-key">Per Meal</span>
+                            <span class="cs-score-value">$15</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="cs-item">
+                    <div class="cs-shot">
+                        <picture class="cs-picture">
+                            <img class="cs-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-1.png" alt="Berbere lentil and vegetable stew with yogurt and cilantro" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">Berbere Lentil &amp; Vegetable Stew</h3>
+                        <p class="cs-item-text">Red Lentils · Tomatoes · Celery · Turnip · Sweet Peppers · Berbere Spices · Carrots · Yogurt · Cilantro</p>
+                        <ul class="cs-tags">
+                            <li class="cs-tag cs-veg">Vegetarian</li>
+                        </ul>
+                        <div class="cs-score">
+                            <span class="cs-score-key">Per Meal</span>
+                            <span class="cs-score-value">$15</span>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="cs-carousel-controls">
+            <div class="cs-arrows">
+                <button class="cs-arrow" id="menu-prev" type="button" aria-label="Previous dishes" aria-disabled="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                </button>
+                <button class="cs-arrow" id="menu-next" type="button" aria-label="More dishes" aria-disabled="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="cs-button-wrapper">
+            <a href="/menu" class="cs-button-solid">View Full Menu</a>
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    var track   = document.getElementById('menu-track');
+    var prevBtn = document.getElementById('menu-prev');
+    var nextBtn = document.getElementById('menu-next');
+    if (!track) return;
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var stride = measure();
+
+    function measure() {
+        var card = track.querySelector('.cs-item');
+        if (!card) return 0;
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        return card.getBoundingClientRect().width + gap;
+    }
+
+    /* aria-disabled rather than disabled — a disabled button drops out of the
+       tab order under the user's own focus once they reach the end of the rail */
+    function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        if (prevBtn) prevBtn.setAttribute('aria-disabled', String(track.scrollLeft <= 4));
+        if (nextBtn) nextBtn.setAttribute('aria-disabled', String(track.scrollLeft >= max - 4));
+    }
+
+    function go(dir) {
+        if (!stride) stride = measure();
+        track.scrollBy({ left: dir * stride, behavior: reduce ? 'auto' : 'smooth' });
+    }
+
+    track.addEventListener('scroll', update, { passive: true });
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            stride = measure();
+            update();
+        }, 150);
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+        if (prevBtn.getAttribute('aria-disabled') === 'true') return;
+        go(-1);
+    });
+
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+        if (nextBtn.getAttribute('aria-disabled') === 'true') return;
+        go(1);
+    });
+
+    update();
+})();
+</script>
+
+<!-- ============================================ -->
+<!--              Scrolling Strip                 -->
+<!-- ============================================ -->
+
+<div id="scroll-strip-1" aria-hidden="true">
+    <div class="cs-strip-track">
+        <span class="cs-strip-text">MADE FUEL <span class="cs-dot">•</span> MADE FUEL <span class="cs-dot">•</span> MADE FUEL <span class="cs-dot">•</span>&nbsp;</span>
+    </div>
+</div>
+
+<script>
+(function () {
+    var strip = document.getElementById('scroll-strip-1');
+    var track = strip && strip.querySelector('.cs-strip-track');
+    var copy  = track && track.querySelector('.cs-strip-text');
+    if (!copy) return;
+
+    var period = 0;
+    var ticking = false;
+
+    /* Clone until the track is at least one full copy wider than the viewport.
+       That's the condition the modulo below depends on: the offset never
+       exceeds the period, so there's always a copy queued past the right edge.
+
+       period is copy width PLUS the flex gap — the distance from the start of
+       one copy to the start of the next. Using the bare element width wraps
+       early by exactly one gap and the seam hitches on every cycle. */
+    function build() {
+        var clones = track.querySelectorAll('.cs-strip-clone');
+        for (var i = 0; i < clones.length; i++) track.removeChild(clones[i]);
+
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        period = copy.getBoundingClientRect().width + gap;
+        if (!period) return;
+
+        var needed = Math.ceil(window.innerWidth / period) + 1;
+        for (var n = 0; n < needed; n++) {
+            var clone = copy.cloneNode(true);
+            clone.classList.add('cs-strip-clone');
+            track.appendChild(clone);
+        }
+    }
+
+    function place() {
+        ticking = false;
+        if (!period) return;
+        var offset = (window.scrollY * 0.3) % period;
+        track.style.transform = 'translate3d(' + -offset + 'px, 0, 0)';
+    }
+
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(place);
+    }
+
+    build();
+    place();
+
+    /* The display face is wider than the fallback — without this every copy
+       gets cloned at the fallback width and the seam drifts once it swaps in. */
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () { build(); place(); });
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () { build(); place(); }, 150);
+    });
+
+    /* parallax is motion — leave the strip parked for anyone who's opted out */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
+
+<!-- ============================================ -->
+<!--         Season Program Builder               -->
+<!-- ============================================ -->
+
+<section id="builder-fuel-1">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Season Program Builder</span>
+            <h2 class="cs-title">Build Your Season Program</h2>
+            <p class="cs-text">
+                Toggle the phases you need. Watch your Program Fuel Score grow and get a real-time total meal count for your proposal request.
+            </p>
+        </div>
+
+        <div class="cs-wrapper">
+            <!-- ===== Phase list ===== -->
+            <ul class="cs-card-group">
+                <li class="cs-item">
+                    <button class="cs-phase" type="button" aria-pressed="false" data-days="7" data-people="150" data-per-day="2" data-score="30">
+                        <span class="cs-phase-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 4v16"/><path d="m8 20 4-7 4 7"/></svg>
+                        </span>
+                        <span class="cs-phase-body">
+                            <span class="cs-phase-name">Training Camp</span>
+                            <span class="cs-phase-meta">7 days in August · 150 athletes and staff · Lunch and dinner delivered daily</span>
+                            <span class="cs-phase-result">
+                                <span>
+                                    <span aria-hidden="true">→</span>
+                                    <span data-phase-meals>2,100</span> meals across the camp period
+                                </span>
+                            </span>
+                        </span>
+                        <span class="cs-check" aria-hidden="true"></span>
+                    </button>
+                </li>
+
+                <li class="cs-item">
+                    <button class="cs-phase" type="button" aria-pressed="false" data-days="27" data-people="150" data-per-day="1" data-score="45">
+                        <span class="cs-phase-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3c4 3 6 6 6 9s-2 6-6 9c-4-3-6-6-6-9s2-6 6-9Z"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>
+                        </span>
+                        <span class="cs-phase-body">
+                            <span class="cs-phase-name">In-Season</span>
+                            <span class="cs-phase-meta">3 days/week · 9 weeks (not including playoffs) · 150 athletes · Dinner daily</span>
+                            <span class="cs-phase-result">
+                                <span>
+                                    <span aria-hidden="true">→</span>
+                                    <span data-phase-meals>4,050</span> meals across the regular season
+                                </span>
+                            </span>
+                        </span>
+                        <span class="cs-check" aria-hidden="true"></span>
+                    </button>
+                </li>
+
+                <li class="cs-item">
+                    <button class="cs-phase" type="button" aria-pressed="false" data-days="8" data-people="80" data-per-day="1" data-score="25">
+                        <span class="cs-phase-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3"/><path d="M7 5H4v2a3 3 0 0 0 3 3"/><path d="M10 19h4"/><path d="M12 14v5"/></svg>
+                        </span>
+                        <span class="cs-phase-body">
+                            <span class="cs-phase-name">Game Day</span>
+                            <span class="cs-phase-meta">8 games per regular season · ~80 athletes/staff · Post-game delivery to home field or away within delivery radius</span>
+                            <span class="cs-phase-result">
+                                <span>
+                                    <span aria-hidden="true">→</span>
+                                    <span data-phase-meals>640</span> meals across game days
+                                </span>
+                            </span>
+                        </span>
+                        <span class="cs-check" aria-hidden="true"></span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- ===== Summary panel ===== -->
+            <aside class="cs-summary" aria-live="polite">
+                <div class="cs-stats">
+                    <div class="cs-stat">
+                        <span class="cs-stat-label">Total Meals</span>
+                        <span class="cs-stat-number" data-total="meals">0</span>
+                    </div>
+                    <div class="cs-stat">
+                        <span class="cs-stat-label">Service Days</span>
+                        <span class="cs-stat-number" data-total="days">0</span>
+                    </div>
+                    <div class="cs-stat">
+                        <span class="cs-stat-label">Avg Athletes/Day</span>
+                        <span class="cs-stat-number" data-total="avg">0</span>
+                    </div>
+                </div>
+
+                <div class="cs-meter-group">
+                    <div class="cs-meter-head">
+                        <span class="cs-meter-key">Program Fuel Score</span>
+                        <span class="cs-meter-value"><span data-total="score">0</span> / 100</span>
+                    </div>
+                    <div class="cs-meter">
+                        <span class="cs-meter-fill"></span>
+                    </div>
+                    <ul class="cs-tiers">
+                        <li>Underserved</li>
+                        <li>Building</li>
+                        <li>Solid</li>
+                        <li>Elite</li>
+                    </ul>
+                </div>
+
+                <a href="/contact" class="cs-button-solid cs-cta" aria-disabled="true">Select A Phase To Start</a>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    var section = document.getElementById('builder-fuel-1');
+    if (!section) return;
+
+    var phases = Array.prototype.slice.call(section.querySelectorAll('.cs-phase'));
+    var cta = section.querySelector('.cs-cta');
+    var fill = section.querySelector('.cs-meter-fill');
+    var tiers = Array.prototype.slice.call(section.querySelectorAll('.cs-tiers li'));
+    if (!phases.length || !cta) return;
+
+    /* Score bands: 0 Underserved, 1-40 Building, 41-70 Solid, 71+ Elite */
+    var BANDS = [40, 70];
+
+    var outputs = {};
+    Array.prototype.slice.call(section.querySelectorAll('[data-total]')).forEach(function (el) {
+        outputs[el.getAttribute('data-total')] = el;
+    });
+
+    var shown = { meals: 0, days: 0, avg: 0, score: 0 };
+    var frame;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function num(el, attr) {
+        return parseInt(el.getAttribute(attr), 10) || 0;
+    }
+
+    function phaseMeals(btn) {
+        return num(btn, 'data-days') * num(btn, 'data-people') * num(btn, 'data-per-day');
+    }
+
+    function paint(values) {
+        Object.keys(values).forEach(function (key) {
+            shown[key] = values[key];
+            if (outputs[key]) outputs[key].textContent = values[key].toLocaleString();
+        });
+    }
+
+    function tween(target) {
+        if (reduceMotion) return paint(target);
+
+        cancelAnimationFrame(frame);
+        var from = { meals: shown.meals, days: shown.days, avg: shown.avg, score: shown.score };
+        var start = performance.now();
+        var duration = 550;
+
+        (function step(now) {
+            var t = Math.min((now - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - t, 3);
+            var frameValues = {};
+
+            Object.keys(target).forEach(function (key) {
+                frameValues[key] = Math.round(from[key] + (target[key] - from[key]) * eased);
+            });
+
+            paint(frameValues);
+            if (t < 1) frame = requestAnimationFrame(step);
+        })(start);
+    }
+
+    function bandIndex(score) {
+        if (score === 0) return 0;
+        if (score <= BANDS[0]) return 1;
+        if (score <= BANDS[1]) return 2;
+        return 3;
+    }
+
+    function update() {
+        var meals = 0, days = 0, athleteDays = 0, score = 0, selected = 0;
+
+        phases.forEach(function (btn) {
+            if (btn.getAttribute('aria-pressed') !== 'true') return;
+
+            var d = num(btn, 'data-days');
+            var p = num(btn, 'data-people');
+
+            selected++;
+            days += d;
+            meals += phaseMeals(btn);
+            athleteDays += d * p;
+            score += num(btn, 'data-score');
+        });
+
+        tween({
+            meals: meals,
+            days: days,
+            avg: days ? Math.round(athleteDays / days) : 0,
+            score: score
+        });
+
+        fill.style.width = score + '%';
+
+        var active = bandIndex(score);
+        tiers.forEach(function (li, i) {
+            li.classList.toggle('cs-active', i === active && score > 0);
+        });
+
+        if (selected === 0) {
+            cta.setAttribute('aria-disabled', 'true');
+            cta.textContent = 'Select A Phase To Start';
+        } else {
+            cta.setAttribute('aria-disabled', 'false');
+            cta.textContent = 'Request Proposal — ' + meals.toLocaleString() + ' Meals';
+        }
+    }
+
+    phases.forEach(function (btn) {
+        /* rewrite the caption figure from the data attributes so the copy can
+           never drift out of sync with the math behind it */
+        var figure = btn.querySelector('[data-phase-meals]');
+        if (figure) figure.textContent = phaseMeals(btn).toLocaleString();
+
+        btn.addEventListener('click', function () {
+            var on = btn.getAttribute('aria-pressed') === 'true';
+            btn.setAttribute('aria-pressed', on ? 'false' : 'true');
+            update();
+        });
+    });
+
+    /* the CTA is a real link so it works without JS — block it only while empty */
+    cta.addEventListener('click', function (e) {
+        if (cta.getAttribute('aria-disabled') === 'true') e.preventDefault();
+    });
+
+    update();
+})();
+</script>
+
+<!-- ============================================ -->
+<!--              Testimonials                    -->
+<!-- ============================================ -->
+
+<!-- ===== SECTION DISABLED — PLACEHOLDER COPY =====
+     Every quote, name, title and organization below is invented. Publishing
+     fabricated endorsements is prohibited under the FTC endorsement rule and
+     the deceptive-practices provisions of Canada's Competition Act, so this
+     stays commented out until real, client-supplied and client-approved
+     testimonials are in hand. Uncomment only after the copy is replaced.
+
+<section id="testimonials-fuel-1">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">From The Sideline</span>
+            <h2 class="cs-title">Trusted By The People Who Feed Teams</h2>
+        </div>
+
+        <ul class="cs-card-group">
+
+            <li class="cs-item">
+                <span class="cs-quote-mark" aria-hidden="true">&ldquo;</span>
+                <blockquote class="cs-quote">
+                    REPLACE WITH REAL TESTIMONIAL.
+                </blockquote>
+                <div class="cs-attr">
+                    <span class="cs-name">Name</span>
+                    <span class="cs-role">Title · <span class="cs-team">Organization</span></span>
+                </div>
+            </li>
+
+            <li class="cs-item">
+                <span class="cs-quote-mark" aria-hidden="true">&ldquo;</span>
+                <blockquote class="cs-quote">
+                    REPLACE WITH REAL TESTIMONIAL.
+                </blockquote>
+                <div class="cs-attr">
+                    <span class="cs-name">Name</span>
+                    <span class="cs-role">Title · <span class="cs-team">Organization</span></span>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+===== END DISABLED SECTION ===== -->
+
+<!-- ============================================ -->
+<!--              Booking CTA                     -->
+<!-- ============================================ -->
+
+<section id="booking-fuel-1">
+    <div class="cs-container">
+
+        <div class="cs-content">
+            <span class="cs-topper">Book Your Program</span>
+            <h2 class="cs-title">Feed Your Team The Right Way</h2>
+            <p class="cs-text">
+                Tell us the basics and we'll build a custom proposal within 48 hours. 7-day lead time across the GTA.
+            </p>
+        </div>
+
+        <!-- Wire this up to your form handler (Netlify Forms, Formspree, an
+             Eleventy serverless endpoint, etc.). The action/method below are
+             placeholders — POSTing to a static 11ty page will 405.
+
+             Both steps stay in the DOM; only visibility toggles, so a normal
+             POST still carries every field. Step 1 is validated before the
+             user can advance, which is what keeps a hidden-but-invalid
+             required control from blocking submit later. -->
+        <form class="cs-form" id="fuel-form" action="/thank-you" method="POST">
+
+            <div class="cs-meter">
+                <div class="cs-meter-meta">
+                    <span class="cs-step-label" id="fuel-step-label">Step 1 of 2 · About you</span>
+                    <span class="cs-meter-count" id="fuel-meter-count">0 / 5</span>
+                </div>
+                <div class="cs-meter-track" id="fuel-meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Form completion">
+                    <div class="cs-meter-fill" id="fuel-meter-fill"></div>
+                </div>
+            </div>
+
+            <!-- ===== Step 1 ===== -->
+            <div class="cs-step" data-title="About you">
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-name">Name</label>
+                    <input class="cs-input" id="cs-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-email">Email</label>
+                    <input class="cs-input" id="cs-email" name="email" type="email" autocomplete="email" placeholder="you@organization.com" required>
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-phone">Phone <span class="cs-optional">(optional)</span></label>
+                    <input class="cs-input" id="cs-phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555">
+                </div>
+
+                <button class="cs-button-solid cs-next" type="button">Continue</button>
+
+            </div>
+
+            <!-- ===== Step 2 ===== -->
+            <div class="cs-step" data-title="About your program" hidden>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-org">Organization</label>
+                    <input class="cs-input" id="cs-org" name="organization" type="text" autocomplete="organization" placeholder="School, club, or facility" required>
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-team-size">Team Size</label>
+                    <select class="cs-input cs-select" id="cs-team-size" name="team-size" required>
+                        <option value="" disabled selected>Select team size</option>
+                        <option value="under-25">Under 25</option>
+                        <option value="25-50">25–50</option>
+                        <option value="50-100">50–100</option>
+                        <option value="100-plus">100+</option>
+                    </select>
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-start-date">Program Start Date</label>
+                    <input class="cs-input" id="cs-start-date" name="start-date" type="date" required>
+                </div>
+
+                <div class="cs-actions">
+                    <button class="cs-button-solid" type="submit">Request a Proposal</button>
+                    <button class="cs-back" type="button">Back</button>
+                </div>
+
+            </div>
+
+            <p class="cs-form-note">No commitment — we'll reply within 48 hours.</p>
+
+        </form>
+
+    </div>
+</section>
+
+<script>
+(function () {
+    var form = document.getElementById('fuel-form');
+    if (!form) return;
+
+    var steps = Array.prototype.slice.call(form.querySelectorAll('.cs-step'));
+    var fill  = document.getElementById('fuel-meter-fill');
+    var track = document.getElementById('fuel-meter-track');
+    var label = document.getElementById('fuel-step-label');
+    var count = document.getElementById('fuel-meter-count');
+    if (!steps.length || !fill) return;
+
+    /* Only required controls count toward the meter, so 100% always means
+       "ready to submit". The optional phone field ticks its own row but
+       deliberately doesn't move the bar. */
+    var required = Array.prototype.slice.call(form.querySelectorAll('[required]'));
+    var tickable = Array.prototype.slice.call(form.querySelectorAll('.cs-input'));
+    var current  = 0;
+
+    function isFilled(el) {
+        return el.value !== '' && el.checkValidity();
+    }
+
+    function refresh() {
+        tickable.forEach(function (el) {
+            var field = el.closest('.cs-field');
+            if (field) field.classList.toggle('cs-done', isFilled(el));
+        });
+
+        var done = required.filter(isFilled).length;
+        var pct  = Math.round((done / required.length) * 100);
+
+        fill.style.width = pct + '%';
+        track.setAttribute('aria-valuenow', pct);
+        count.textContent = done + ' / ' + required.length;
+        label.textContent = 'Step ' + (current + 1) + ' of ' + steps.length +
+                            ' · ' + steps[current].getAttribute('data-title');
+    }
+
+    /* Native validation — reportValidity surfaces the browser's own bubble on
+       the first offending control rather than us inventing a message system. */
+    function stepIsValid(i) {
+        var controls = Array.prototype.slice.call(steps[i].querySelectorAll('.cs-input'));
+        for (var n = 0; n < controls.length; n++) {
+            if (!controls[n].checkValidity()) {
+                controls[n].reportValidity();
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function show(i) {
+        current = i;
+        steps.forEach(function (step, n) {
+            step.hidden = n !== i;
+        });
+        refresh();
+
+        var first = steps[i].querySelector('.cs-input');
+        /* preventScroll stops the jump that focus() would otherwise trigger,
+           which fights Lenis mid-scroll */
+        if (first) first.focus({ preventScroll: true });
+    }
+
+    form.addEventListener('input', refresh);
+    form.addEventListener('change', refresh);
+
+    form.addEventListener('click', function (e) {
+        if (e.target.closest('.cs-next')) {
+            if (stepIsValid(current)) show(Math.min(current + 1, steps.length - 1));
+        }
+        if (e.target.closest('.cs-back')) {
+            show(Math.max(current - 1, 0));
+        }
+    });
+
+    /* Enter in a step 1 field triggers implicit submission, which reaches the
+       submit button in step 2 — whose required fields are hidden and empty, so
+       the browser aborts with no visible feedback. Intercept and advance the
+       step instead, which is what the keypress meant anyway. */
+    form.addEventListener('submit', function (e) {
+        if (current < steps.length - 1) {
+            e.preventDefault();
+            if (stepIsValid(current)) show(current + 1);
+        }
+    });
+
+    refresh();
+})();
+</script>
+
+{% endblock %}

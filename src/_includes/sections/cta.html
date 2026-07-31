@@ -1,0 +1,104 @@
+<!-- ============================================ -->
+<!--                  CTA Banner                  -->
+<!-- ============================================ -->
+
+<section id="cta-banner-201">
+    <div class="cs-marquee" aria-hidden="true">
+        <div class="cs-marquee-track">
+            <div class="cs-marquee-group">
+                <span class="cs-marquee-item">Seasonal Menus</span>
+                <span class="cs-marquee-star">&#10033;</span>
+                <span class="cs-marquee-item">Costed Proposals</span>
+                <span class="cs-marquee-star">&#10033;</span>
+                <span class="cs-marquee-item">No Discovery Deck</span>
+                <span class="cs-marquee-star">&#10033;</span>
+            </div>
+        </div>
+    </div>
+    <div class="cs-container">
+        <h2 class="cs-title">Make Your <span>Own Meal</span></h2>
+        <div class="cs-content">
+            <a href="/contact" class="cs-button-solid">Get Started</a>
+        </div>
+    </div>
+</section>
+
+<script>// #cta-banner-201 — scroll-driven marquee
+(function () {
+    var banner = document.querySelector('#cta-banner-201');
+    if (!banner) return;
+
+    var marquee = banner.querySelector('.cs-marquee');
+    var track = banner.querySelector('.cs-marquee-track');
+    if (!marquee || !track) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var SPEED = 0.25;
+    var EASE = 0.06;
+
+    var source = track.querySelector('.cs-marquee-group');
+    var groupWidth = 0;
+    var offset = 0;
+    var target = 0;
+    var lastScroll = window.pageYOffset;
+    var running = false;
+
+    function fill() {
+        var clone;
+        while (track.children.length > 1) {
+            track.removeChild(track.lastElementChild);
+        }
+
+        groupWidth = source.getBoundingClientRect().width;
+        if (!groupWidth) return;
+
+        while (track.getBoundingClientRect().width < marquee.offsetWidth + groupWidth * 2) {
+            clone = source.cloneNode(true);
+            track.appendChild(clone);
+        }
+    }
+
+    function render() {
+        offset += (target - offset) * EASE;
+
+        var x = offset % groupWidth;
+        if (x > 0) x -= groupWidth;
+
+        track.style.transform = 'translate3d(' + x + 'px, 0, 0)';
+
+        if (Math.abs(target - offset) > 0.1) {
+            window.requestAnimationFrame(render);
+        } else {
+            running = false;
+        }
+    }
+
+    function start() {
+        if (running) return;
+        running = true;
+        window.requestAnimationFrame(render);
+    }
+
+    function onScroll() {
+        var current = window.pageYOffset;
+        target -= (current - lastScroll) * SPEED;
+        lastScroll = current;
+        start();
+    }
+
+    function onResize() {
+        fill();
+        start();
+    }
+
+    fill();
+    render();
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(fill);
+    }
+})();</script>

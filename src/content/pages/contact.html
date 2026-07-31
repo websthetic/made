@@ -1,0 +1,157 @@
+---
+title: "Contact | Made"
+description: "Meta description for the page"
+permalink: "/contact/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/contact.css">
+{% endblock %}
+
+{% block body %}
+
+<!-- ============================================ -->
+<!--                Inner Banner                  -->
+<!-- ============================================ -->
+
+<section id="inner-banner-302">
+    <div class="cs-container">
+        <span class="cs-topper">Get Started</span>
+        <h1 class="cs-title">Tell Us About <span>Your Team</span></h1>
+        <p class="cs-text">Tell us who you're feeding and when. We'll come back with a sample menu built around your schedule.</p>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--                  Contact                     -->
+<!-- ============================================ -->
+
+<section id="contact-1">
+    <div class="cs-container">
+
+        <!-- ===== Left rail: process, direct contact ===== -->
+        <div class="cs-content">
+
+            <h2 class="cs-h2">How It Works</h2>
+
+            <ol class="cs-steps">
+                <li class="cs-step">
+                    <span class="cs-step-num">01</span>
+                    <div class="cs-step-body">
+                        <h3 class="cs-step-title">We Review</h3>
+                        <p class="cs-step-text">Headcount, training blocks, travel days, dietary needs.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">02</span>
+                    <div class="cs-step-body">
+                        <h3 class="cs-step-title">We Build</h3>
+                        <p class="cs-step-text">A sample menu and delivery cadence shaped to your season.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">03</span>
+                    <div class="cs-step-body">
+                        <h3 class="cs-step-title">We Deliver</h3>
+                        <p class="cs-step-text">Tasting, pricing, then your first week of fuel.</p>
+                    </div>
+                </li>
+            </ol>
+
+            <!-- TODO: placeholder details — swap for the real inbox and line -->
+            <div class="cs-direct">
+                <span class="cs-direct-label">Or reach us directly</span>
+                <a class="cs-direct-link" href="mailto:hello@madefood.com">hello@madefood.com</a>
+                <a class="cs-direct-link" href="tel:+14165551234">(416) 555-1234</a>
+            </div>
+        </div>
+
+        <!-- ===== Form card ===== -->
+        <!-- Wire this up to your form handler (Netlify Forms, Formspree, an
+             Eleventy serverless endpoint, etc.). The action/method below are
+             placeholders.
+
+             The honeypot below is the markup half; the handler still has to be
+             told to use it — Netlify wants netlify-honeypot="bot-field" on the
+             form tag, Formspree calls the same field _gotcha. Rename to match
+             whichever you wire up. -->
+        <form class="cs-form" action="/thank-you" method="POST">
+
+            <p class="cs-honeypot" aria-hidden="true">
+                <label>Leave this field empty
+                    <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+                </label>
+            </p>
+
+            <p class="cs-form-lede">Fill this out and we'll get back to you within 48 hours.</p>
+
+            <div class="cs-row">
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-name">Name</label>
+                    <input class="cs-input" id="cs-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-email">Email</label>
+                    <input class="cs-input" id="cs-email" name="email" type="email" autocomplete="email" placeholder="you@team.com" required>
+                </div>
+            </div>
+
+            <div class="cs-row">
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-org">Org / Team</label>
+                    <input class="cs-input" id="cs-org" name="organization" type="text" autocomplete="organization" placeholder="School, club, or facility" required>
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-role">Role</label>
+                    <input class="cs-input" id="cs-role" name="role" type="text" autocomplete="organization-title" placeholder="Coach, director, etc." required>
+                </div>
+            </div>
+
+            <div class="cs-row">
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-team-size">Team Size</label>
+                    <select class="cs-input cs-select" id="cs-team-size" name="team-size" required>
+                        <option value="" disabled selected>Select team size</option>
+                        <option value="under-25">Under 25</option>
+                        <option value="25-50">25&ndash;50</option>
+                        <option value="50-100">50&ndash;100</option>
+                        <option value="100-plus">100+</option>
+                    </select>
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-start-date">
+                        Program Start Date <span class="cs-optional">(optional)</span>
+                    </label>
+                    <input class="cs-input" id="cs-start-date" name="start-date" type="date">
+                </div>
+            </div>
+
+            <div class="cs-field">
+                <label class="cs-label" for="cs-dietary">
+                    Dietary Notes <span class="cs-optional">(optional)</span>
+                </label>
+                <input class="cs-input" id="cs-dietary" name="dietary-notes" type="text" placeholder="Allergies, vegan, halal, etc.">
+            </div>
+
+            <div class="cs-field">
+                <label class="cs-label" for="cs-message">
+                    Message <span class="cs-optional">(optional)</span>
+                </label>
+                <textarea class="cs-input cs-textarea" id="cs-message" name="message" rows="4" placeholder="Anything else we should know?"></textarea>
+            </div>
+
+            <button class="cs-button-solid" type="submit">Send Message</button>
+
+            <p class="cs-form-note">We only use these details to build your quote.</p>
+
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}

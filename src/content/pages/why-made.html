@@ -1,0 +1,575 @@
+---
+title: "Why Made"
+description: "Meta description for the page"
+permalink: "/why-made/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/about.css">
+{% endblock %}
+
+{% block body %}
+
+<!-- ============================================ -->
+<!--                About Banner                  -->
+<!-- ============================================ -->
+
+<section id="banner-about">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">About MADE</span>
+            <h1 class="cs-title">We Got Tired Of <span class="cs-accent">Chicken And Rice</span></h1>
+            <p class="cs-text">
+                MADE was built in a professional kitchen, not a supplement lab. Chef-prepared
+                performance nutrition for athletes who train too hard to eat like an afterthought.
+            </p>
+        </div>
+
+        <img
+            class="cs-graphic"
+            loading="eager"
+            decoding="async"
+            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/meal-prep-made-fresh.svg"
+            alt=""
+            width="620"
+            height="720"
+            aria-hidden="true"
+        >
+
+        <!-- TODO: confirm these three with the client, or delete the whole list
+             — the banner reads fine as content + image with no third strip. -->
+        <ul class="cs-lineup">
+            <li class="cs-lineup-item">
+                <span class="cs-lineup-name">12+</span>
+                <span class="cs-lineup-role">Years In Pro Kitchens</span>
+            </li>
+            <li class="cs-lineup-item">
+                <span class="cs-lineup-name">100+</span>
+                <span class="cs-lineup-role">Teams Fuelled</span>
+            </li>
+            <li class="cs-lineup-item">
+                <span class="cs-lineup-name">GTA</span>
+                <span class="cs-lineup-role">Delivery Radius</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--               Origin Story                   -->
+<!-- ============================================ -->
+
+<section id="origin-story-1205">
+    <div class="cs-container">
+        <div class="cs-image-group">
+            <picture class="cs-picture">
+                <source media="(max-width: 600px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/dj-portrait-m.jpg">
+                <source media="(min-width: 601px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/dj-portrait.jpg">
+                <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/dj-portrait.jpg" alt="DJ in the MADE kitchen" width="620" height="760">
+            </picture>
+
+            <div class="cs-stamp" aria-hidden="true">
+                <span class="cs-stamp-top">Founder</span>
+                <span class="cs-stamp-name">DJ</span>
+                <span class="cs-stamp-bottom">Executive Chef</span>
+            </div>
+        </div>
+
+        <div class="cs-content">
+            <span class="cs-topper">The Origin</span>
+            <h2 class="cs-title">A chef walked into a locker room</h2>
+
+            <p class="cs-text">
+                DJ spent years cooking at the highest level of professional sport. Long days, elite athletes, no margin for error. And every single day he watched the same thing happen: bodies worth millions of dollars being fuelled by food nobody actually wanted to eat.
+            </p>
+
+            <p class="cs-text">
+                The nutrition was technically correct. Macros counted, portions weighed, boxes ticked. But it was joyless — grey protein, steamed vegetables, the same three meals on rotation until athletes stopped eating properly altogether and reached for whatever was closest instead.
+            </p>
+
+            <blockquote class="cs-quote">
+                <p class="cs-quote-text">Nobody performs on food they dread. Nutrition only works if you actually eat it.</p>
+                <cite class="cs-quote-cite">DJ — Founder, MADE</cite>
+            </blockquote>
+
+            <p class="cs-text">
+                So he built the thing that should have existed already. Restaurant-calibre cooking, engineered for performance, delivered to the people doing the work — teams, schools, and anyone across the GTA who takes their training seriously enough to take their food seriously too.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--                 Philosophy                   -->
+<!-- ============================================ -->
+
+<section id="philosophy-1206">
+    <!-- two copies so the parallax translate can't pull the trailing edge of a
+         single strip into view on a wide screen -->
+    <div class="cs-watermark" aria-hidden="true">
+        <span class="cs-watermark-text">MADE &bull; MADE &bull; MADE &bull; MADE &bull; MADE &bull; MADE &bull;</span>
+        <span class="cs-watermark-text">MADE &bull; MADE &bull; MADE &bull; MADE &bull; MADE &bull; MADE &bull;</span>
+    </div>
+
+    <div class="cs-container">
+        <span class="cs-topper">Our Philosophy</span>
+
+        <h2 class="cs-title">
+            <span class="cs-line">Raise the Standard.</span>
+            <span class="cs-line cs-line-accent">Win the Day.</span>
+        </h2>
+
+        <p class="cs-text">
+            Two sentences we hold every plate to. Standards are set in the kitchen long before anyone steps on the field — and the day is won in the small, repeated decisions nobody sees.
+        </p>
+    </div>
+</section>
+
+<script>
+// Philosophy watermark parallax
+(function () {
+    const section = document.querySelector("#philosophy-1206");
+    if (!section) return;
+
+    const track = section.querySelector(".cs-watermark");
+    if (!track) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let ticking = false;
+    let inView = false;
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            inView = entries[0].isIntersecting;
+        },
+        { rootMargin: "100px" }
+    );
+    observer.observe(section);
+
+    function update() {
+        const rect = section.getBoundingClientRect();
+        // Progress from -1 (below viewport) through 0 (centred) to 1 (above)
+        const progress = (window.innerHeight / 2 - (rect.top + rect.height / 2)) / window.innerHeight;
+        track.style.transform = `translateY(-50%) translateX(${-progress * 240}px)`;
+        ticking = false;
+    }
+
+    window.addEventListener(
+        "scroll",
+        () => {
+            if (!inView || ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
+        },
+        { passive: true }
+    );
+
+    update();
+})();
+</script>
+
+<!-- ============================================ -->
+<!--          Not Just Chicken and Rice           -->
+<!-- ============================================ -->
+
+<section id="not-chicken-1207">
+    <div class="cs-container">
+        <div class="cs-header">
+            <span class="cs-topper">The Difference</span>
+            <h2 class="cs-title">Not just chicken and rice</h2>
+            <p class="cs-text">
+                Performance food earned its reputation honestly — most of it is miserable. We said that out loud, then built the opposite.
+            </p>
+        </div>
+
+        <div class="cs-compare">
+            <!-- Left: the reality -->
+            <div class="cs-col cs-col-old">
+                <span class="cs-col-label">What you've been fed</span>
+
+                <ul class="cs-list">
+                    <li class="cs-item">
+                        <h3 class="cs-item-title">Boiled chicken breast</h3>
+                        <p class="cs-item-text">Weighed, portioned, and completely joyless by Wednesday.</p>
+                    </li>
+                    <li class="cs-item">
+                        <h3 class="cs-item-title">The same three meals</h3>
+                        <p class="cs-item-text">Rotation so tight you know Thursday by the smell of the container.</p>
+                    </li>
+                    <li class="cs-item">
+                        <h3 class="cs-item-title">Macros over meals</h3>
+                        <p class="cs-item-text">A spreadsheet that technically adds up and nobody finishes.</p>
+                    </li>
+                    <li class="cs-item">
+                        <h3 class="cs-item-title">Reheated to survive</h3>
+                        <p class="cs-item-text">Built to hit a number, not to taste like anything on day three.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Divider -->
+            <div class="cs-divider" aria-hidden="true">
+                <span class="cs-divider-mark">vs</span>
+            </div>
+
+            <!-- Right: MADE -->
+            <div class="cs-col cs-col-new">
+                <span class="cs-col-label">What we actually cook</span>
+
+                <ul class="cs-list">
+                    <li class="cs-item">
+                        <h3 class="cs-item-title">Seared, braised, roasted</h3>
+                        <p class="cs-item-text">Real technique from a real kitchen. Protein you'd order out.</p>
+                    </li>
+                    <li class="cs-item">
+                        <h3 class="cs-item-title">Menus that move</h3>
+                        <p class="cs-item-text">Rotating dishes across four sub-brands so nothing goes stale.</p>
+                    </li>
+                    <li class="cs-item">
+                        <h3 class="cs-item-title">Macros inside the meal</h3>
+                        <p class="cs-item-text">Engineered for performance, designed to be eaten to the last bite.</p>
+                    </li>
+                    <li class="cs-item">
+                        <h3 class="cs-item-title">Built to hold</h3>
+                        <p class="cs-item-text">Cooked and packed so day three eats like the day it was made.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="cs-closer">
+            Same nutrition targets. <span class="cs-closer-accent">Completely different plate.</span>
+        </p>
+    </div>
+</section>
+
+<script>
+// Chicken & rice comparison reveal
+(function () {
+    const section = document.querySelector("#not-chicken-1207");
+    if (!section) return;
+
+    const cols = section.querySelectorAll(".cs-col");
+    if (!cols.length) return;
+
+    // Without IntersectionObserver the columns must stay visible — the hidden
+    // resting state only applies once .cs-js is on the section.
+    if (!("IntersectionObserver" in window)) return;
+    section.classList.add("cs-js");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("cs-active");
+                observer.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.25 }
+    );
+
+    cols.forEach((col) => observer.observe(col));
+})();
+</script>
+
+<!-- ============================================ -->
+<!--            The Kitchen Behind It             -->
+<!-- ============================================ -->
+
+<section id="kitchen-1208">
+    <div class="cs-container">
+        <div class="cs-header">
+            <span class="cs-topper">The Kitchen Behind It</span>
+            <h2 class="cs-title">Where the standard came from</h2>
+            <p class="cs-text">
+                MADE didn't start with a business plan. It started with years of standing in kitchens where getting it wrong wasn't an option.
+            </p>
+        </div>
+
+        <ol class="cs-chapters">
+            <li class="cs-chapter">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/chapter-line-m.jpg">
+                    <source media="(min-width: 601px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/chapter-line.jpg">
+                    <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/chapter-line.jpg" alt="Plating on the pass during a fine dining service" width="720" height="560">
+                </picture>
+
+                <div class="cs-chapter-content">
+                    <span class="cs-era"><span class="cs-era-num">01</span> Fine dining</span>
+                    <h3 class="cs-chapter-title">The Line</h3>
+                    <p class="cs-chapter-text">
+                        Long services where a plate leaves the pass correct or it doesn't leave at all. No shortcuts, and a standard set by whoever was hardest to please that night. Everything MADE does structurally comes from here.
+                    </p>
+                </div>
+            </li>
+
+            <!-- CLIENT SIGN-OFF REQUIRED — the three organizations named in this
+                 chapter and the next are trademarked and the claim is the load
+                 bearing credential on the page. Confirm the exact relationship
+                 and wording the client is willing to stand behind in writing
+                 before launch. "Cooking for X" reads as direct employment; if
+                 the work was via a contractor or hospitality partner, the
+                 phrasing needs to say so. -->
+            <li class="cs-chapter">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/chapter-locker-m.jpg">
+                    <source media="(min-width: 601px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/chapter-locker.jpg">
+                    <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/chapter-locker.jpg" alt="A team meal service laid out before a game" width="720" height="560">
+                </picture>
+
+                <div class="cs-chapter-content">
+                    <span class="cs-era"><span class="cs-era-num">02</span> Pro sport</span>
+                    <h3 class="cs-chapter-title">The Locker Room</h3>
+                    <p class="cs-chapter-text">
+                        Cooking for the <span class="cs-mark">Toronto Raptors</span> and the <span class="cs-mark">New York Knicks</span> meant feeding rosters through a full season — back-to-backs, travel days, and the stretch in February when appetite is the first thing to go.
+                    </p>
+                </div>
+            </li>
+
+            <li class="cs-chapter">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/chapter-course-m.jpg">
+                    <source media="(min-width: 601px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/chapter-course.jpg">
+                    <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/about/chapter-course.jpg" alt="Prepared meals packed for transport on tour" width="720" height="560">
+                </picture>
+
+                <div class="cs-chapter-content">
+                    <span class="cs-era"><span class="cs-era-num">03</span> On tour</span>
+                    <h3 class="cs-chapter-title">The Course</h3>
+                    <p class="cs-chapter-text">
+                        On the <span class="cs-mark">PGA Tour</span>, players eat on a clock set by tee times rather than hunger, and a meal that sits badly costs strokes. Different sport, same lesson: food that ignores taste quietly stops being eaten.
+                    </p>
+                </div>
+            </li>
+        </ol>
+
+        <div class="cs-closer">
+            <span class="cs-closer-topper">Today</span>
+            <h3 class="cs-closer-title">All of it, pointed at athletes</h3>
+            <p class="cs-closer-text">
+                Restaurant discipline applied to performance food. Every MADE menu is built by someone who has stood in a professional kitchen at 5 a.m. and knows the difference between a meal that hits its macros and a meal an athlete finishes.
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+// Kitchen chapters reveal
+(function () {
+    const section = document.querySelector("#kitchen-1208");
+    if (!section) return;
+
+    const targets = section.querySelectorAll(".cs-chapter, .cs-closer");
+    if (!targets.length) return;
+
+    if (!("IntersectionObserver" in window)) return;
+    section.classList.add("cs-js");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("cs-active");
+                observer.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.25 }
+    );
+
+    targets.forEach((target) => observer.observe(target));
+})();
+</script>
+
+<!-- ============================================ -->
+<!--             What MADE Is Not                 -->
+<!-- ============================================ -->
+
+<section id="not-1209">
+    <div class="cs-container">
+        <div class="cs-header">
+            <span class="cs-topper">Let's Be Clear</span>
+            <h2 class="cs-title">What MADE is not</h2>
+            <p class="cs-text">
+                The category is crowded and the labels get sloppy. Three things we're regularly mistaken for, and one thing we actually are.
+            </p>
+        </div>
+
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <div class="cs-stamp">
+                    <span class="cs-stamp-word" aria-hidden="true">Not</span>
+                    <h3 class="cs-item-title"><span class="cs-sr-prefix">Not </span>a meal kit</h3>
+                </div>
+                <p class="cs-item-text">
+                    Nothing arrives raw and nothing needs assembling. No recipe cards, no chopping, no sink full of pans at 9 p.m. The cooking is finished before it reaches you.
+                </p>
+            </li>
+
+            <li class="cs-item">
+                <div class="cs-stamp">
+                    <span class="cs-stamp-word" aria-hidden="true">Not</span>
+                    <h3 class="cs-item-title"><span class="cs-sr-prefix">Not </span>a restaurant</h3>
+                </div>
+                <p class="cs-item-text">
+                    There's no dining room and no menu you order off on a whim. Meals are planned against a training week, not against an appetite on a Friday night.
+                </p>
+            </li>
+
+            <li class="cs-item">
+                <div class="cs-stamp">
+                    <span class="cs-stamp-word" aria-hidden="true">Not</span>
+                    <h3 class="cs-item-title"><span class="cs-sr-prefix">Not </span>a supplement brand</h3>
+                </div>
+                <p class="cs-item-text">
+                    Nothing here comes in a tub or a sachet. We don't sell powder to pour into water — we sell food, cooked by chefs, on a plate.
+                </p>
+            </li>
+        </ul>
+
+        <div class="cs-answer">
+            <span class="cs-answer-topper">What it actually is</span>
+            <h3 class="cs-answer-title">A professional kitchen that cooks for athletes</h3>
+            <p class="cs-answer-text">
+                Chef-prepared performance nutrition, built to a training standard and delivered across the Greater Toronto Area — to teams, to schools, and to anyone who trains like it matters.
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+// What MADE is not — staggered card reveal
+(function () {
+    const section = document.querySelector("#not-1209");
+    if (!section) return;
+
+    const targets = section.querySelectorAll(".cs-card-group, .cs-answer");
+    if (!targets.length) return;
+
+    if (!("IntersectionObserver" in window)) return;
+    section.classList.add("cs-js");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("cs-active");
+                observer.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    targets.forEach((target) => observer.observe(target));
+})();
+</script>
+
+<!-- ============================================ -->
+<!--                 The Vision                   -->
+<!-- ============================================ -->
+
+<section id="vision-1210">
+    <div class="cs-container">
+        <div class="cs-header">
+            <span class="cs-topper">Where We're Going</span>
+            <h2 class="cs-title">Fuel, then Cold, then Fresh</h2>
+            <p class="cs-text">
+                MADE is being built in order, not all at once. Each stage has to work properly before the next one earns its place on the truck.
+            </p>
+        </div>
+
+        <ol class="cs-stage-group">
+            <li class="cs-stage cs-stage-live">
+                <div class="cs-marker" aria-hidden="true">
+                    <span class="cs-marker-num">01</span>
+                </div>
+
+                <div class="cs-stage-content">
+                    <span class="cs-status cs-status-live">Live now</span>
+                    <h3 class="cs-stage-title">MADE Fuel</h3>
+                    <p class="cs-stage-text">
+                        The engine of the business. Chef-cooked performance meals built against a training week and delivered on a schedule teams can plan around. This is what's running today.
+                    </p>
+                </div>
+            </li>
+
+            <li class="cs-stage cs-stage-soon">
+                <div class="cs-marker" aria-hidden="true">
+                    <span class="cs-marker-num">02</span>
+                </div>
+
+                <div class="cs-stage-content">
+                    <span class="cs-status cs-status-soon">Rolling out</span>
+                    <h3 class="cs-stage-title">MADE Cold</h3>
+                    <p class="cs-stage-text">
+                        Grab-and-go built for the gap between sessions. Cold-format nutrition that holds in a bag, a locker, or a bus seat without turning into a compromise.
+                    </p>
+                </div>
+            </li>
+
+            <li class="cs-stage cs-stage-next">
+                <div class="cs-marker" aria-hidden="true">
+                    <span class="cs-marker-num">03</span>
+                </div>
+
+                <div class="cs-stage-content">
+                    <span class="cs-status cs-status-next">On the horizon</span>
+                    <h3 class="cs-stage-title">MADE Fresh</h3>
+                    <p class="cs-stage-text">
+                        The full expression — daily fresh service at scale, reaching schools and programmes across the GTA the way a professional kitchen reaches a locker room.
+                    </p>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<script>
+// Vision roadmap reveal
+(function () {
+    const section = document.querySelector("#vision-1210");
+    if (!section) return;
+
+    const group = section.querySelector(".cs-stage-group");
+    if (!group) return;
+
+    if (!("IntersectionObserver" in window)) return;
+    section.classList.add("cs-js");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("cs-active");
+                observer.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.25 }
+    );
+
+    observer.observe(group);
+})();
+</script>
+
+<!-- ============================================ -->
+<!--                   CTA                        -->
+<!-- ============================================ -->
+
+<section id="cta-1211">
+    <div class="cs-watermark" aria-hidden="true">
+        <span class="cs-watermark-text">Raise the Standard</span>
+    </div>
+
+    <div class="cs-container">
+        <span class="cs-topper">Get In Touch</span>
+        <h2 class="cs-title">Want to work with us?</h2>
+        <p class="cs-text">
+            Teams, schools, programmes, and individuals across the Greater Toronto Area. Tell us how you train and we'll tell you what we'd cook.
+        </p>
+        <a href="/contact" class="cs-button-solid">Start the conversation</a>
+    </div>
+</section>
+
+{% endblock %}

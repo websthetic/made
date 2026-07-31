@@ -1,0 +1,410 @@
+/*-- -------------------------- -->
+<---        Inner Banner        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #inner-banner-302 {
+        /* the banner now owns the nav clearance the contact section used to */
+        padding: (100/16rem) (16/16rem) (60/16rem);
+        background-color: var(--pageBgDarkAlt);
+        overflow: hidden;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .cs-topper {
+            font-family: var(--topperFont);
+            font-size: (14/16rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            text-transform: none;
+            letter-spacing: 0.01em;
+            margin: 0 0 (12/16rem) 0;
+            color: var(--mustard);
+            display: block;
+        }
+
+        .cs-title {
+            /* 60px - 88px */
+            font-size: ~"clamp(3.75rem, 16vw, 5.5rem)";
+            font-family: var(--headerFont);
+            font-weight: 700;
+            line-height: 0.95em;
+            letter-spacing: 0.01em;
+            text-align: left;
+            text-transform: uppercase;
+            width: 100%;
+            max-width: (900/16rem);
+            margin: 0 0 (20/16rem) 0;
+            color: var(--salt);
+
+            span {
+                color: var(--mustard);
+            }
+        }
+
+        .cs-text {
+            font-size: (16/16rem);
+            line-height: 1.6em;
+            width: 100%;
+            max-width: (460/16rem);
+            margin: 0;
+            color: var(--bodyTextColorWhite);
+            opacity: 0.85;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #inner-banner-302 {
+        padding: (110/16rem) (16/16rem) (72/16rem);
+
+        .cs-topper {
+            font-size: (15/16rem);
+        }
+
+        .cs-title {
+            /* 64px - 88px */
+            font-size: ~"clamp(4rem, 7vw, 5.5rem)";
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #inner-banner-302 {
+        padding: (150/16rem) (16/16rem) (88/16rem);
+    }
+}
+
+/*-- -------------------------- -->
+<---           Contact          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #contact-1 {
+        /* nav clearance moved to the banner above, so this is a normal section */
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgLightAlt);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: (48/16rem);
+        }
+
+        /* ===== Left rail ===== */
+
+        .cs-content {
+            max-width: (520/16rem);
+        }
+
+        .cs-h2 {
+            font-family: var(--headerFont);
+            font-size: (36/16rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            margin: 0 0 (28/16rem);
+        }
+
+        /* ===== Process steps ===== */
+
+        .cs-steps {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: (24/16rem);
+        }
+
+        .cs-step {
+            display: flex;
+            align-items: flex-start;
+            gap: (16/16rem);
+        }
+
+        /* flex:none stops the numeral squashing once the copy wraps */
+        .cs-step-num {
+            flex: none;
+            font-family: var(--headerFont);
+            font-size: (28/16rem);
+            line-height: 1;
+            color: var(--caramel);
+            padding-top: (2/16rem);
+        }
+
+        .cs-step-title {
+            font-family: var(--bodyFont);
+            font-size: (18/16rem);
+            line-height: 1;
+            letter-spacing: 0.02em;
+            text-transform: capitalize;
+            color: var(--headerColor);
+            margin-bottom: (5/16rem);
+        }
+
+        .cs-step-text {
+            font-size: (15/16rem);
+            line-height: 1.55;
+            color: rgba(47, 52, 50, 0.7);
+        }
+
+        /* ===== Direct contact ===== */
+
+        .cs-direct {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: (6/16rem);
+            border-top: 1px solid rgba(47, 52, 50, 0.18);
+            padding-top: (24/16rem);
+            margin-top: (36/16rem);
+        }
+
+        /* 0.72 at 10px — anything lighter drops under 4.5:1 on this bg */
+        .cs-direct-label {
+            font-size: (10/16rem);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(47, 52, 50, 0.72);
+            margin-bottom: (4/16rem);
+        }
+
+        .cs-direct-link {
+            font-family: var(--headerFont);
+            font-size: (26/16rem);
+            line-height: 1.1;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+            color: var(--caramel);
+            transition: color 0.25s ease;
+
+            &:focus-visible {
+                outline: 2px solid var(--caramel);
+                outline-offset: 3px;
+            }
+        }
+
+        /* ===== Form card =====
+           White card on the tinted section — #fff against #EDEAE0 separates on
+           its own, so the border is doing definition rather than heavy lifting. */
+
+        .cs-form {
+            background-color: #fff;
+            border: 1px solid rgba(47, 52, 50, 0.12);
+            border-radius: (16/16rem);
+            padding: (28/16rem) (24/16rem);
+        }
+
+        /* Honeypot — visually gone but not display:none, since some bots skip
+           anything the CSS hides outright. Real users never reach it: it's out
+           of the tab order and hidden from the accessibility tree. */
+        .cs-honeypot {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        .cs-form-lede {
+            font-size: (15/16rem);
+            line-height: 1.55;
+            color: rgba(47, 52, 50, 0.7);
+            border-left: (3/16rem) solid var(--caramel);
+            padding-left: (14/16rem);
+            margin-bottom: (26/16rem);
+        }
+
+        .cs-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .cs-field {
+            display: flex;
+            flex-direction: column;
+            gap: (7/16rem);
+            margin-bottom: (18/16rem);
+        }
+
+        .cs-label {
+            font-size: (12/16rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+        }
+
+        /* this is the only thing marking a field skippable, at 12px — 0.5 put
+           it around 2.8:1, which is not a place to be subtle */
+        .cs-optional {
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            color: rgba(47, 52, 50, 0.72);
+        }
+
+        /* font-family is load-bearing — form controls don't inherit it.
+           min-height keeps date inputs level with text inputs; iOS renders
+           them shorter and won't stretch to match.
+
+           The card is white, so the fields can't be — the warm tint plus a
+           firmer border is what makes them read as inputs rather than gaps. */
+        .cs-input {
+            width: 100%;
+            min-height: (48/16rem);
+            font-family: var(--bodyFont);
+            font-size: (15/16rem);
+            line-height: 1.4;
+            color: var(--headerColor);
+            background-color: var(--pageBgLight);
+            border: 1px solid rgba(47, 52, 50, 0.28);
+            border-radius: (8/16rem);
+            padding: (12/16rem) (14/16rem);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+
+            /* these placeholders carry real format hints, so they get read
+               rather than glanced past — 0.4 was around 2.5:1 */
+            &::placeholder {
+                color: rgba(47, 52, 50, 0.55);
+            }
+
+            &:focus {
+                outline: none;
+                background-color: #fff;
+                border-color: var(--caramel);
+                box-shadow: 0 0 0 3px rgba(201, 107, 43, 0.3);
+            }
+        }
+
+        .cs-textarea {
+            resize: vertical;
+            min-height: (120/16rem);
+        }
+
+        /* native select caret replaced with a caramel chevron data-URI */
+        .cs-select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c96b2b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right (14/16rem) center;
+            padding-right: (40/16rem);
+            cursor: pointer;
+        }
+
+        .cs-button-solid {
+            width: 100%;
+            margin-top: (4/16rem);
+            background-color: var(--caramel);
+            border-color: var(--caramel);
+            color: var(--salt);
+
+            &::before {
+                background-color: var(--charcoal);
+            }
+
+            &:hover {
+                color: var(--salt);
+                border-color: var(--charcoal);
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--charcoal);
+                outline-offset: 2px;
+            }
+        }
+
+        .cs-form-note {
+            font-size: (12/16rem);
+            line-height: 1.4;
+            text-align: center;
+            color: rgba(47, 52, 50, 0.72);
+            margin-top: (14/16rem);
+        }
+    }
+}
+
+/* Tablet - 700px */
+@media only screen and (min-width: 43.75rem) {
+    #contact-1 {
+        .cs-row {
+            grid-template-columns: repeat(2, 1fr);
+            gap: (16/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #contact-1 {
+        /* basis 0 on both columns is load-bearing — with basis auto the form's
+           base size is its max-content width and it crushes the left rail */
+        .cs-container {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: (72/16rem);
+        }
+
+        .cs-content {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: none;
+            /* the rail is short now — sticking it keeps the process and the
+               direct contact visible while the long form scrolls past */
+            position: sticky;
+            top: (100/16rem);
+        }
+
+        .cs-form {
+            flex: 1.1 1 0;
+            min-width: 0;
+            padding: (40/16rem) (36/16rem);
+        }
+
+        /* hover lives here — nothing hovers on touch, so declaring it at the
+           base was animating a property that never changes */
+        .cs-direct-link:hover {
+            color: var(--charcoal);
+        }
+
+        .cs-h2 {
+            font-size: (42/16rem);
+        }
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    #contact-1 {
+        .cs-input,
+        .cs-direct-link,
+        .cs-button-solid,
+        .cs-button-solid::before {
+            transition: none;
+        }
+    }
+}

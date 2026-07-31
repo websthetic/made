@@ -1,0 +1,284 @@
+---
+title: "The Kitchen | Made"
+description: "Meta description for the page"
+permalink: "/the-kitchen/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/the-kitchen.css">
+{% endblock %}
+
+{% block body %}
+
+<!-- ============================================ -->
+<!--               Kitchen Banner                 -->
+<!-- ============================================ -->
+
+<section id="banner-kitchen">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">The Kitchen</span>
+            <h1 class="cs-title">The <span class="cs-accent">People</span> Behind The Food.</h1>
+            <p class="cs-text">
+                Three cooks, one kitchen, and a standard that doesn't move. Every tray that
+                leaves here was built by someone who put their name on it.
+            </p>
+        </div>
+
+        <img
+            class="cs-graphic"
+            loading="eager"
+            decoding="async"
+            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/meal-prep-made-fresh.svg"
+            alt=""
+            width="620"
+            height="720"
+            aria-hidden="true"
+        >
+
+        <ul class="cs-lineup">
+            <li class="cs-lineup-item">
+                <span class="cs-lineup-name">DJ</span>
+                <span class="cs-lineup-role">Founder</span>
+            </li>
+            <li class="cs-lineup-item">
+                <span class="cs-lineup-name">Luis</span>
+                <span class="cs-lineup-role">Chef</span>
+            </li>
+            <li class="cs-lineup-item">
+                <span class="cs-lineup-name">Mitch</span>
+                <span class="cs-lineup-role">Chef</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--                  The Crew                    -->
+<!-- ============================================ -->
+
+<section id="crew-kitchen">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <div class="cs-header-left">
+                <span class="cs-topper">The Crew</span>
+                <h2 class="cs-title">Who's On The Line</h2>
+            </div>
+            <p class="cs-text">Small kitchen, no passengers. Everyone cooks.</p>
+        </div>
+
+        <!-- TODO: every bracketed value below is a placeholder. Roles, signature
+             dishes and backgrounds need confirming with the client before ship. -->
+        <ul class="cs-tickets">
+
+            <li class="cs-ticket">
+                <span class="cs-ticket-no">No. 01</span>
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/kitchen/dj-m.webp">
+                    <source media="(min-width: 601px)" srcset="/assets/images/kitchen/dj.webp">
+                    <img class="cs-img" loading="lazy" decoding="async" src="/assets/images/kitchen/dj.jpg" alt="DJ, founder of MADE, in the kitchen" width="420" height="420">
+                </picture>
+                <div class="cs-ticket-body">
+                    <span class="cs-station">Founder / Executive Chef</span>
+                    <h3 class="cs-name">DJ</h3>
+                    <span class="cs-perf" aria-hidden="true"></span>
+                    <span class="cs-dish-label">Signature</span>
+                    <p class="cs-dish">[Dish Name] | [Component] | [Component] | [Component]</p>
+                    <p class="cs-bio">[One-line background &mdash; where he trained, what he ran before MADE.]</p>
+                </div>
+            </li>
+
+            <li class="cs-ticket">
+                <span class="cs-ticket-no">No. 02</span>
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/kitchen/luis-m.webp">
+                    <source media="(min-width: 601px)" srcset="/assets/images/kitchen/luis.webp">
+                    <img class="cs-img" loading="lazy" decoding="async" src="/assets/images/kitchen/luis.jpg" alt="Luis at work in the MADE kitchen" width="420" height="420">
+                </picture>
+                <div class="cs-ticket-body">
+                    <span class="cs-station">[Role]</span>
+                    <h3 class="cs-name">Luis</h3>
+                    <span class="cs-perf" aria-hidden="true"></span>
+                    <span class="cs-dish-label">Signature</span>
+                    <p class="cs-dish">[Dish Name] | [Component] | [Component] | [Component]</p>
+                    <p class="cs-bio">[One-line background.]</p>
+                </div>
+            </li>
+
+            <li class="cs-ticket">
+                <span class="cs-ticket-no">No. 03</span>
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/kitchen/mitch-m.webp">
+                    <source media="(min-width: 601px)" srcset="/assets/images/kitchen/mitch.webp">
+                    <img class="cs-img" loading="lazy" decoding="async" src="/assets/images/kitchen/mitch.jpg" alt="Mitch at work in the MADE kitchen" width="420" height="420">
+                </picture>
+                <div class="cs-ticket-body">
+                    <span class="cs-station">[Role]</span>
+                    <h3 class="cs-name">Mitch</h3>
+                    <span class="cs-perf" aria-hidden="true"></span>
+                    <span class="cs-dish-label">Signature</span>
+                    <p class="cs-dish">[Dish Name] | [Component] | [Component] | [Component]</p>
+                    <p class="cs-bio">[One-line background.]</p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--                Founder Story                 -->
+<!-- ============================================ -->
+
+<section id="founder-kitchen">
+    <div class="cs-container">
+
+        <div class="cs-founder-content">
+            <span class="cs-topper">The Founder</span>
+            <h2 class="cs-title">Fine Dining,<br>Rebuilt For Athletes.</h2>
+
+            <!-- TODO: condensed founder story — needs real copy from DJ -->
+            <p class="cs-text">
+                [Two to three sentences: how DJ got into cooking, what he was doing before
+                MADE, and the moment he realised athletes were being fed badly.]
+            </p>
+
+            <!-- TODO: fine-dining highlight — the room, the year, the role -->
+            <dl class="cs-credit">
+                <dt class="cs-credit-key">Previously</dt>
+                <dd class="cs-credit-value">[Restaurant Name]</dd>
+                <dt class="cs-credit-key">Role</dt>
+                <dd class="cs-credit-value">[Position, Years]</dd>
+            </dl>
+
+            <!-- TODO: real quote from DJ -->
+            <blockquote class="cs-quote-block">
+                <span class="cs-quote-mark" aria-hidden="true">&ldquo;</span>
+                <p class="cs-quote">[Brand vision in DJ's own words &mdash; one or two sentences on what MADE is for and why it exists.]</p>
+                <footer class="cs-attr">
+                    <span class="cs-attr-name">DJ</span>
+                    <span class="cs-attr-role">Founder, MADE</span>
+                </footer>
+            </blockquote>
+        </div>
+
+        <picture class="cs-founder-picture">
+            <source media="(max-width: 600px)" srcset="/assets/images/kitchen/dj-founder-m.webp">
+            <source media="(min-width: 601px)" srcset="/assets/images/kitchen/dj-founder.webp">
+            <img class="cs-founder-img" loading="lazy" decoding="async" src="/assets/images/kitchen/dj-founder.jpg" alt="DJ plating a dish" width="560" height="700">
+        </picture>
+
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--                  CTA Banner                  -->
+<!-- ============================================ -->
+
+<section id="cta-banner-201">
+    <div class="cs-marquee" aria-hidden="true">
+        <div class="cs-marquee-track">
+            <div class="cs-marquee-group">
+                <span class="cs-marquee-item">Seasonal Menus</span>
+                <span class="cs-marquee-star">&#10033;</span>
+                <span class="cs-marquee-item">Costed Proposals</span>
+                <span class="cs-marquee-star">&#10033;</span>
+                <span class="cs-marquee-item">No Discovery Deck</span>
+                <span class="cs-marquee-star">&#10033;</span>
+            </div>
+        </div>
+    </div>
+    <div class="cs-container">
+        <h2 class="cs-title">Experience <span> The Food</span></h2>
+        <div class="cs-content">
+            <a href="/menu" class="cs-button-solid">View Menu</a>
+        </div>
+    </div>
+</section>
+
+<script>// #cta-banner-201 — scroll-driven marquee
+(function () {
+    var banner = document.querySelector('#cta-banner-201');
+    if (!banner) return;
+
+    var marquee = banner.querySelector('.cs-marquee');
+    var track = banner.querySelector('.cs-marquee-track');
+    if (!marquee || !track) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var SPEED = 0.25;
+    var EASE = 0.06;
+
+    var source = track.querySelector('.cs-marquee-group');
+    var groupWidth = 0;
+    var offset = 0;
+    var target = 0;
+    var lastScroll = window.pageYOffset;
+    var running = false;
+
+    function fill() {
+        var clone;
+        while (track.children.length > 1) {
+            track.removeChild(track.lastElementChild);
+        }
+
+        groupWidth = source.getBoundingClientRect().width;
+        if (!groupWidth) return;
+
+        while (track.getBoundingClientRect().width < marquee.offsetWidth + groupWidth * 2) {
+            clone = source.cloneNode(true);
+            track.appendChild(clone);
+        }
+    }
+
+    function render() {
+        offset += (target - offset) * EASE;
+
+        var x = offset % groupWidth;
+        if (x > 0) x -= groupWidth;
+
+        track.style.transform = 'translate3d(' + x + 'px, 0, 0)';
+
+        if (Math.abs(target - offset) > 0.1) {
+            window.requestAnimationFrame(render);
+        } else {
+            running = false;
+        }
+    }
+
+    function start() {
+        if (running) return;
+        running = true;
+        window.requestAnimationFrame(render);
+    }
+
+    function onScroll() {
+        var current = window.pageYOffset;
+        target -= (current - lastScroll) * SPEED;
+        lastScroll = current;
+        start();
+    }
+
+    function onResize() {
+        fill();
+        start();
+    }
+
+    fill();
+    render();
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(fill);
+    }
+})();</script>
+
+
+
+{% endblock %}

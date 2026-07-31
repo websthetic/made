@@ -1,0 +1,2154 @@
+/*-- -------------------------- -->
+<---         Fuel Hero          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #hero-fuel-1 {
+        padding: (110/16rem) 1rem (60/16rem);
+        background-color: var(--caramel);
+        overflow-x: clip;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: (32/16rem);
+            align-items: center;
+        }
+
+        .cs-content {
+            width: 100%;
+            max-width: (760/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: capitalize;
+            color: var(--mustard);
+            margin-bottom: (14/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 15.5vw, 5.6rem);
+            line-height: 0.92;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            text-wrap: balance;
+            color: var(--vanilla);
+            max-width: unset;
+            margin: 0 0 (24/16rem) 0;
+        }
+
+        .cs-button-solid {
+            background-color: var(--mustard);
+            border-color: var(--mustard);
+            color: var(--headerColor);
+
+            &::before {
+                background-color: var(--headerColor);
+            }
+
+            &:hover {
+                color: var(--vanilla);
+                border-color: var(--headerColor);
+            }
+        }
+
+        .cs-gallery {
+            position: relative;
+            align-self: stretch;
+            height: (300/16rem);
+            margin-right: calc(50% - 50vw);
+            overflow: hidden;
+        }
+
+        .cs-gallery::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: (90/16rem);
+            background: linear-gradient(
+                to right,
+                rgba(201, 107, 43, 0) 0%,
+                rgba(201, 107, 43, 0.75) 55%,
+                rgba(201, 107, 43, 1) 100%
+            );
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .cs-gallery-track {
+            height: 100%;
+            display: flex;
+            gap: (12/16rem);
+            transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+            will-change: transform;
+
+            &.cs-notransition {
+                transition: none;
+            }
+        }
+
+        .cs-gallery-card {
+            flex: 0 0 calc((100% - 1.5rem) / 1.6);
+            height: 100%;
+            position: relative;
+            border-radius: (12/16rem);
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+
+        .cs-gallery-picture {
+            display: block;
+            height: 100%;
+        }
+
+        .cs-gallery-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cs-gallery-tag {
+            position: absolute;
+            left: (12/16rem);
+            bottom: (52/16rem);
+            background-color: var(--caramel);
+            color: var(--vanilla);
+            font-size: (11/16rem);
+            font-weight: 700;
+            padding: (5/16rem) (10/16rem);
+            border-radius: (6/16rem);
+            z-index: 2;
+        }
+
+        .cs-gallery-label {
+            position: absolute;
+            left: (12/16rem);
+            right: (12/16rem);
+            bottom: (12/16rem);
+            background-color: var(--vanilla);
+            color: var(--caramel);
+            font-size: (12/16rem);
+            font-weight: 700;
+            padding: (8/16rem) (10/16rem);
+            border-radius: (6/16rem);
+            z-index: 2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    #hero-fuel-1 .cs-gallery-track {
+        transition: none;
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #hero-fuel-1 {
+        padding: (130/16rem) 1rem (70/16rem);
+
+        .cs-gallery {
+            height: (420/16rem);
+        }
+
+        .cs-gallery::after {
+            width: (120/16rem);
+        }
+
+        .cs-gallery-card {
+            flex: 0 0 calc((100% - 2.25rem) / 2.6);
+        }
+
+        .cs-gallery-tag {
+            font-size: (12/16rem);
+            bottom: (58/16rem);
+        }
+
+        .cs-gallery-label {
+            font-size: (13/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #hero-fuel-1 {
+        padding: (150/16rem) 1rem (90/16rem);
+
+        .cs-container {
+            flex-direction: row;
+            align-items: center;
+            gap: (24/16rem);
+        }
+
+        .cs-content {
+            flex: 1.3 1 0;
+            min-width: 0;
+        }
+
+        .cs-gallery {
+            flex: 1 1 0;
+            min-width: 0;
+            align-self: auto;
+            margin-left: (-48/16rem);
+            height: clamp(34rem, 74vh, 54rem);
+        }
+
+        .cs-gallery::after {
+            width: (160/16rem);
+        }
+
+        .cs-gallery-card {
+            flex: 0 0 calc((100% - 1.5rem) / 1.6);
+        }
+
+        .cs-title {
+            font-size: clamp(5.6rem, 8.75vw, 6.75rem);
+        }
+    }
+}
+
+/* Large Desktop - 1440px */
+@media only screen and (min-width: 90rem) {
+    #hero-fuel-1 {
+        .cs-gallery::after {
+            width: (220/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---        Who It's For        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #audience-fuel-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--salt);
+        overflow-x: clip;
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: (48/16rem);
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: capitalize;
+            color: var(--caramel);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            max-width: unset;
+            margin: 0;
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            color: rgba(47, 52, 50, 0.55);
+            line-height: 1.6;
+            max-width: (400/16rem);
+        }
+
+        /* ===== Carousel ===== */
+
+        .cs-track {
+            list-style: none;
+            display: flex;
+            gap: (12/16rem);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x proximity;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--primary);
+                outline-offset: 4px;
+            }
+        }
+
+        /* ===== Cards ===== */
+
+        .cs-item {
+            position: relative;
+            flex: 0 0 78%;
+            scroll-snap-align: start;
+            min-height: (340/16rem);
+            border-radius: (14/16rem);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-color: var(--charcoal);
+        }
+
+        .cs-item-picture {
+            position: absolute;
+            inset: 0;
+        }
+
+        .cs-item-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cs-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(15, 13, 10, 0.9) 0%,
+                rgba(15, 13, 10, 0.45) 45%,
+                rgba(15, 13, 10, 0.1) 100%
+            );
+            pointer-events: none;
+        }
+
+        .cs-item-caption {
+            position: relative;
+            padding: (24/16rem);
+        }
+
+        .cs-card-title {
+            font-size: clamp(1.8rem, 4.5vw, 2.2rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            color: var(--salt);
+            margin: 0;
+        }
+
+        /* ===== Controls ===== */
+
+        .cs-carousel-controls {
+            display: flex;
+            align-items: center;
+            gap: (24/16rem);
+        }
+
+        .cs-progress {
+            flex: 1 1 auto;
+            height: (3/16rem);
+            background-color: rgba(47, 52, 50, 0.12);
+            border-radius: (100/16rem);
+            overflow: hidden;
+        }
+
+        .cs-progress-fill {
+            width: 0%;
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: (100/16rem);
+            transition: width 0.15s linear;
+        }
+
+        .cs-arrows {
+            display: flex;
+            gap: (8/16rem);
+            flex: none;
+        }
+
+        .cs-arrow {
+            width: (48/16rem);
+            height: (48/16rem);
+            background-color: transparent;
+            border: 1px solid rgba(47, 52, 50, 0.25);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--charcoal);
+            transition: border-color 0.3s, background-color 0.3s, color 0.3s, opacity 0.3s;
+
+            svg {
+                width: (20/16rem);
+                height: (20/16rem);
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--primary);
+                outline-offset: 2px;
+            }
+
+            &[aria-disabled="true"] {
+                opacity: 0.2;
+                cursor: default;
+            }
+        }
+
+    }
+
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+
+    #audience-fuel-1 {
+
+        .cs-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: (48/16rem);
+        }
+
+        .cs-header-left {
+            flex: 1 1 auto;
+        }
+
+        .cs-text {
+            flex: 0 0 auto;
+            text-align: right;
+        }
+
+        .cs-track {
+            gap: (16/16rem);
+        }
+
+        .cs-item {
+            flex: 0 0 44%;
+            min-height: (380/16rem);
+        }
+
+    }
+
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+    #audience-fuel-1 {
+
+        .cs-carousel {
+            width: calc(50% + 50vw);
+        }
+
+        .cs-track {
+            padding-right: (48/16rem);
+            scroll-padding-right: (48/16rem);
+        }
+
+        .cs-item {
+            flex: 0 0 28%;
+            min-height: (440/16rem);
+        }
+
+        .cs-arrow {
+            &:hover {
+                background-color: var(--primary);
+                border-color: var(--primary);
+                color: var(--salt);
+            }
+
+            &[aria-disabled="true"]:hover {
+                background-color: transparent;
+                border-color: rgba(47, 52, 50, 0.25);
+                color: var(--charcoal);
+            }
+        }
+
+    }
+
+}
+
+/*-- -------------------------- -->
+<---      What's Included       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #fuel-included {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgLightAlt);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        /* ===== Section header ===== */
+
+        .cs-header {
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+            margin: 0 0 (32/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--caramel);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            max-width: unset;
+            margin: 0;
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            color: rgba(47, 52, 50, 0.55);
+            line-height: 1.6;
+            max-width: (400/16rem);
+        }
+
+        /* ===== Ticket stubs ===== */
+
+        .cs-tickets {
+            display: grid;
+            gap: (24/16rem);
+        }
+
+        .cs-ticket {
+            --rot: -1deg;
+            position: relative;
+            background-color: #fff;
+            border: (1.5/16rem) solid rgba(47, 52, 50, 0.18);
+            border-radius: (6/16rem);
+            padding: (26/16rem) (20/16rem) (24/16rem);
+        }
+
+        /* scale(1) is deliberate — it keeps the function list matching the hover
+           state so the transform interpolates cleanly instead of via matrix */
+        .cs-stamp {
+            width: (52/16rem);
+            height: (52/16rem);
+            border-radius: 50%;
+            border: (2.5/16rem) solid var(--caramel);
+            color: var(--caramel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: (16/16rem);
+            transform: rotate(-8deg) scale(1);
+
+            svg {
+                width: (24/16rem);
+                height: (24/16rem);
+            }
+        }
+
+        .cs-item-title {
+            font-size: (24/16rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            margin: 0 0 (8/16rem);
+
+            /* the perforation — drawn rather than marked up */
+            &::after {
+                content: "";
+                display: block;
+                border-top: (1.5/16rem) dashed rgba(47, 52, 50, 0.25);
+                margin: (14/16rem) 0;
+            }
+        }
+
+        .cs-item-text {
+            line-height: 1.6;
+        }
+    }
+}
+
+/* Tablet - 600px */
+@media only screen and (min-width: 37.5rem) {
+    #fuel-included {
+        .cs-tickets {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #fuel-included {
+        /* baseline-aligned split: title anchors the left, the sentence sits on
+           the right rag. flex-end keeps the two blocks sharing a bottom edge
+           regardless of how many lines either one runs to. */
+        .cs-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: (48/16rem);
+        }
+
+        .cs-header-left {
+            flex: 1 1 auto;
+        }
+
+        .cs-text {
+            flex: 0 0 auto;
+            text-align: right;
+        }
+
+        .cs-tickets {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #fuel-included {
+        .cs-header {
+            margin-bottom: (40/16rem);
+        }
+
+        .cs-tickets {
+            gap: (28/16rem);
+        }
+
+        /* transitions live here, not on mobile — nothing hovers on touch, so
+           declaring them at the base was animating properties that never change.
+           the angle rides on --rot so the nth-child and hover rules set different
+           properties and can't collide on source order */
+        .cs-ticket {
+            transform: rotate(var(--rot)) translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:nth-child(even) {
+                --rot: 1deg;
+            }
+
+            .cs-stamp {
+                transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    background-color 0.3s ease, color 0.3s ease;
+            }
+
+            &:hover {
+                --rot: 0deg;
+                transform: rotate(var(--rot)) translateY((-4/16rem));
+                box-shadow: 0 (10/16rem) (24/16rem) rgba(47, 52, 50, 0.12);
+
+                .cs-stamp {
+                    transform: rotate(0deg) scale(1.08);
+                    background-color: var(--caramel);
+                    color: var(--pageBgLight);
+                }
+            }
+        }
+    }
+}
+
+/* Large Desktop - 1200px */
+@media only screen and (min-width: 75rem) {
+    #fuel-included {
+        .cs-tickets {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+/* Reduced motion — kill the lift/stamp motion, keep the end states instant */
+@media (prefers-reduced-motion: reduce) {
+    #fuel-included {
+        .cs-ticket,
+        .cs-stamp {
+            transition: none;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---        How It Works        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #how-it-works-fuel {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgDarkAlt);
+
+        .cs-container {
+            max-width: (1200/16rem);
+            margin: auto;
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            text-align: center;
+            margin: 0 0 (40/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--primary);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            color: var(--bodyTextColorWhite);
+            max-width: unset;
+            margin: 0;
+        }
+
+        /* the pinned plate is a desktop device — display:none also stops its
+           lazy images from ever being fetched on a phone */
+        .cs-plate {
+            display: none;
+        }
+
+        /* ===== Steps ===== */
+
+        .cs-steps {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: (48/16rem);
+        }
+
+        .cs-step {
+            position: relative;
+        }
+
+        /* per-step image, mobile only */
+        .cs-step-media {
+            display: block;
+            height: (240/16rem);
+            border-radius: (16/16rem);
+            overflow: hidden;
+            margin-bottom: (20/16rem);
+            background-color: rgba(255, 255, 255, 0.05);
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .cs-step-index {
+            display: block;
+            font-size: (12/16rem);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--mustard);
+            margin-bottom: (8/16rem);
+        }
+
+        .cs-step-word {
+            font-family: var(--headerFont);
+            font-size: clamp(2.5rem, 11vw, 3.75rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            color: var(--bodyTextColorWhite);
+            margin: 0 0 (6/16rem);
+        }
+
+        .cs-step-title {
+            font-size: (24/16rem);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--caramel);
+            margin: 0 0 (10/16rem);
+        }
+
+        .cs-step-text {
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.62);
+        }
+
+        .cs-step-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: (6/16rem);
+            margin-top: (14/16rem);
+        }
+
+        .cs-step-list-item {
+            position: relative;
+            font-size: (16/16rem);
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.75);
+            padding-left: (16/16rem);
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: (8/16rem);
+                width: (6/16rem);
+                height: (6/16rem);
+                border-radius: 50%;
+                background-color: var(--mustard);
+            }
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+    #how-it-works-fuel {
+
+        .cs-header {
+            margin-bottom: (64/16rem);
+        }
+
+        /* align-items:start is load-bearing — a stretched grid item fills the
+           row and has nowhere to travel, which silently kills sticky */
+        .cs-flow {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: (72/16rem);
+            align-items: start;
+        }
+
+        /* plate is first in the DOM; order puts it on the right without
+           touching source order. sticky needs an ancestor chain free of
+           overflow:hidden — the site uses overflow-x: clip on html only. */
+        .cs-plate {
+            display: block;
+            order: 2;
+            position: sticky;
+            top: 20vh;
+        }
+
+        /* fixed height on the frame, not the layers — the three PNGs don't
+           share source dimensions and would otherwise resize the pin */
+        .cs-plate-frame {
+            position: relative;
+            height: 60vh;
+            max-height: (620/16rem);
+            border-radius: (16/16rem);
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .cs-plate-layer {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &.cs-active {
+                opacity: 1;
+            }
+        }
+
+        /* the plate carries the imagery here */
+        .cs-step-media {
+            display: none;
+        }
+
+        .cs-steps {
+            order: 1;
+            gap: 0;
+        }
+
+        /* the scroll distance the pin needs. Each step owns roughly half a
+           viewport, so the plate stays put across ~1.5 screens of travel. */
+        .cs-step {
+            min-height: 56vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: opacity 0.45s ease;
+        }
+
+        /* Dimming is opt-in via .cs-js so a no-JS visitor gets all three steps
+           at full strength instead of two permanently faded ones. */
+        .cs-js .cs-step {
+            opacity: 0.4;
+
+            &.cs-active {
+                opacity: 1;
+            }
+        }
+
+        .cs-step-word {
+            font-size: clamp(3.25rem, 4.5vw, 4.5rem);
+        }
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    #how-it-works-fuel {
+        .cs-plate-layer,
+        .cs-step {
+            transition: none;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---      What's On The Menu    -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #menu-fuel-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--salt);
+        /* keeps the track from ever pushing the page sideways */
+        overflow-x: clip;
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        /* ===== Section header ===== */
+
+        .cs-content {
+            max-width: (700/16rem);
+            margin-bottom: (32/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--caramel);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            max-width: unset;
+            margin: 0 0 (12/16rem) 0;
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            line-height: 1.65;
+            max-width: (544/16rem);
+        }
+
+        /* ===== Carousel track ===== */
+
+        .cs-track {
+            list-style: none;
+            display: flex;
+            gap: (16/16rem);
+            overflow-x: auto;
+            scroll-snap-type: x proximity;
+            scrollbar-width: none;
+            /* the hover lift and its shadow would get clipped by the scroll
+               container, so the track carries padding to give them room */
+            padding: (8/16rem) 0 (20/16rem);
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--primary);
+                outline-offset: 4px;
+            }
+        }
+
+        /* ===== Cards — matches the Menu page grid card ===== */
+
+        .cs-item {
+            flex: 0 0 86%;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border: 1px solid rgba(47, 52, 50, 0.12);
+            border-radius: (10/16rem);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* hover:hover gates the lift to real pointers — on touch, :hover latches
+           after a tap and the card stays raised until you tap elsewhere */
+        @media (hover: hover) {
+            .cs-item:hover {
+                transform: translateY((-4/16rem));
+                box-shadow: 0 (12/16rem) (28/16rem) rgba(47, 52, 50, 0.12);
+            }
+        }
+
+        .cs-shot {
+            position: relative;
+            height: (180/16rem);
+            overflow: hidden;
+            background-color: var(--pageBgLightAlt);
+        }
+
+        .cs-picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cs-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* gap replaced by explicit margins — the Menu card spaces its rows
+           individually so the tag list can sit tighter than the title */
+        .cs-info {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            padding: (14/16rem);
+        }
+
+        .cs-h3 {
+            font-family: var(--headerFont);
+            font-size: (24/16rem);
+            font-weight: 700;
+            line-height: 1.05em;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            margin: 0 0 (7/16rem) 0;
+            color: var(--charcoal);
+        }
+
+        /* clamped so every price row lands at the same height across a row,
+           regardless of how long the ingredient list runs */
+        .cs-item-text {
+            font-size: (16/16rem);
+            line-height: 1.55em;
+            margin: 0 0 (11/16rem) 0;
+            color: var(--bodyTextColor);
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* ===== Tags =====
+           Pale fills with hand-darkened text — the raw brand tokens are pastel
+           and fail contrast as type on a white card. */
+
+        .cs-tags {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: (5/16rem);
+            padding: 0;
+            margin: 0 0 (11/16rem) 0;
+        }
+
+        .cs-tag {
+            font-size: (12/16rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            letter-spacing: 0.08em;
+            padding: (3/16rem) (7/16rem);
+            border-radius: (3/16rem);
+
+            &.cs-protein {
+                background-color: #eef3e2;
+                border: 1px solid rgba(77, 96, 24, 0.25);
+                color: #4d6018;
+            }
+
+            &.cs-recovery {
+                background-color: #e9f0f5;
+                border: 1px solid rgba(61, 95, 118, 0.25);
+                color: #3d5f76;
+            }
+
+            &.cs-veg {
+                background-color: #faf1d8;
+                border: 1px solid rgba(122, 92, 13, 0.25);
+                color: #7a5c0d;
+            }
+        }
+
+        /* ===== Price row ===== */
+
+        .cs-score {
+            /* margin-top:auto pushes every price row to the bottom of its card so
+               they line up across a row despite uneven ingredient lists */
+            margin-top: auto;
+            padding-top: (10/16rem);
+            border-top: 1px solid rgba(47, 52, 50, 0.12);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: (12/16rem);
+        }
+
+        .cs-score-key {
+            font-size: (12/16rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #8a8a86;
+        }
+
+        .cs-score-value {
+            font-family: var(--headerFont);
+            font-size: (24/16rem);
+            font-weight: 700;
+            line-height: 1em;
+            color: var(--caramel);
+        }
+
+        /* ===== Controls ===== */
+
+        .cs-carousel-controls {
+            margin-top: (16/16rem);
+            display: flex;
+            justify-content: center;
+        }
+
+        .cs-arrows {
+            display: flex;
+            gap: (8/16rem);
+            flex: none;
+        }
+
+        /* aria-disabled, not :disabled — the button stays in the tab order, so
+           the guard lives in the click handler rather than pointer-events */
+        .cs-arrow {
+            width: (48/16rem);
+            height: (48/16rem);
+            background-color: transparent;
+            border: 1px solid rgba(47, 52, 50, 0.25);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--charcoal);
+            transition: border-color 0.3s, background-color 0.3s, color 0.3s, opacity 0.3s;
+
+            svg {
+                width: (20/16rem);
+                height: (20/16rem);
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--primary);
+                outline-offset: 2px;
+            }
+
+            &[aria-disabled="true"] {
+                opacity: 0.2;
+                cursor: default;
+            }
+        }
+
+        /* ===== CTA ===== */
+
+        .cs-button-wrapper {
+            margin-top: (32/16rem);
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #menu-fuel-1 {
+        /* gap is 1rem, so two cards split the remaining width */
+        .cs-item {
+            flex: 0 0 calc((100% - 1rem) / 2);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #menu-fuel-1 {
+        .cs-content {
+            margin-bottom: (40/16rem);
+        }
+
+        .cs-track {
+            gap: (24/16rem);
+        }
+
+        /* two 1.5rem gaps between three cards */
+        .cs-item {
+            flex: 0 0 calc((100% - 3rem) / 3);
+        }
+
+        .cs-shot {
+            height: (200/16rem);
+        }
+
+        .cs-carousel-controls {
+            margin-top: (24/16rem);
+        }
+
+        .cs-button-wrapper {
+            margin-top: (40/16rem);
+        }
+
+        .cs-arrow {
+            &:hover {
+                background-color: var(--primary);
+                border-color: var(--primary);
+                color: var(--salt);
+            }
+
+            &[aria-disabled="true"]:hover {
+                background-color: transparent;
+                border-color: rgba(47, 52, 50, 0.25);
+                color: var(--charcoal);
+            }
+        }
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    #menu-fuel-1 {
+        .cs-item {
+            transition: none;
+        }
+
+        .cs-track {
+            scroll-behavior: auto;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---        Testimonials        -->
+<--- -------------------------- -*/
+
+/* NOTE: the markup for this section is commented out pending real client
+   testimonials. Styles are kept so it can be re-enabled without rework. */
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #testimonials-fuel-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgDarkAlt);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        /* ===== Section header ===== */
+
+        .cs-content {
+            max-width: (640/16rem);
+            margin-bottom: (36/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--mustard);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--salt);
+            max-width: unset;
+            margin: 0;
+        }
+
+        /* ===== Cards ===== */
+
+        .cs-card-group {
+            list-style: none;
+            display: grid;
+            gap: (18/16rem);
+        }
+
+        .cs-item {
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: (16/16rem);
+            padding: (32/16rem) (30/16rem);
+        }
+
+        /* Oversized opening quote mark — purely decorative. The tight
+           line-height plus a short fixed height lets the glyph overhang its own
+           box, so it reads large without pushing the quote down 54px. */
+        .cs-quote-mark {
+            font-family: var(--headerFont);
+            font-size: (54/16rem);
+            line-height: 0.6;
+            height: (30/16rem);
+            color: var(--caramel);
+        }
+
+        /* flex-grow is load-bearing — it stretches the shorter quote so both
+           attribution blocks sit on the same baseline across a grid row */
+        .cs-quote {
+            line-height: 1.6;
+            color: rgba(254, 251, 234, 0.92);
+            flex: 1 1 auto;
+        }
+
+        .cs-attr {
+            display: flex;
+            flex-direction: column;
+            gap: (3/16rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: (18/16rem);
+        }
+
+        .cs-name {
+            font-size: (15/16rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--salt);
+        }
+
+        .cs-role {
+            font-size: (13/16rem);
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .cs-team {
+            color: var(--caramel);
+            font-weight: 600;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #testimonials-fuel-1 {
+        .cs-card-group {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #testimonials-fuel-1 {
+        .cs-content {
+            margin-bottom: (44/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---         Scroll Strip       -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0rem) {
+
+    #scroll-strip-1 {
+        overflow: hidden;
+        background-color: var(--caramel);
+        padding: (20/16rem) 0;
+
+        /* the gap here is the seam between copies — the script reads it via
+           columnGap and adds it to the copy width to get the wrap period, so
+           changing this value here is enough; nothing needs updating in JS */
+        .cs-strip-track {
+            display: flex;
+            align-items: center;
+            gap: (32/16rem);
+            width: max-content;
+            will-change: transform;
+        }
+
+        .cs-strip-text {
+            font-family: var(--headerFont);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            color: var(--mustard);
+            white-space: nowrap;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            gap: (32/16rem);
+        }
+
+        .cs-dot {
+            color: var(--mustard);
+            font-size: 0.6em;
+            line-height: 1;
+        }
+
+    }
+
+}
+
+/*-- -------------------------- -->
+<---   Season Program Builder   -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #builder-fuel-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgLightAlt);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        /* ===== Section header ===== */
+
+        .cs-content {
+            width: 100%;
+            max-width: (700/16rem);
+            margin-bottom: clamp((40/16rem), 4vw, (60/16rem));
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-size: var(--topperFontSize);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--caramel);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            max-width: unset;
+            margin: 0 0 (12/16rem) 0;
+        }
+
+        .cs-text {
+            font-family: var(--bodyFont);
+            font-size: (16/16rem);
+            line-height: 1.65;
+            color: var(--bodyTextColor);
+            max-width: (512/16rem);
+            margin: 0;
+        }
+
+        .cs-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (24/16rem);
+            align-items: start;
+        }
+
+        /* ===== Phase list ===== */
+
+        .cs-card-group {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: (12/16rem);
+        }
+
+        .cs-phase {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: (16/16rem);
+            text-align: left;
+            font-family: var(--bodyFont);
+            background-color: var(--pageBgLight);
+            border: 1px solid rgba(47, 52, 50, 0.12);
+            border-radius: (14/16rem);
+            padding: (20/16rem);
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+
+            &:focus-visible {
+                outline: 2px solid var(--caramel);
+                outline-offset: 2px;
+            }
+        }
+
+        .cs-phase-icon {
+            flex: 0 0 auto;
+            width: (44/16rem);
+            height: (44/16rem);
+            display: grid;
+            place-items: center;
+            background-color: rgba(47, 52, 50, 0.06);
+            border-radius: (8/16rem);
+            transition: background-color 0.3s ease;
+
+            svg {
+                width: (22/16rem);
+                height: (22/16rem);
+                fill: none;
+                stroke: var(--caramel);
+                stroke-width: 1.75;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                transition: stroke 0.3s ease;
+            }
+        }
+
+        .cs-phase-body {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .cs-phase-name {
+            display: block;
+            font-family: var(--headerFont);
+            font-size: (24/16rem);
+            line-height: 1;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+            margin-bottom: (6/16rem);
+        }
+
+        .cs-phase-meta {
+            display: block;
+            font-family: var(--bodyFont);
+            font-size: (16/16rem);
+            line-height: 1.5;
+            color: var(--bodyTextColor);
+        }
+
+        /* Result caption — collapsed until the phase is selected.
+           The 0fr -> 1fr grid row is what lets it animate to its natural
+           height; max-height would need a magic number and would break the
+           moment the copy wraps to a second line. */
+        .cs-phase-result {
+            display: grid;
+            grid-template-rows: 0fr;
+            margin-top: 0;
+            opacity: 0;
+            font-family: var(--bodyFont);
+            font-size: (13/16rem);
+            font-weight: 700;
+            line-height: 1.5;
+            color: var(--caramel);
+            transition: grid-template-rows 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                        margin-top 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                        opacity 0.3s ease;
+
+            > span {
+                overflow: hidden;
+            }
+        }
+
+        /* square control — this is line-item selection, not a settings switch */
+        .cs-check {
+            flex: 0 0 auto;
+            position: relative;
+            width: (28/16rem);
+            height: (28/16rem);
+            border: 2px solid rgba(47, 52, 50, 0.25);
+            border-radius: (7/16rem);
+            transition: border-color 0.3s ease;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: (3/16rem);
+                left: (3/16rem);
+                width: (18/16rem);
+                height: (18/16rem);
+                background-color: transparent;
+                border-radius: (4/16rem);
+                transition: background-color 0.25s ease;
+            }
+        }
+
+        .cs-phase[aria-pressed="true"] {
+            background-color: var(--vanilla);
+            border-color: var(--caramel);
+
+            .cs-phase-icon {
+                background-color: var(--caramel);
+
+                svg {
+                    stroke: var(--vanilla);
+                }
+            }
+
+            .cs-phase-result {
+                grid-template-rows: 1fr;
+                margin-top: (8/16rem);
+                opacity: 1;
+            }
+
+            .cs-check {
+                border-color: var(--caramel);
+
+                &::after {
+                    background-color: var(--caramel);
+                }
+            }
+        }
+
+        /* ===== Summary panel =====
+           Alpha values are --salt (#fefbea) and --charcoal (#2F3432) at low
+           opacity, written as literal rgba because custom properties can't
+           carry an alpha channel. Update here if those tokens change. */
+
+        .cs-summary {
+            background-color: var(--charcoal);
+            border-radius: (16/16rem);
+            padding: (28/16rem);
+        }
+
+        .cs-stats {
+            display: flex;
+            flex-direction: column;
+            gap: (18/16rem);
+        }
+
+        .cs-stat {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: (16/16rem);
+            padding-bottom: (18/16rem);
+            border-bottom: 1px solid rgba(254, 251, 234, 0.1);
+
+            &:last-of-type {
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+        }
+
+        .cs-stat-label {
+            font-family: var(--bodyFont);
+            font-size: (14/16rem);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(254, 251, 234, 0.5);
+        }
+
+        .cs-stat-number {
+            font-family: var(--headerFont);
+            font-size: (36/16rem);
+            line-height: 1;
+            color: var(--vanilla);
+        }
+
+        /* ===== Fuel score meter ===== */
+
+        .cs-meter-group {
+            margin-top: (24/16rem);
+        }
+
+        .cs-meter-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: (16/16rem);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-meter-key {
+            font-family: var(--bodyFont);
+            font-size: (12/16rem);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--mustard);
+        }
+
+        .cs-meter-value {
+            font-family: var(--headerFont);
+            font-size: (24/16rem);
+            line-height: 1;
+            color: var(--vanilla);
+        }
+
+        .cs-meter {
+            height: (10/16rem);
+            background-color: rgba(254, 251, 234, 0.1);
+            border-radius: (20/16rem);
+            overflow: hidden;
+        }
+
+        .cs-meter-fill {
+            display: block;
+            width: 0;
+            height: 100%;
+            border-radius: (20/16rem);
+            background: linear-gradient(90deg, var(--caramel), var(--mustard));
+            transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .cs-tiers {
+            margin: (8/16rem) 0 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            li {
+                font-family: var(--bodyFont);
+                font-size: (12/16rem);
+                font-weight: 700;
+                line-height: 1.4;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: rgba(254, 251, 234, 0.35);
+                transition: color 0.3s ease;
+
+                &:nth-child(2),
+                &:nth-child(3) {
+                    text-align: center;
+                }
+
+                &:last-child {
+                    text-align: right;
+                }
+
+                &.cs-active {
+                    color: var(--vanilla);
+                }
+            }
+        }
+
+        /* ===== CTA =====
+           Mustard, not caramel — caramel is doing selection duty on the phase
+           cards, and the button needs to read as the one thing to click. */
+
+        .cs-cta {
+            display: block;
+            width: 100%;
+            margin-top: (24/16rem);
+            background-color: var(--mustard);
+            border-color: var(--mustard);
+            color: var(--headerColor);
+
+            &::before {
+                background-color: var(--vanilla);
+            }
+
+            &:hover {
+                color: var(--headerColor);
+                border-color: var(--vanilla);
+            }
+
+            &[aria-disabled="true"] {
+                background-color: rgba(254, 251, 234, 0.08);
+                border-color: transparent;
+                color: rgba(254, 251, 234, 0.35);
+                cursor: not-allowed;
+
+                &::before {
+                    display: none;
+                }
+
+                &:hover {
+                    color: rgba(254, 251, 234, 0.35);
+                    border-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    #builder-fuel-1 {
+        .cs-phase,
+        .cs-phase-icon,
+        .cs-phase-result,
+        .cs-check,
+        .cs-check::after,
+        .cs-meter-fill,
+        .cs-tiers li {
+            transition: none;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #builder-fuel-1 {
+        .cs-wrapper {
+            grid-template-columns: 1.5fr 1fr;
+            gap: (32/16rem);
+        }
+
+        .cs-phase {
+            padding: (24/16rem);
+        }
+
+        /* sticky breaks if any ancestor sets overflow-x: hidden — the root
+           sheet uses overflow-x: clip on html, which is safe. Don't swap it. */
+        .cs-summary {
+            position: sticky;
+            top: (32/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---         Booking CTA        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #booking-fuel-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--caramel);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: (36/16rem);
+        }
+
+        /* ===== Pitch ===== */
+
+        .cs-content {
+            max-width: (560/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: rgba(255, 247, 212, 0.8);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--vanilla);
+            max-width: unset;
+            margin: 0 0 (14/16rem);
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            line-height: 1.6;
+            color: rgba(255, 247, 212, 0.85);
+            max-width: (460/16rem);
+        }
+
+        /* ===== Form card ===== */
+
+        .cs-form {
+            background-color: var(--salt);
+            border-radius: (16/16rem);
+            padding: (28/16rem) (24/16rem);
+        }
+
+        /* ===== Progress meter ===== */
+
+        .cs-meter {
+            margin-bottom: (24/16rem);
+        }
+
+        .cs-meter-meta {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: (12/16rem);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-step-label {
+            font-size: (12/16rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+        }
+
+        .cs-meter-count {
+            font-family: var(--headerFont);
+            font-size: (18/16rem);
+            line-height: 1;
+            color: var(--caramel);
+        }
+
+        .cs-meter-track {
+            height: (6/16rem);
+            background-color: rgba(47, 52, 50, 0.12);
+            border-radius: (100/16rem);
+            overflow: hidden;
+        }
+
+        /* 0 width at rest — the script owns this value. Without it the div
+           fills its parent and the bar flashes complete before first paint. */
+        .cs-meter-fill {
+            width: 0%;
+            height: 100%;
+            background-color: var(--caramel);
+            border-radius: (100/16rem);
+            transition: width 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        /* ===== Steps ===== */
+
+        .cs-step[hidden] {
+            display: none;
+        }
+
+        .cs-field {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: (7/16rem);
+            margin-bottom: (18/16rem);
+        }
+
+        /* completion tick — pure CSS, the script only toggles .cs-done */
+        .cs-field.cs-done .cs-label::after {
+            content: "✓";
+            margin-left: (6/16rem);
+            color: var(--pistachioSage);
+            font-weight: 700;
+        }
+
+        /* Stacked, not side-by-side — "Request a Proposal" has no room to share
+           a 360px row, and width:100% on the buttons resolves their flex basis
+           to the full row, which pushes the sibling out of the card. */
+        .cs-actions {
+            display: flex;
+            flex-direction: column;
+            gap: (10/16rem);
+            margin-top: (4/16rem);
+
+            .cs-button-solid {
+                margin-top: 0;
+            }
+
+            /* plain text button — font-family is required, buttons don't inherit */
+            .cs-back {
+                align-self: center;
+                background-color: transparent;
+                border: none;
+                font-family: var(--bodyFont);
+                font-size: (14/16rem);
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: rgba(47, 52, 50, 0.6);
+                padding: (10/16rem) (12/16rem);
+                transition: color 0.25s ease;
+
+                &:hover {
+                    color: var(--caramel);
+                }
+
+                &:focus-visible {
+                    outline: 2px solid var(--charcoal);
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .cs-label {
+            font-size: (12/16rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+        }
+
+        .cs-optional {
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            color: rgba(47, 52, 50, 0.5);
+        }
+
+        /* font-family is load-bearing here — form controls don't inherit it.
+           min-height keeps date inputs the same height as text inputs; iOS
+           renders them shorter and won't stretch to match. */
+        .cs-input {
+            width: 100%;
+            min-height: (45/16rem);
+            font-family: var(--bodyFont);
+            font-size: (15/16rem);
+            line-height: 1.4;
+            color: var(--headerColor);
+            background-color: #fff;
+            border: 1px solid rgba(47, 52, 50, 0.2);
+            border-radius: (8/16rem);
+            padding: (12/16rem) (14/16rem);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+            &::placeholder {
+                color: rgba(47, 52, 50, 0.4);
+            }
+
+            &:focus {
+                outline: none;
+                border-color: var(--caramel);
+                box-shadow: 0 0 0 3px rgba(201, 107, 43, 0.3);
+            }
+        }
+
+        /* native select caret replaced with a caramel chevron data-URI */
+        .cs-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c96b2b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right (14/16rem) center;
+            padding-right: (40/16rem);
+            cursor: pointer;
+        }
+
+        .cs-button-solid {
+            width: 100%;
+            margin-top: (4/16rem);
+
+            &:focus-visible {
+                outline: 2px solid var(--charcoal);
+                outline-offset: 2px;
+            }
+        }
+
+        .cs-form-note {
+            font-size: (12/16rem);
+            line-height: 1.4;
+            color: rgba(47, 52, 50, 0.55);
+            text-align: center;
+            margin: (14/16rem) 0 0;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #booking-fuel-1 {
+        .cs-container {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: (64/16rem);
+        }
+
+        .cs-content {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        /* Narrowed from 560 so the copy column can carry the same 5rem title
+           cap as every other section — at a 560px basis the column drops to
+           ~368px at 1024 and the headline shatters into five lines. */
+        .cs-form {
+            flex: 0 1 (480/16rem);
+            padding: (36/16rem) (32/16rem);
+        }
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    #booking-fuel-1 {
+        .cs-meter-fill {
+            transition: none;
+        }
+    }
+}

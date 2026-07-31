@@ -1,0 +1,1067 @@
+---
+title: "Made | Toronto, ON"
+description: "Meta description for the page"
+permalink: "/"
+tags: "sitemap" # content/content.json will make sure that all pages in content/ are marked with a "sitemap" tag, for automatic sitemap generation. As index.html is not in content/, we need to add it here to ensure the root page is included in the sitemap generation
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <!-- Critical styles are loaded first -->
+    <link rel="stylesheet" href="/assets/css/critical.css"/>
+
+    <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
+    {% if client.isProduction %}
+        <link rel="preload" href="/assets/css/local.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript>
+            <link rel="stylesheet" href="/assets/css/local.css">
+        </noscript>
+
+    {% else %}
+        <link rel="stylesheet" href="/assets/css/local.css"/>
+    {% endif %}
+
+    <!-- To ensure proper validation, prevent errors, and encourage developers to check, schema's are an opt-in feature. They're very bespoke and requires some customising  -->
+    <!-- Uncomment the code below to enable Structured Data, and test it when you deploy to Netlify - https://developers.google.com/search/docs/appearance/structured-data -->
+    <!-- {% include "components/home-schema.html" %} -->
+{% endblock %}
+
+{% block body %}
+
+
+
+<!-- ============================================ -->
+<!--                    Hero                      -->
+<!-- ============================================ -->
+
+<section id="hero-82">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Whole-Food · Sports Performance · Chef-Led</span>
+            <h1 class="cs-title">Raise the Standard.<br> Win the Day.</h1>
+            <p class="cs-text">
+                Chef-crafted performance meals for teams, schools, and high-output people. Scratch-cooked. Athlete-loved. Delivered.
+            </p>
+            <div class="cs-button-group">
+                <a href="" class="cs-button-solid">For Teams (Fuel)</a>
+                <a href="" class="cs-button-outline">Catering (Fresh)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mosaic -->
+    <div class="cs-mosaic" aria-hidden="true">
+        <div class="cs-mosaic-inner">
+            <!-- Column 1 — offset down -->
+            <div class="cs-col cs-col-1">
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-1.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-2.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-3.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-4.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-5.png" alt="" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <!-- Column 2 — no offset -->
+            <div class="cs-col cs-col-2">
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-6.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-7.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-8.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-1.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-2.png" alt="" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <!-- Column 3 — offset down most -->
+            <div class="cs-col cs-col-3">
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-3.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-4.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-5.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-6.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="cs-tile">
+                    <img class="cs-tile-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/hero-images/meal-prep-7.png" alt="" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+
+        <!-- Gradient fades -->
+        <div class="cs-fade cs-fade-left"></div>
+        <div class="cs-fade cs-fade-right"></div>
+        <div class="cs-fade cs-fade-top"></div>
+        <div class="cs-fade cs-fade-bottom"></div>
+    </div>
+</section>
+
+<script>const col1 = document.querySelector('#hero-82 .cs-col-1');
+const col2 = document.querySelector('#hero-82 .cs-col-2');
+const col3 = document.querySelector('#hero-82 .cs-col-3');
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    col1.style.transform = `translateY(${scrollY * 0.2}px)`;
+    col2.style.transform = `translateY(${scrollY * -0.2}px)`;
+    col3.style.transform = `translateY(${scrollY * 0.2}px)`;
+}, { passive: true });</script>
+
+<!-- ============================================ -->
+<!--                  Logo Bar                    -->
+<!-- ============================================ -->
+
+<section id="logo-bar-1">
+    <div class="cs-inner">
+        <span class="cs-topper">Trusted By</span>
+        <div class="cs-marquee-wrap">
+            <div class="cs-marquee-track">
+                <span class="cs-logo-name">Toronto Raptors</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">Blue Jays</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">Maple Leafs</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">NY Knicks</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">LA Clippers</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">PGA Tour</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">Tiger-Cats</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">UNC</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">U of T</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">Laurier</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name">Golf Canada</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <!-- Duplicate set for seamless loop -->
+                <span class="cs-logo-name" aria-hidden="true">Toronto Raptors</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">Blue Jays</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">Maple Leafs</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">NY Knicks</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">LA Clippers</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">PGA Tour</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">Tiger-Cats</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">UNC</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">U of T</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">Laurier</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+                <span class="cs-logo-name" aria-hidden="true">Golf Canada</span>
+                <span class="cs-divider" aria-hidden="true">·</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--               Find Your MADE                 -->
+<!-- ============================================ -->
+
+<section id="quiz-1">
+    <div class="cs-left">
+
+        <div class="cs-left-top">
+            <span class="cs-topper">Find Your MADE</span>
+            <h2 class="cs-title">Not Sure Where to Start?</h2>
+            <p class="cs-text">Answer 3 quick questions and we'll match you to the right MADE service in under 30 seconds.</p>
+
+            <ul class="cs-credential-list">
+                <li class="cs-credential">
+                    <span class="cs-credential-icon">🍳</span>
+                    <div class="cs-credential-body">
+                        <p class="cs-credential-title">Scratch-cooked. No shortcuts.</p>
+                        <p class="cs-credential-sub">Every meal made from whole ingredients — nothing from a bag or a box.</p>
+                    </div>
+                </li>
+                <li class="cs-credential">
+                    <span class="cs-credential-icon">⚡</span>
+                    <div class="cs-credential-body">
+                        <p class="cs-credential-title">Built for performance.</p>
+                        <p class="cs-credential-sub">Macro-dialled meals designed around how athletes actually eat and train.</p>
+                    </div>
+                </li>
+                <li class="cs-credential">
+                    <span class="cs-credential-icon">🚚</span>
+                    <div class="cs-credential-body">
+                        <p class="cs-credential-title">Delivered on time. Every time.</p>
+                        <p class="cs-credential-sub">Hot or chilled. Halton · Hamilton · Peel · Toronto · KW.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="cs-right">
+
+
+        <div class="cs-card">
+
+            <div class="cs-card-header">
+                <div class="cs-card-label">
+                    <span class="cs-dot" aria-hidden="true"></span>
+                    <span class="cs-card-title">Find Your MADE</span>
+                </div>
+                <span class="cs-card-meta">3 Questions · Instant Result</span>
+            </div>
+
+            <div class="cs-progress-bar" aria-hidden="true">
+                <div class="cs-progress-fill" style="width: 0%"></div>
+            </div>
+            <span class="cs-progress-label"><span class="cs-progress-current">0</span> / 3</span>
+
+            <!-- Step 1 -->
+            <div class="cs-step cs-active" data-step="1">
+                <p class="cs-question">Who are you feeding?</p>
+                <ul class="cs-options">
+                    <li class="cs-option" data-next="2">
+                        <span class="cs-icon">🏆</span>
+                        <div>
+                            <p class="cs-option-title">A Team or Program</p>
+                            <p class="cs-option-sub">Athletes, coaches, school program</p>
+                        </div>
+                    </li>
+                    <li class="cs-option" data-next="2">
+                        <span class="cs-icon">💼</span>
+                        <div>
+                            <p class="cs-option-title">A Corporate Event</p>
+                            <p class="cs-option-sub">Board dinners, office functions</p>
+                        </div>
+                    </li>
+                    <li class="cs-option" data-next="2">
+                        <span class="cs-icon">🏠</span>
+                        <div>
+                            <p class="cs-option-title">My Family</p>
+                            <p class="cs-option-sub">Weekly meal prep, family trays</p>
+                        </div>
+                    </li>
+                    <li class="cs-option" data-next="2">
+                        <span class="cs-icon">🏢</span>
+                        <div>
+                            <p class="cs-option-title">My Facility</p>
+                            <p class="cs-option-sub">Gym, training centre, university</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="cs-step" data-step="2">
+                <p class="cs-question">How often do you need food?</p>
+                <ul class="cs-options">
+                    <li class="cs-option" data-next="3">
+                        <span class="cs-icon">📅</span>
+                        <div>
+                            <p class="cs-option-title">Weekly recurring</p>
+                            <p class="cs-option-sub">Ongoing subscription or contract</p>
+                        </div>
+                    </li>
+                    <li class="cs-option" data-next="3">
+                        <span class="cs-icon">📆</span>
+                        <div>
+                            <p class="cs-option-title">One-time event</p>
+                            <p class="cs-option-sub">Single booking or occasion</p>
+                        </div>
+                    </li>
+                    <li class="cs-option" data-next="3">
+                        <span class="cs-icon">🔄</span>
+                        <div>
+                            <p class="cs-option-title">Seasonal / in-season</p>
+                            <p class="cs-option-sub">During a sports season or term</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="cs-step" data-step="3">
+                <p class="cs-question">What matters most to you?</p>
+                <ul class="cs-options">
+                    <li class="cs-option" data-result="fuel">
+                        <span class="cs-icon">⚡</span>
+                        <div>
+                            <p class="cs-option-title">Performance &amp; macros</p>
+                            <p class="cs-option-sub">High protein, dialled-in nutrition</p>
+                        </div>
+                    </li>
+                    <li class="cs-option" data-result="fresh">
+                        <span class="cs-icon">🥗</span>
+                        <div>
+                            <p class="cs-option-title">Fresh whole ingredients</p>
+                            <p class="cs-option-sub">Clean eating, seasonal produce</p>
+                        </div>
+                    </li>
+                    <li class="cs-option" data-result="custom">
+                        <span class="cs-icon">✏️</span>
+                        <div>
+                            <p class="cs-option-title">Custom menu control</p>
+                            <p class="cs-option-sub">Your specs, your preferences</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Result -->
+            <div class="cs-step cs-result" data-step="result">
+                <p class="cs-result-label">Your MADE service</p>
+                <p class="cs-result-name"></p>
+                <p class="cs-result-desc"></p>
+                <a href="/contact" class="cs-button-solid cs-result-cta">Get a Quote</a>
+                <button class="cs-restart">Start over</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    /* ===== Quiz Logic ===== */
+    var section = document.getElementById('quiz-1');
+    if (!section) return;
+
+    var steps      = Array.prototype.slice.call(section.querySelectorAll('.cs-step'));
+    var fill       = section.querySelector('.cs-progress-fill');
+    var counter    = section.querySelector('.cs-progress-current');
+    var resultName = section.querySelector('.cs-result-name');
+    var resultDesc = section.querySelector('.cs-result-desc');
+    var restartBtn = section.querySelector('.cs-restart');
+    var current    = 0;
+
+    var results = {
+        fuel:   { name: 'MADE Fuel',   desc: 'Performance-focused weekly meal prep built around your macros and training schedule.' },
+        fresh:  { name: 'MADE Fresh',  desc: 'Scratch-cooked, whole-ingredient meals delivered fresh — no fillers, no shortcuts.' },
+        custom: { name: 'MADE Custom', desc: 'A fully bespoke menu designed around your specifications, dietary needs, and goals.' }
+    };
+
+    function showStep(id) {
+        steps.forEach(function (s) { s.classList.remove('cs-active'); });
+        var next = section.querySelector('[data-step="' + id + '"]');
+        if (next) next.classList.add('cs-active');
+    }
+
+    function updateProgress(n) {
+        current = n;
+        fill.style.width = ((n / 3) * 100) + '%';
+        counter.textContent = n;
+    }
+
+    section.addEventListener('click', function (e) {
+        var opt = e.target.closest('.cs-option');
+        if (!opt) return;
+        var nextStep = opt.getAttribute('data-next');
+        var result   = opt.getAttribute('data-result');
+        if (result) {
+            updateProgress(3);
+            var r = results[result] || results.fuel;
+            resultName.textContent = r.name;
+            resultDesc.textContent = r.desc;
+            showStep('result');
+            return;
+        }
+        if (nextStep) {
+            updateProgress(current + 1);
+            showStep(nextStep);
+        }
+    });
+
+    restartBtn.addEventListener('click', function () {
+        updateProgress(0);
+        showStep(1);
+    });
+
+})();
+</script>
+
+<!-- ============================================ -->
+<!--               How It Works                  -->
+<!-- ============================================ -->
+
+<section id="how-it-works-1">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <span class="cs-topper">How it Works</span>
+            <h2 class="cs-title">SIMPLE. RELIABLE. DELIVERED.</h2>
+            <p class="cs-text">Simple. Reliable. Delivered. 7-day lead time · Halton · Hamilton · Peel · Toronto · KW (University Season)</p>
+        </div>
+
+        <ul class="cs-stats-list">
+
+            <svg class="cs-curve" aria-hidden="true" viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
+                <path class="cs-curve-line" fill="none" d="M 480 60 C 820 200, 720 360, 470 470 S 120 640, 180 780 S 600 780, 500 820" />
+                <path class="cs-curve-path" fill="none" stroke="none" d="M 480 60 C 820 200, 720 360, 470 470 S 120 640, 180 780 S 600 780, 500 820" />
+            </svg>
+
+            <div class="cs-knife" aria-hidden="true"><div class="cs-knife-icon"></div></div>
+
+            <li class="cs-row">
+                <span class="cs-stat-bg" aria-hidden="true">STEP: 1</span>
+                <div class="cs-card">
+                    <picture class="cs-media cs-picture">
+                        <source media="(min-width: 64rem)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works.png">
+                        <source media="(max-width: 63.9375rem)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works.png">
+                        <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works.png" alt="MADE meals being prepared" width="800" height="600">
+                    </picture>
+                    <div class="cs-scrim"></div>
+                    <div class="cs-stat">
+                        <p class="cs-stat-number"><span class="cs-num">INQUIRE</span></p>
+                        <p class="cs-stat-label">Submit an Inquiry</p>
+                        <p class="cs-stat-sub">Tell us your program size, meal type, dietary needs, and start date. Takes 2 minutes.</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="cs-row">
+                <span class="cs-stat-bg" aria-hidden="true">STEP: 2</span>
+                <div class="cs-card">
+                    <picture class="cs-media cs-picture">
+                        <source media="(min-width: 64rem)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-2.png">
+                        <source media="(max-width: 63.9375rem)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-2.png">
+                        <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-2.png" alt="Fresh ingredients" width="800" height="600">
+                    </picture>
+                    <div class="cs-scrim"></div>
+                    <div class="cs-stat">
+                        <p class="cs-stat-number"><span class="cs-num">PLAN</span></p>
+                        <p class="cs-stat-label">We Build Your Plan</p>
+                        <p class="cs-stat-sub">DJ designs a custom menu around your schedule and sends a full proposal within 48 hours.</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="cs-row">
+                <span class="cs-stat-bg" aria-hidden="true">STEP: 3</span>
+                <div class="cs-card">
+                    <picture class="cs-media cs-picture">
+                        <source media="(min-width: 64rem)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-3.png">
+                        <source media="(max-width: 63.9375rem)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-3.png">
+                        <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/how-it-works-3.png" alt="Meal delivery" width="800" height="600">
+                    </picture>
+                    <div class="cs-scrim"></div>
+                    <div class="cs-stat">
+                        <p class="cs-stat-number"><span class="cs-num">DELIVER</span></p>
+                        <p class="cs-stat-label">We Deliver. You Win.</p>
+                        <p class="cs-stat-sub">Hot or chilled. On time. Every time. The right food. The right portions. No chicken and rice.</p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+</section>
+
+<script>
+(function () {
+    var section = document.getElementById('how-it-works-1');
+    if (!section) return;
+
+    var rows = Array.prototype.slice.call(section.querySelectorAll('.cs-row'));
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function reveal(row) {
+        row.classList.add('cs-active');
+    }
+
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                reveal(e.target);
+                io.unobserve(e.target);
+            });
+        }, { threshold: 0.25, rootMargin: '0px 0px -60px 0px' });
+        rows.forEach(function (r) { io.observe(r); });
+    } else {
+        rows.forEach(reveal);
+    }
+
+    /* ===== Travelling knife (desktop only) ===== */
+    var pathEl   = section.querySelector('.cs-curve-path');
+    var knife    = section.querySelector('.cs-knife-icon');
+    var curveSvg = section.querySelector('.cs-curve');
+    var list     = section.querySelector('.cs-stats-list');
+
+    if (pathEl && knife && curveSvg && list && window.matchMedia('(min-width: 64rem)').matches) {
+        var VBW = 1000, VBH = 1000;
+        var len = pathEl.getTotalLength();
+        var KNIFE_ANGLE = -125;
+        var sx = 1, sy = 1;
+
+        var watermarks = rows.map(function (row) {
+            return row.querySelector('.cs-stat-bg');
+        });
+
+        function cacheScale() {
+            var box = curveSvg.getBoundingClientRect();
+            if (box.width && box.height) {
+                sx = box.width  / VBW;
+                sy = box.height / VBH;
+            }
+        }
+        cacheScale();
+
+        var ticking = false;
+        function place() {
+            var vh = window.innerHeight;
+            var scrolled   = window.scrollY || window.pageYOffset;
+            var listTop    = list.getBoundingClientRect().top + scrolled;
+            var listHeight = list.offsetHeight;
+            var start = listTop - vh * 0.5;
+            var end   = listTop + listHeight - vh * 1.4;
+            var p = Math.max(0, Math.min(1, (scrolled - start) / (end - start)));
+            var dist = p * len;
+            var pt   = pathEl.getPointAtLength(dist);
+
+            var knifeY = list.getBoundingClientRect().top + (pt.y * sy);
+
+            knife.style.transform = 'translate(' + (pt.x * sx) + 'px, ' + (pt.y * sy) + 'px) rotate(' + KNIFE_ANGLE + 'deg)';
+
+            watermarks.forEach(function (wm) {
+    if (!wm) return;
+    var wmBottom = wm.getBoundingClientRect().bottom;
+    if (knifeY >= wmBottom) {
+        wm.classList.add('cs-knife-passed');
+    } else {
+        wm.classList.remove('cs-knife-passed');
+    }
+});
+
+            ticking = false;
+        }
+
+        function onScroll() {
+            if (!ticking) { requestAnimationFrame(place); ticking = true; }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', function () { cacheScale(); onScroll(); });
+        window.addEventListener('load', function () { cacheScale(); place(); });
+        place();
+    }
+})();
+</script>
+
+<!-- ============================================ -->
+<!--              Scrolling Strip                 -->
+<!-- ============================================ -->
+
+<div id="scroll-strip-1" aria-hidden="true">
+    <div class="cs-strip-track">
+        <span class="cs-strip-text">MADE FRESH <span class="cs-dot">•</span> MADE COLD <span class="cs-dot">•</span> MADE FUEL <span class="cs-dot">•</span> MADE FRESH <span class="cs-dot">•</span> MADE COLD <span class="cs-dot">•</span> MADE FUEL <span class="cs-dot">•</span> MADE FRESH <span class="cs-dot">•</span> MADE COLD <span class="cs-dot">•</span> MADE FUEL <span class="cs-dot">•</span></span>
+    </div>
+</div>
+
+<script>
+(function () {
+    var strip = document.getElementById('scroll-strip-1');
+    var track = strip && strip.querySelector('.cs-strip-track');
+    if (!track) return;
+
+    var offset = 0;
+
+    window.addEventListener('scroll', function () {
+        offset = window.scrollY * 0.3;
+        track.style.transform = 'translateX(-' + offset + 'px)';
+    }, { passive: true });
+})();
+</script>
+
+<!-- ============================================ -->
+<!--                 By The Numbers               -->
+<!-- ============================================ -->
+
+<div id="brand-statement-sticky">
+    <section id="brand-statement-1">
+        <div class="cs-container">
+
+            <div class="cs-content">
+                <span class="cs-topper">Track Record</span>
+                <h2 class="cs-title">By The Numbers</h2>
+                <p class="cs-text">Every figure below was earned in the kitchen and on the field — this is what chef-crafted performance fuel looks like when you run it at scale.</p>
+            </div>
+
+            <div class="cs-picture-wrap">
+
+                <div class="cs-slides-pin">
+                    <div class="cs-slide cs-active">
+                        <picture class="cs-picture">
+                            <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/meal-prep-container.png" alt="Meal prep container" width="1200" height="600">
+                        </picture>
+                    </div>
+                    <div class="cs-slide">
+                        <picture class="cs-picture">
+                            <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/meal-prep-container.png" alt="Fresh ingredients" width="1200" height="600">
+                        </picture>
+                    </div>
+                    <div class="cs-slide">
+                        <picture class="cs-picture">
+                            <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/meal-prep-container-2.png" alt="Athlete meal" width="1200" height="600">
+                        </picture>
+                    </div>
+                    <div class="cs-slide">
+                        <picture class="cs-picture">
+                            <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/meal-prep-container-3u.png" alt="Performance nutrition" width="1200" height="600">
+                        </picture>
+                    </div>
+                    <div class="cs-slide">
+                        <picture class="cs-picture">
+                            <img loading="lazy" decoding="async" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/meal-prep-container-4.png" alt="Scratch cooked food" width="1200" height="600">
+                        </picture>
+                    </div>
+                </div>
+
+                <!-- Stat cards -->
+                <div class="cs-step-card cs-card-1">
+                    <p class="cs-card-num"><span class="cs-num" data-target="3000">0</span><span class="cs-card-suffix">+</span></p>
+                    <p class="cs-card-label">Meals Per Week</p>
+                    <p class="cs-card-sub">Peak capacity last summer</p>
+                </div>
+                <div class="cs-step-card cs-card-2">
+                    <p class="cs-card-num"><span class="cs-num" data-target="17">0</span><span class="cs-card-suffix">+</span></p>
+                    <p class="cs-card-label">Teams &amp; Programs</p>
+                    <p class="cs-card-sub">OUA, pro, high school</p>
+                </div>
+                <div class="cs-step-card cs-card-3">
+                    <p class="cs-card-num"><span class="cs-num" data-target="8">0</span><span class="cs-card-suffix">+ YRS</span></p>
+                    <p class="cs-card-label">Chef Experience</p>
+                    <p class="cs-card-sub">World-class organizations</p>
+                </div>
+                <div class="cs-step-card cs-card-4">
+                    <p class="cs-card-num"><span class="cs-num" data-target="100">0</span><span class="cs-card-suffix">%</span></p>
+                    <p class="cs-card-label">Scratch-Cooked</p>
+                    <p class="cs-card-sub">No shortcuts. No fillers.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<script>
+/* ===== Image crossfade ===== */
+(function () {
+    var slides = document.querySelectorAll('#brand-statement-1 .cs-slide');
+    if (!slides.length) return;
+    var current = 0;
+    setInterval(function () {
+        slides[current].classList.remove('cs-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('cs-active');
+    }, 3500);
+})();
+
+/* ===== Card fade-in + fling-out ===== */
+(function () {
+    var section  = document.querySelector('#brand-statement-1');
+    var cards    = document.querySelectorAll('#brand-statement-1 .cs-step-card');
+    var numCards = document.querySelectorAll('#brand-statement-1 .cs-num');
+    if (!section || !cards.length) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var counted = false;
+
+    var flingMap = [
+        { tx: -60, ty: -50, rot: -8 }, /* card-1 top-left     */
+        { tx:  60, ty: -50, rot:  8 }, /* card-2 top-right    */
+        { tx: -60, ty: -50, rot:  6 }, /* card-3 bottom-left  */
+        { tx:  60, ty: -50, rot: -6 }  /* card-4 bottom-right */
+    ];
+
+    function countUp(el, target) {
+        var dur = target >= 500 ? 1400 : target >= 50 ? 900 : 650;
+        var start = null;
+        function frame(t) {
+            if (!start) start = t;
+            var p = Math.min(1, (t - start) / dur);
+            var eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+            el.textContent = Math.round(eased * target).toLocaleString();
+            if (p < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    }
+
+    function easeOut(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    function onScroll() {
+        var rect    = section.getBoundingClientRect();
+        var windowH = window.innerHeight;
+        var secH    = section.offsetHeight;
+
+        var fadeStart = windowH * 0.8;
+        var fadeEnd   = windowH * 0.2;
+        var fadeProgress = (fadeStart - rect.top) / (fadeStart - fadeEnd);
+        fadeProgress = Math.max(0, Math.min(1, fadeProgress));
+
+        var flingStart = fadeEnd;
+        var flingEnd   = -(secH * 0.35);
+        var flingProgress = (flingStart - rect.top) / (flingStart - flingEnd);
+        flingProgress = Math.max(0, Math.min(1, flingProgress));
+        var flingEased = easeOut(flingProgress);
+
+        cards.forEach(function (card, i) {
+            var f = flingMap[i] || flingMap[0];
+            if (flingProgress > 0) {
+                var tx  = f.tx  * flingEased;
+                var ty  = f.ty  * flingEased;
+                var rot = f.rot * flingEased;
+                card.style.opacity   = 1;
+                card.style.transform = 'translate(' + tx + 'px, ' + ty + 'px) rotate(' + rot + 'deg)';
+            } else {
+                card.style.opacity   = fadeProgress;
+                card.style.transform = 'translate(0, 0) rotate(0deg)';
+            }
+        });
+
+        if (fadeProgress >= 1 && !counted) {
+            counted = true;
+            numCards.forEach(function (el) {
+                var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+                if (reduceMotion) {
+                    el.textContent = target.toLocaleString();
+                } else {
+                    countUp(el, target);
+                }
+            });
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+
+/* ===== Image pin ===== */
+(function () {
+    var isDesktop = window.matchMedia('(min-width: 64rem)');
+    var pin       = document.querySelector('#brand-statement-1 .cs-slides-pin');
+    var section   = document.querySelector('#brand-statement-1');
+    var next      = document.querySelector('#brand-family-1');
+    if (!pin || !section || !next) return;
+
+    function update() {
+        if (!isDesktop.matches) {
+            pin.classList.remove('is-fixed', 'is-done');
+            return;
+        }
+
+        var secRect  = section.getBoundingClientRect();
+        var nextRect = next.getBoundingClientRect();
+        var pinH     = pin.offsetHeight;
+        var winH     = window.innerHeight;
+
+        var sectionBottomReached = secRect.bottom <= winH;
+        var nextCoversPin        = nextRect.top <= (winH / 2) - (pinH / 2);
+
+        if (nextCoversPin) {
+            pin.classList.remove('is-fixed');
+            pin.classList.add('is-done');
+        } else if (sectionBottomReached) {
+            pin.classList.add('is-fixed');
+            pin.classList.remove('is-done');
+        } else {
+            pin.classList.remove('is-fixed', 'is-done');
+        }
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+})();
+</script>
+
+<!-- ============================================ -->
+<!--               The Brand Family               -->
+<!-- ============================================ -->
+
+<section id="brand-family-1">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <div class="cs-header-left">
+                <span class="cs-topper">The Brand Family</span>
+                <h2 class="cs-title">Everything MADE Makes</h2>
+            </div>
+            <p class="cs-text">Six product lines. One philosophy. Whole-food, scratch-cooked, built for performance.</p>
+        </div>
+
+        <div class="cs-carousel">
+            <ul class="cs-track" id="brand-track">
+
+                <!-- MADE FUEL -->
+                <li class="cs-item cs-item-fuel">
+                    <div class="cs-item-top">
+                        <span class="cs-brand-label">Made Fuel</span>
+                    </div>
+                    <p class="cs-card-title">Athlete Nutrition</p>
+                    <p class="cs-card-desc">Sports performance · team meals · university programs · high school prep</p>
+                    <a href="/fuel" class="cs-card-btn">Get Started</a>
+                </li>
+
+                <!-- MADE FRESH -->
+                <li class="cs-item cs-item-fresh">
+                    <div class="cs-item-top">
+                        <span class="cs-brand-label">Made Fresh</span>
+                    </div>
+                    <p class="cs-card-title">Prepared Foods</p>
+                    <p class="cs-card-desc">Corporate catering · family trays · ready-to-eat · private events</p>
+                    <a href="/fresh" class="cs-card-btn">Get Started</a>
+                </li>
+
+                <!-- MADE COLD -->
+                <li class="cs-item cs-item-cold">
+                    <div class="cs-item-top">
+                        <span class="cs-brand-label">Made Cold</span>
+                    </div>
+                    <p class="cs-card-title">Hydration</p>
+                    <p class="cs-card-desc">Cold-pressed juice · functional hydration · facility partnerships</p>
+                    <a href="/cold" class="cs-card-btn">Get Started</a>
+                </li>
+
+                <!-- MADE KIDS -->
+                <li class="cs-item cs-item-upcoming">
+                    <div class="cs-item-top">
+                        <span class="cs-brand-label">Made Kids</span>
+                        <span class="cs-coming-soon">Coming Soon</span>
+                    </div>
+                    <p class="cs-card-title">Kids Meals</p>
+                    <p class="cs-card-desc">Allergen-safe meal prep built for children and school programs</p>
+                    <a href="#notify" class="cs-card-btn cs-card-btn-outline">Get Notified</a>
+                </li>
+
+                <!-- CUSTOM-MADE -->
+                <li class="cs-item cs-item-upcoming">
+                    <div class="cs-item-top">
+                        <span class="cs-brand-label">Custom-Made</span>
+                        <span class="cs-coming-soon">Coming Soon</span>
+                    </div>
+                    <p class="cs-card-title">Private Chef</p>
+                    <p class="cs-card-desc">Exclusive private chef services and bespoke dining experiences</p>
+                    <a href="#notify" class="cs-card-btn cs-card-btn-outline">Get Notified</a>
+                </li>
+
+                <!-- HOME-MADE -->
+                <li class="cs-item cs-item-upcoming">
+                    <div class="cs-item-top">
+                        <span class="cs-brand-label">Home-Made</span>
+                        <span class="cs-coming-soon">Coming Soon</span>
+                    </div>
+                    <p class="cs-card-title">Grocery</p>
+                    <p class="cs-card-desc">Chef-curated grocery delivery stocked with whole-food essentials</p>
+                    <a href="#notify" class="cs-card-btn cs-card-btn-outline">Get Notified</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="cs-carousel-controls">
+            <div class="cs-progress" aria-hidden="true">
+                <div class="cs-progress-fill" id="brand-progress"></div>
+            </div>
+            <div class="cs-arrows">
+                <button class="cs-arrow" id="brand-prev" aria-label="Previous brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                </button>
+                <button class="cs-arrow" id="brand-next" aria-label="Next brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+(function () {
+    var track   = document.getElementById('brand-track');
+    var fill    = document.getElementById('brand-progress');
+    var prevBtn = document.getElementById('brand-prev');
+    var nextBtn = document.getElementById('brand-next');
+    if (!track || !fill) return;
+
+    function cardWidth() {
+        var card = track.querySelector('.cs-item');
+        if (!card) return 0;
+        var gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return card.getBoundingClientRect().width + gap;
+    }
+
+    function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        var pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+        fill.style.width = pct + '%';
+        if (prevBtn) prevBtn.disabled = track.scrollLeft <= 4;
+        if (nextBtn) nextBtn.disabled = track.scrollLeft >= max - 4;
+    }
+
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+        track.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+        track.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+    });
+
+    update();
+})();
+</script>
+
+<!-- ============================================ -->
+<!--               Teams Marquee                  -->
+<!-- ============================================ -->
+
+<section id="teams-1">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <h2 class="cs-title">Teams &amp; Organizations We've Fueled</h2>
+            <p class="cs-text">From pro locker rooms to university dining halls — here's who we've had the privilege of feeding.</p>
+        </div>
+
+        <div class="cs-marquee-wrap">
+
+            <!-- Top row — scrolls right -->
+            <div class="cs-marquee cs-marquee-right">
+                <ul class="cs-tag-list">
+                    <li class="cs-tag">Toronto Raptors</li>
+                    <li class="cs-tag">Blue Jays</li>
+                    <li class="cs-tag">Maple Leafs</li>
+                    <li class="cs-tag">NY Knicks</li>
+                    <li class="cs-tag">LA Clippers</li>
+                    <li class="cs-tag">PGA Tour</li>
+                    <li class="cs-tag">Tiger-Cats</li>
+                    <li class="cs-tag">UNC</li>
+                    <li class="cs-tag">U of T</li>
+                    <li class="cs-tag">Laurier</li>
+                    <li class="cs-tag">York U</li>
+                    <li class="cs-tag">Queens</li>
+                    <li class="cs-tag">Guelph Gryphons</li>
+                    <li class="cs-tag">Golf Canada</li>
+                    <li class="cs-tag">Golf Ontario</li>
+                    <li class="cs-tag">Polaris Prep</li>
+                    <li class="cs-tag">MacLachlan College</li>
+                </ul>
+                <ul class="cs-tag-list" aria-hidden="true">
+                    <li class="cs-tag">Toronto Raptors</li>
+                    <li class="cs-tag">Blue Jays</li>
+                    <li class="cs-tag">Maple Leafs</li>
+                    <li class="cs-tag">NY Knicks</li>
+                    <li class="cs-tag">LA Clippers</li>
+                    <li class="cs-tag">PGA Tour</li>
+                    <li class="cs-tag">Tiger-Cats</li>
+                    <li class="cs-tag">UNC</li>
+                    <li class="cs-tag">U of T</li>
+                    <li class="cs-tag">Laurier</li>
+                    <li class="cs-tag">York U</li>
+                    <li class="cs-tag">Queens</li>
+                    <li class="cs-tag">Guelph Gryphons</li>
+                    <li class="cs-tag">Golf Canada</li>
+                    <li class="cs-tag">Golf Ontario</li>
+                    <li class="cs-tag">Polaris Prep</li>
+                    <li class="cs-tag">MacLachlan College</li>
+                </ul>
+            </div>
+
+            <!-- Bottom row — scrolls left -->
+            <div class="cs-marquee cs-marquee-left">
+                <ul class="cs-tag-list">
+                    <li class="cs-tag">MacLachlan College</li>
+                    <li class="cs-tag">Polaris Prep</li>
+                    <li class="cs-tag">Golf Ontario</li>
+                    <li class="cs-tag">Golf Canada</li>
+                    <li class="cs-tag">Guelph Gryphons</li>
+                    <li class="cs-tag">Queens</li>
+                    <li class="cs-tag">York U</li>
+                    <li class="cs-tag">Laurier</li>
+                    <li class="cs-tag">U of T</li>
+                    <li class="cs-tag">UNC</li>
+                    <li class="cs-tag">Tiger-Cats</li>
+                    <li class="cs-tag">PGA Tour</li>
+                    <li class="cs-tag">LA Clippers</li>
+                    <li class="cs-tag">NY Knicks</li>
+                    <li class="cs-tag">Maple Leafs</li>
+                    <li class="cs-tag">Blue Jays</li>
+                    <li class="cs-tag">Toronto Raptors</li>
+                </ul>
+                <ul class="cs-tag-list" aria-hidden="true">
+                    <li class="cs-tag">MacLachlan College</li>
+                    <li class="cs-tag">Polaris Prep</li>
+                    <li class="cs-tag">Golf Ontario</li>
+                    <li class="cs-tag">Golf Canada</li>
+                    <li class="cs-tag">Guelph Gryphons</li>
+                    <li class="cs-tag">Queens</li>
+                    <li class="cs-tag">York U</li>
+                    <li class="cs-tag">Laurier</li>
+                    <li class="cs-tag">U of T</li>
+                    <li class="cs-tag">UNC</li>
+                    <li class="cs-tag">Tiger-Cats</li>
+                    <li class="cs-tag">PGA Tour</li>
+                    <li class="cs-tag">LA Clippers</li>
+                    <li class="cs-tag">NY Knicks</li>
+                    <li class="cs-tag">Maple Leafs</li>
+                    <li class="cs-tag">Blue Jays</li>
+                    <li class="cs-tag">Toronto Raptors</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+        (function () {
+            var lenis = new Lenis({
+                duration: 2.2,
+                easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+                smoothWheel: true,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+        })();
+</script>
+
+{% endblock %}

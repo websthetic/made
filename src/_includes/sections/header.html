@@ -1,0 +1,101 @@
+<!-- ============================================ -->
+<!--                 Navigation                   -->
+<!-- ============================================ -->
+
+<header id="cs-navigation">
+    <div class="cs-container">
+        <a href="/" class="cs-logo" aria-label="MADE by DJ - back to home">
+            <img
+                class="cs-logo-img"
+                src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/made-logo.png"
+                alt=""
+                decoding="async"
+            >
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="cs-toggle" aria-label="open mobile menu" aria-expanded="false" aria-controls="cs-expanded">
+            <div class="cs-box" aria-hidden="true">
+                <span class="cs-line cs-line1"></span>
+                <span class="cs-line cs-line2"></span>
+                <span class="cs-line cs-line3"></span>
+            </div>
+        </button>
+
+        <div class="cs-ul-wrapper">
+            <ul id="cs-expanded" class="cs-ul">
+                <li class="cs-li">
+                    <a href="/fuel/" class="cs-li-link" {% if page.url == "/fuel/" %}aria-current="page"{% endif %}>Fuel</a>
+                </li>
+                <li class="cs-li">
+                    <a href="/fresh/" class="cs-li-link" {% if page.url == "/fresh/" %}aria-current="page"{% endif %}>Fresh</a>
+                </li>
+                <li class="cs-li">
+                    <a href="/cold/" class="cs-li-link" {% if page.url == "/cold/" %}aria-current="page"{% endif %}>Cold</a>
+                </li>
+                <li class="cs-li">
+                    <a href="/menu/" class="cs-li-link" {% if page.url == "/menu/" %}aria-current="page"{% endif %}>Menu</a>
+                </li>
+
+                <li class="cs-li cs-dropdown">
+                    <button
+                        class="cs-li-link cs-drop-button{% if page.url == "/why-made/" or page.url == "/the-kitchen/" %} cs-drop-current{% endif %}"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="cs-drop-about"
+                    >
+                        About Us
+                        <svg class="cs-drop-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </button>
+
+                    <div id="cs-drop-about" class="cs-drop-panel">
+                        <div class="cs-drop-inner">
+                            <ul class="cs-drop-ul">
+                                <li class="cs-drop-li">
+                                    <a href="/why-made/" class="cs-drop-link" {% if page.url == "/why-made/" %}aria-current="page"{% endif %}>Why MADE</a>
+                                </li>
+                                <li class="cs-drop-li">
+                                    <a href="/the-kitchen/" class="cs-drop-link" {% if page.url == "/the-kitchen/" %}aria-current="page"{% endif %}>The Kitchen</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="cs-li cs-dropdown">
+                    <button
+                        class="cs-li-link cs-drop-button{% if page.url == "/university-meal-prep/" or page.url == "/athlete-nutrition-gta/" or page.url == "/sports-catering-gta/" %} cs-drop-current{% endif %}"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="cs-drop-programs"
+                    >
+                        Programs
+                        <svg class="cs-drop-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </button>
+
+                    <div id="cs-drop-programs" class="cs-drop-panel">
+                        <div class="cs-drop-inner">
+                            <ul class="cs-drop-ul">
+                                <li class="cs-drop-li">
+                                    <a href="/university-meal-prep/" class="cs-drop-link" {% if page.url == "/university-meal-prep/" %}aria-current="page"{% endif %}>University Programs</a>
+                                </li>
+                                <li class="cs-drop-li">
+                                    <a href="/athlete-nutrition-gta/" class="cs-drop-link" {% if page.url == "/athlete-nutrition-gta/" %}aria-current="page"{% endif %}>Athlete Nutrition GTA</a>
+                                </li>
+                                <li class="cs-drop-li">
+                                    <a href="/sports-catering-gta/" class="cs-drop-link" {% if page.url == "/sports-catering-gta/" %}aria-current="page"{% endif %}>Sports Catering GTA</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <a href="/contact/" class="cs-button-solid cs-nav-button">Start Your Program</a>
+        </div>
+    </div>
+</header>

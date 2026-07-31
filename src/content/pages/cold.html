@@ -1,0 +1,58 @@
+---
+title: "Coming Soon | Made Cold"
+description: "Meta description for the page"
+permalink: "/cold/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/cold.css">
+{% endblock %}
+
+{% block body %}
+
+<!-- ============================================ -->
+<!--          Coming Soon — Made Cold             -->
+<!-- ============================================ -->
+
+<section id="coming-soon-cold-1">
+    <div class="cs-container">
+
+        <!-- decorative — the topper directly below already says "Made Cold",
+             so a described icon would just announce it twice -->
+        <picture class="cs-icon">
+            <img class="cs-icon-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/made-cold-icon.ai.svg" alt="" fetchpriority="high" decoding="async">
+        </picture>
+
+        <span class="cs-topper">MADE Cold</span>
+
+        <h1 class="cs-title">Cold-Press Performance Nutrition For Athletes</h1>
+
+        <p class="cs-text">Join the waitlist for early access.</p>
+
+        <!-- Wire this up to your form handler (Netlify Forms, Formspree, an
+             Eleventy serverless endpoint, etc.). The action/method below are
+             placeholders — POSTing to a static 11ty page will 405.
+
+             A one-field email capture on a coming-soon page is a bot magnet.
+             The honeypot below is the markup half; the handler still has to be
+             told to use it — Netlify wants netlify-honeypot="bot-field" on the
+             form tag, Formspree calls the same field _gotcha. Rename to match
+             whichever you wire up. -->
+        <form class="cs-form" action="/thank-you" method="POST">
+
+            <p class="cs-honeypot" aria-hidden="true">
+                <label>Leave this field empty
+                    <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+                </label>
+            </p>
+
+            <input class="cs-input" type="email" name="email" placeholder="you@email.com" autocomplete="email" aria-label="Email address" required>
+            <button class="cs-button-solid" type="submit">Notify Me</button>
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}

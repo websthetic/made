@@ -1,0 +1,836 @@
+---
+title: "Fresh | Made"
+description: "Meta description for the page"
+permalink: "/fresh/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/fresh.css">
+{% endblock %}
+
+{% block body %}
+
+<!-- ============================================ -->
+<!--              Fresh Hero                      -->
+<!-- ============================================ -->
+
+<section id="hero-fresh-1">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">MADE Fresh</span>
+            <h1 class="cs-title">Made in the Kitchen. Made for the Moment.</h1>
+            <a href="#booking-fresh-1" class="cs-button-solid">Book Your Event</a>
+
+            <!-- PLACEHOLDER FIGURES — the 7-day lead time and GTA radius are
+                 carried over from the Fuel page; the guest range is invented.
+                 Confirm all three with the client before launch. -->
+            <ul class="cs-stats">
+                <li class="cs-stat">
+                    <span class="cs-stat-number">10&ndash;500</span>
+                    <span class="cs-stat-label">Guests Per Event</span>
+                </li>
+                <li class="cs-stat">
+                    <span class="cs-stat-number">7 Days</span>
+                    <span class="cs-stat-label">Booking Lead Time</span>
+                </li>
+                <li class="cs-stat">
+                    <span class="cs-stat-number">GTA</span>
+                    <span class="cs-stat-label">Delivery Radius</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- TODO: alt text is a leftover from the Fuel hero and doesn't
+             describe this image. Replace once the final shot is in. -->
+        <div class="cs-gallery">
+            <picture class="cs-gallery-picture">
+                <img class="cs-gallery-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/meal-prep-made-fresh.svg" alt="Greek lemon chicken with roasted potatoes, tzatziki, and farm stand salad" fetchpriority="high" decoding="async">
+            </picture>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--               Who It's For                   -->
+<!-- ============================================ -->
+
+<section id="audience-fresh-1">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <div class="cs-header-left">
+                <span class="cs-topper">Who It's For</span>
+                <h2 class="cs-title">Every Label <br>Has A Name On It</h2>
+            </div>
+            <p class="cs-text">Same kitchen, same standard; portioned for whoever is eating.</p>
+        </div>
+
+        <!-- data-lenis-prevent keeps Lenis from swallowing the horizontal swipe on touch -->
+        <div class="cs-carousel">
+            <ul class="cs-track" id="audience-track" data-lenis-prevent tabindex="0" role="group" aria-label="Who MADE Fresh is for">
+
+                <!-- CORPORATE EVENTS -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-corporate-events.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">Corporate Events</h3>
+                    </div>
+                </li>
+
+                <!-- SPORTS GALAS -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-sports-galas.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">Sports Galas</h3>
+                    </div>
+                </li>
+
+                <!-- ATHLETE DINNERS -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-athlete-dinners.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">Athlete Dinners</h3>
+                    </div>
+                </li>
+
+                <!-- FACILITY CATERING -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-facility-catering.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">Facility Catering</h3>
+                    </div>
+                </li>
+
+                <!-- PRIVATE EVENTS -->
+                <li class="cs-item">
+                    <picture class="cs-item-picture">
+                        <img
+                            class="cs-item-img"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/audience-private-events.jpg"
+                            alt=""
+                            width="440"
+                            height="640"
+                        >
+                    </picture>
+                    <div class="cs-item-overlay"></div>
+                    <div class="cs-item-caption">
+                        <h3 class="cs-card-title">Private Events</h3>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="cs-carousel-controls">
+            <div class="cs-progress" aria-hidden="true">
+                <div class="cs-progress-fill" id="audience-progress"></div>
+            </div>
+            <div class="cs-arrows">
+                <button class="cs-arrow" id="audience-prev" type="button" aria-label="Previous audience" aria-disabled="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                </button>
+                <button class="cs-arrow" id="audience-next" type="button" aria-label="Next audience" aria-disabled="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+(function () {
+    var track   = document.getElementById('audience-track');
+    var fill    = document.getElementById('audience-progress');
+    var prevBtn = document.getElementById('audience-prev');
+    var nextBtn = document.getElementById('audience-next');
+    if (!track || !fill) return;
+
+    var stride = measure();
+
+    function measure() {
+        var card = track.querySelector('.cs-item');
+        if (!card) return 0;
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        return card.getBoundingClientRect().width + gap;
+    }
+
+    /* aria-disabled rather than disabled — a disabled button drops out of the
+       tab order under the user's own focus once they reach the end of the rail */
+    function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        var pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+        fill.style.width = pct + '%';
+        if (prevBtn) prevBtn.setAttribute('aria-disabled', String(track.scrollLeft <= 4));
+        if (nextBtn) nextBtn.setAttribute('aria-disabled', String(track.scrollLeft >= max - 4));
+    }
+
+    function step(direction) {
+        if (!stride) stride = measure();
+        track.scrollBy({ left: direction * stride, behavior: 'smooth' });
+    }
+
+    track.addEventListener('scroll', update, { passive: true });
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            stride = measure();
+            update();
+        }, 150);
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+        if (prevBtn.getAttribute('aria-disabled') === 'true') return;
+        step(-1);
+    });
+
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+        if (nextBtn.getAttribute('aria-disabled') === 'true') return;
+        step(1);
+    });
+
+    update();
+})();
+</script>
+
+<!-- ============================================ -->
+<!--            What's Included                   -->
+<!-- ============================================ -->
+
+<section id="included-fresh-1">
+    <div class="cs-container">
+        <div class="cs-header">
+            <div class="cs-header-left">
+                <span class="cs-topper">What's Included</span>
+                <h2 class="cs-title">Everything But<br>The Dishes</h2>
+            </div>
+            <p class="cs-text">All four come with every event. There's no package where the dietary work costs extra.</p>
+        </div>
+
+        <div class="cs-tickets">
+
+            <div class="cs-ticket">
+                <span class="cs-stamp" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18"/><path d="M5 11a7 7 0 0 1 14 0"/><path d="M4 15h16"/><path d="M8 7V4"/><path d="M12 7V3"/><path d="M16 7V4"/></svg>
+                </span>
+                <h3 class="cs-item-title">Custom Event Menus</h3>
+                <p class="cs-item-text">Built with you around the occasion, the guest count, and what the room will actually eat.</p>
+            </div>
+
+            <div class="cs-ticket">
+                <span class="cs-stamp" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15a3.5 3.5 0 0 1 .7-6.9 4.3 4.3 0 0 1 8.6 0A3.5 3.5 0 0 1 17 15Z"/><path d="M7 15v6h10v-6"/><path d="M7 18h10"/></svg>
+                </span>
+                <h3 class="cs-item-title">On-Site Chef Team</h3>
+                <p class="cs-item-text">A full chef team on location, cooking and plating so every dish goes out fresh.</p>
+            </div>
+
+            <div class="cs-ticket">
+                <span class="cs-stamp" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+                </span>
+                <h3 class="cs-item-title">Setup + Service</h3>
+                <p class="cs-item-text">We arrive early, set up the service, and run the room from first plate to last.</p>
+            </div>
+
+            <div class="cs-ticket">
+                <span class="cs-stamp" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+                </span>
+                <h3 class="cs-item-title">Dietary Accommodations</h3>
+                <p class="cs-item-text">Accommodated across the whole menu — not a separate tray at the back.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--             Why MADE Fresh                   -->
+<!-- ============================================ -->
+
+<section id="why-fresh-1">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <span class="cs-topper">Why MADE Fresh</span>
+            <h2 class="cs-title">Not Standard Catering</h2>
+            <p class="cs-text">A fine-dining background, brought to performance nutrition; two worlds most kitchens keep apart. We cook where they meet.</p>
+        </div>
+
+        <div class="cs-equation">
+
+            <div class="cs-pillar">
+                <span class="cs-pillar-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </span>
+                <h3 class="cs-pillar-title">Fine-Dining Background</h3>
+                <p class="cs-pillar-text">Trained in restaurant kitchens, not commissary lines. Real technique, real plating, real flavour.</p>
+            </div>
+
+            <!-- The arrow is hidden until tablet, where the pillars flip to a
+                 row and it finally points along the gap instead of across it. -->
+            <span class="cs-meets">
+                meets
+                <svg class="cs-meets-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 12" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="6" y1="6" x2="58" y2="6"/>
+                    <polyline points="11 1.5 6 6 11 10.5"/>
+                    <polyline points="53 1.5 58 6 53 10.5"/>
+                </svg>
+            </span>
+
+            <div class="cs-pillar">
+                <span class="cs-pillar-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </span>
+                <h3 class="cs-pillar-title">Performance Nutrition</h3>
+                <p class="cs-pillar-text">Every dish built to fuel the room, whole foods, honest portions, never an afterthought.</p>
+            </div>
+
+        </div>
+
+        <p class="cs-closer">Catering feeds the room. MADE Fresh <span class="cs-closer-accent">fuels it.</span></p>
+
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--         Signature Offerings                  -->
+<!-- ============================================ -->
+
+<section id="fresh-offerings-1">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <span class="cs-topper">Signature Offerings</span>
+            <h2 class="cs-title">What We Bring To The Room</h2>
+        </div>
+
+        <ul class="cs-list">
+
+            <li class="cs-offering">
+                <span class="cs-offering-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18"/><path d="M5 11a7 7 0 0 1 14 0"/><path d="M4 15h16"/></svg>
+                </span>
+                <div class="cs-offering-body">
+                    <h3 class="cs-offering-title">Plated Service</h3>
+                    <p class="cs-offering-text">Course-by-course plating with a chef team working the pass, for seated dinners and galas.</p>
+                </div>
+            </li>
+
+            <li class="cs-offering">
+                <span class="cs-offering-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><path d="M3 14h18"/></svg>
+                </span>
+                <div class="cs-offering-body">
+                    <h3 class="cs-offering-title">Buffet &amp; Family Style</h3>
+                    <p class="cs-offering-text">Shared platters and chafed service for larger rooms, refreshed through the night rather than set and left.</p>
+                </div>
+            </li>
+
+            <li class="cs-offering">
+                <span class="cs-offering-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M9 10h6"/><path d="M9 14h6"/></svg>
+                </span>
+                <div class="cs-offering-body">
+                    <h3 class="cs-offering-title">Live Stations</h3>
+                    <p class="cs-offering-text">Carving, pasta, or taco stations cooked in front of guests, staffed for the length of service.</p>
+                </div>
+            </li>
+
+            <li class="cs-offering">
+                <span class="cs-offering-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1 6H7L6 3Z"/><path d="M8 9v12"/><path d="M16 9v12"/><path d="M8 21h8"/></svg>
+                </span>
+                <div class="cs-offering-body">
+                    <h3 class="cs-offering-title">Canapés &amp; Receptions</h3>
+                    <p class="cs-offering-text">Passed bites and grazing tables for cocktail hours, pre-dinner receptions, and standing events.</p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--              Marquee Gallery                 -->
+<!-- ============================================ -->
+
+<section id="marquee-fresh-1">
+    <div class="cs-container">
+
+        <div class="cs-header">
+            <span class="cs-topper">Behind The Pass</span>
+            <h2 class="cs-title">A Look Inside The Kitchen</h2>
+            <p class="cs-text">From prep to plate, a glimpse at how every event comes together before the doors open.</p>
+        </div>
+
+    </div>
+
+    <!-- data-lenis-prevent matters only under reduced motion, where the rail
+         becomes a real horizontal scroller instead of an animation -->
+    <div class="cs-marquee" data-lenis-prevent>
+        <div class="cs-marquee-track">
+
+            <!-- Real content -->
+            <ul class="cs-marquee-group">
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-1.jpg" alt="Plated grilled salmon with charred greens" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-2.jpg" alt="Chef plating a dish on-site" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-3.jpg" alt="Farm stand salad with citrus dressing" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-4.jpg" alt="Team dinner table set for service" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-5.jpg" alt="Roasted vegetables in cast iron pan" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-6.jpg" alt="Meal prep containers portioned and labelled" loading="lazy" decoding="async">
+                </li>
+            </ul>
+
+            <!-- Duplicate group — creates the seamless loop, hidden from AT/SEO.
+                 Must stay identical in width to the first: the -50% translate
+                 assumes the two halves are the same size. -->
+            <ul class="cs-marquee-group" aria-hidden="true">
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-1.jpg" alt="" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-2.jpg" alt="" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-3.jpg" alt="" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-4.jpg" alt="" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-5.jpg" alt="" loading="lazy" decoding="async">
+                </li>
+                <li class="cs-marquee-item">
+                    <img class="cs-marquee-img" src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/marquee-fresh-6.jpg" alt="" loading="lazy" decoding="async">
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--              Testimonials                    -->
+<!-- ============================================ -->
+
+<!-- ===== SECTION DISABLED — PLACEHOLDER COPY =====
+     Every quote, name, title and organization below is invented. Publishing
+     fabricated endorsements is prohibited under the FTC endorsement rule and
+     the deceptive-practices provisions of Canada's Competition Act, so this
+     stays commented out until real, client-supplied and client-approved
+     testimonials are in hand. Uncomment only after the copy is replaced.
+
+<section id="testimonials-fresh-1">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">From The Sideline</span>
+            <h2 class="cs-title">Trusted By The People Who Host The Room</h2>
+        </div>
+
+        <ul class="cs-card-group">
+
+            <li class="cs-item">
+                <span class="cs-quote-mark" aria-hidden="true">&ldquo;</span>
+                <blockquote class="cs-quote">
+                    REPLACE WITH REAL TESTIMONIAL.
+                </blockquote>
+                <div class="cs-attr">
+                    <span class="cs-name">Name</span>
+                    <span class="cs-role">Title · <span class="cs-team">Organization</span></span>
+                </div>
+            </li>
+
+            <li class="cs-item">
+                <span class="cs-quote-mark" aria-hidden="true">&ldquo;</span>
+                <blockquote class="cs-quote">
+                    REPLACE WITH REAL TESTIMONIAL.
+                </blockquote>
+                <div class="cs-attr">
+                    <span class="cs-name">Name</span>
+                    <span class="cs-role">Title · <span class="cs-team">Organization</span></span>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+===== END DISABLED SECTION ===== -->
+
+<!-- ============================================ -->
+<!--              Booking CTA                     -->
+<!-- ============================================ -->
+
+<section id="booking-fresh-1">
+    <div class="cs-container">
+
+        <div class="cs-content">
+            <span class="cs-topper">Book Your Event</span>
+            <h2 class="cs-title">Let's Build Your Menu</h2>
+            <p class="cs-text">
+                Tell us the basics and we'll build a custom proposal within 48 hours. 7-day lead time across the GTA.
+            </p>
+        </div>
+
+        <!-- Wire this up to your form handler (Netlify Forms, Formspree, an
+             Eleventy serverless endpoint, etc.). The action/method below are
+             placeholders — POSTing to a static 11ty page will 405.
+
+             All three steps stay in the DOM; only visibility toggles, so a
+             normal POST still carries every field. Each step is validated
+             before the user can advance, which is what keeps a
+             hidden-but-invalid required control from blocking submit later. -->
+        <form class="cs-form" id="fresh-form" action="/thank-you" method="POST">
+
+            <div class="cs-meter">
+                <div class="cs-meter-meta">
+                    <span class="cs-step-label" id="fresh-step-label">Step 1 of 3 · Basics</span>
+                    <span class="cs-meter-count" id="fresh-meter-count">0 / 5</span>
+                </div>
+                <div class="cs-meter-track" id="fresh-meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Form completion">
+                    <div class="cs-meter-fill" id="fresh-meter-fill"></div>
+                </div>
+            </div>
+
+            <!-- ===== Step 1 ===== -->
+            <div class="cs-step" data-title="Basics">
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-name">Name</label>
+                    <input class="cs-input" id="cs-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-event-type">Event Type</label>
+                    <select class="cs-input cs-select" id="cs-event-type" name="event-type" required>
+                        <option value="" disabled selected>Select event type</option>
+                        <option value="corporate">Corporate Event</option>
+                        <option value="sports-gala">Sports Gala</option>
+                        <option value="athlete-dinner">Athlete Dinner</option>
+                        <option value="facility-catering">Facility Catering</option>
+                        <option value="private-event">Private Event</option>
+                    </select>
+                </div>
+
+                <button class="cs-button-solid cs-next" type="button">Continue</button>
+
+            </div>
+
+            <!-- ===== Step 2 ===== -->
+            <div class="cs-step" data-title="Event" hidden>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-event-date">Event Date</label>
+                    <input class="cs-input" id="cs-event-date" name="event-date" type="date" required>
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-guest-count">Guest Count</label>
+                    <select class="cs-input cs-select" id="cs-guest-count" name="guest-count" required>
+                        <option value="" disabled selected>Select guest count</option>
+                        <option value="under-25">Under 25</option>
+                        <option value="25-50">25–50</option>
+                        <option value="50-100">50–100</option>
+                        <option value="100-plus">100+</option>
+                    </select>
+                </div>
+
+                <div class="cs-actions">
+                    <button class="cs-button-solid cs-next" type="button">Continue</button>
+                    <button class="cs-back" type="button">Back</button>
+                </div>
+
+            </div>
+
+            <!-- ===== Step 3 ===== -->
+            <div class="cs-step" data-title="Details" hidden>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-dietary">Dietary Needs <span class="cs-optional">(optional)</span></label>
+                    <input class="cs-input" id="cs-dietary" name="dietary-needs" type="text" placeholder="Allergies, vegan, halal, etc.">
+                </div>
+
+                <div class="cs-field">
+                    <label class="cs-label" for="cs-contact">Email or Phone</label>
+                    <input class="cs-input" id="cs-contact" name="contact" type="text" autocomplete="email" placeholder="Best way to reach you" required>
+                </div>
+
+                <div class="cs-actions">
+                    <button class="cs-button-solid" type="submit">Request a Proposal</button>
+                    <button class="cs-back" type="button">Back</button>
+                </div>
+
+            </div>
+
+            <p class="cs-form-note">No commitment — we'll reply within 48 hours.</p>
+
+        </form>
+
+    </div>
+</section>
+
+<script>
+(function () {
+    var form = document.getElementById('fresh-form');
+    if (!form) return;
+
+    var steps = Array.prototype.slice.call(form.querySelectorAll('.cs-step'));
+    var fill  = document.getElementById('fresh-meter-fill');
+    var track = document.getElementById('fresh-meter-track');
+    var label = document.getElementById('fresh-step-label');
+    var count = document.getElementById('fresh-meter-count');
+    if (!steps.length || !fill) return;
+
+    /* Only required controls count toward the meter, so 100% always means
+       "ready to submit". The optional dietary field ticks its own row but
+       deliberately doesn't move the bar. */
+    var required = Array.prototype.slice.call(form.querySelectorAll('[required]'));
+    var tickable = Array.prototype.slice.call(form.querySelectorAll('.cs-input'));
+    var current  = 0;
+
+    function isFilled(el) {
+        return el.value !== '' && el.checkValidity();
+    }
+
+    function refresh() {
+        tickable.forEach(function (el) {
+            var field = el.closest('.cs-field');
+            if (field) field.classList.toggle('cs-done', isFilled(el));
+        });
+
+        var done = required.filter(isFilled).length;
+        var pct  = Math.round((done / required.length) * 100);
+
+        fill.style.width = pct + '%';
+        track.setAttribute('aria-valuenow', pct);
+        count.textContent = done + ' / ' + required.length;
+        label.textContent = 'Step ' + (current + 1) + ' of ' + steps.length +
+                            ' · ' + steps[current].getAttribute('data-title');
+    }
+
+    /* Native validation — reportValidity surfaces the browser's own bubble on
+       the first offending control rather than us inventing a message system. */
+    function stepIsValid(i) {
+        var controls = Array.prototype.slice.call(steps[i].querySelectorAll('.cs-input'));
+        for (var n = 0; n < controls.length; n++) {
+            if (!controls[n].checkValidity()) {
+                controls[n].reportValidity();
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function show(i) {
+        current = i;
+        steps.forEach(function (step, n) {
+            step.hidden = n !== i;
+        });
+        refresh();
+
+        var first = steps[i].querySelector('.cs-input');
+        /* preventScroll stops the jump that focus() would otherwise trigger,
+           which fights Lenis mid-scroll */
+        if (first) first.focus({ preventScroll: true });
+    }
+
+    form.addEventListener('input', refresh);
+    form.addEventListener('change', refresh);
+
+    form.addEventListener('click', function (e) {
+        if (e.target.closest('.cs-next')) {
+            if (stepIsValid(current)) show(Math.min(current + 1, steps.length - 1));
+        }
+        if (e.target.closest('.cs-back')) {
+            show(Math.max(current - 1, 0));
+        }
+    });
+
+    /* Enter in a step 1 or 2 field triggers implicit submission, which reaches
+       the submit button in step 3 — whose required fields are hidden and empty,
+       so the browser aborts with no visible feedback. Intercept and advance the
+       step instead, which is what the keypress meant anyway. */
+    form.addEventListener('submit', function (e) {
+        if (current < steps.length - 1) {
+            e.preventDefault();
+            if (stepIsValid(current)) show(current + 1);
+        }
+    });
+
+    refresh();
+})();
+</script>
+
+<!-- ============================================ -->
+<!--              Secondary CTA                    -->
+<!-- ============================================ -->
+
+<section id="secondary-cta-fresh-1">
+    <div class="cs-marquee" aria-hidden="true">
+        <div class="cs-marquee-track">
+            <div class="cs-marquee-group">
+                <span class="cs-marquee-item">Season-Long Programs</span>
+                <span class="cs-marquee-star">&#10033;</span>
+                <span class="cs-marquee-item">Macros On Every Label</span>
+                <span class="cs-marquee-star">&#10033;</span>
+                <span class="cs-marquee-item">One Invoice, One Contact</span>
+                <span class="cs-marquee-star">&#10033;</span>
+            </div>
+        </div>
+    </div>
+    <div class="cs-container">
+        <h2 class="cs-title">Feed Them <span>All Season</span></h2>
+        <div class="cs-content">
+            <a href="/fuel/" class="cs-button-solid">
+                See MADE Fuel
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+// #secondary-cta-fresh-1 — scroll-driven marquee
+(function () {
+    var banner = document.querySelector('#secondary-cta-fresh-1');
+    if (!banner) return;
+
+    var marquee = banner.querySelector('.cs-marquee');
+    var track = banner.querySelector('.cs-marquee-track');
+    if (!marquee || !track) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var SPEED = 0.25;
+    var EASE = 0.06;
+
+    var source = track.querySelector('.cs-marquee-group');
+    var groupWidth = 0;
+    var offset = 0;
+    var target = 0;
+    var lastScroll = window.pageYOffset;
+    var running = false;
+
+    function fill() {
+        var clone;
+        while (track.children.length > 1) {
+            track.removeChild(track.lastElementChild);
+        }
+
+        groupWidth = source.getBoundingClientRect().width;
+        if (!groupWidth) return;
+
+        while (track.getBoundingClientRect().width < marquee.offsetWidth + groupWidth * 2) {
+            clone = source.cloneNode(true);
+            track.appendChild(clone);
+        }
+    }
+
+    function render() {
+        offset += (target - offset) * EASE;
+
+        var x = offset % groupWidth;
+        if (x > 0) x -= groupWidth;
+
+        track.style.transform = 'translate3d(' + x + 'px, 0, 0)';
+
+        if (Math.abs(target - offset) > 0.1) {
+            window.requestAnimationFrame(render);
+        } else {
+            running = false;
+        }
+    }
+
+    function start() {
+        if (running) return;
+        running = true;
+        window.requestAnimationFrame(render);
+    }
+
+    function onScroll() {
+        var current = window.pageYOffset;
+        target -= (current - lastScroll) * SPEED;
+        lastScroll = current;
+        start();
+    }
+
+    function onResize() {
+        fill();
+        start();
+    }
+
+    fill();
+    render();
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(fill);
+    }
+})();
+</script>
+{% endblock %}

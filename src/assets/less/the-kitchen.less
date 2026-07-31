@@ -1,0 +1,660 @@
+/*-- -------------------------- -->
+<---       Kitchen Banner       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #banner-kitchen {
+        padding: var(--sectionPadding);
+        /* clears the overlaid nav */
+        padding-top: (160/16rem);
+        background-color: var(--pageBgDarkAlt);
+        overflow-x: clip;
+
+        .cs-container {
+            display: grid;
+            grid-template-columns: 100%;
+            gap: (40/16rem);
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        /* salt, not charcoal — on the dark ground the topper needs to be the
+           quiet light note under the title */
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--salt);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            /* banner scale — one step above the section titles */
+            font-size: clamp(2.75rem, 15.5vw, 5.6rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            text-wrap: balance;
+            color: var(--salt);
+            max-width: (900/16rem);
+            margin: 0 0 (18/16rem);
+        }
+
+        /* the single hit of colour — one word carries it so the rest of the
+           line stays quiet */
+        .cs-accent {
+            color: var(--mustard);
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            line-height: 1.65;
+            color: var(--bodyTextColorWhite);
+            max-width: (560/16rem);
+        }
+
+        /* SVG lockup, not a photo — contain so it never crops, and let it
+           size to the column rather than sit in a fixed frame */
+        .cs-graphic {
+            display: block;
+            width: 100%;
+            max-width: (420/16rem);
+            height: auto;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+
+        /* ===== Lineup strip =====
+           the three names as a footer rule under the statement */
+
+        .cs-lineup {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: (28/16rem);
+            border-top: 1px solid rgba(254, 251, 234, 0.18);
+            padding-top: (22/16rem);
+        }
+
+        .cs-lineup-item {
+            display: flex;
+            flex-direction: column;
+            gap: (2/16rem);
+        }
+
+        .cs-lineup-name {
+            font-family: var(--headerFont);
+            font-size: (26/16rem);
+            line-height: 1;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--salt);
+        }
+
+        .cs-lineup-role {
+            font-size: (11/16rem);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(254, 251, 234, 0.55);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #banner-kitchen {
+        padding-top: (240/16rem);
+
+        .cs-container {
+            grid-template-columns: 1fr (520/16rem);
+            align-items: start;
+            column-gap: (64/16rem);
+            row-gap: (28/16rem);
+        }
+
+        /* explicit placement — if the markup ever drifts, the layout breaks
+           loudly instead of quietly reshuffling into the wrong cells */
+        .cs-content {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        /* capped — a spanning item taller than its rows pushes the extra
+           height back into them, which is what opened the gap under the copy */
+        .cs-graphic {
+            grid-column: 2;
+            grid-row: 1 / 3;
+            align-self: center;
+            max-height: (440/16rem);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        /* rule stops at the copy measure rather than running the column */
+        .cs-lineup {
+            grid-column: 1;
+            grid-row: 2;
+            max-width: (560/16rem);
+            gap: (56/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---          The Crew          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #crew-kitchen {
+        padding: var(--sectionPadding);
+        background-color: var(--caramel);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+            margin-bottom: (36/16rem);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--vanilla);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--vanilla);
+            max-width: unset;
+            margin: 0;
+        }
+
+        .cs-text {
+            font-size: (18/16rem);
+            line-height: 1.6;
+            color: rgba(255, 247, 212, 0.8);
+            max-width: (400/16rem);
+        }
+
+        /* ===== Kitchen tickets ===== */
+
+        .cs-tickets {
+            list-style: none;
+            display: grid;
+            gap: (28/16rem);
+        }
+
+        /* the coloured cap is a border, not a pseudo-element — border-top
+           sits outside the overflow:hidden clip, so it survives the rounded
+           corners without a second stacking context */
+        .cs-ticket {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--pageBgLight);
+            border-top: (7/16rem) solid var(--mustard);
+            border-radius: (6/16rem);
+            overflow: hidden;
+
+            &:nth-child(2) {
+                border-top-color: var(--pistachioSage);
+            }
+
+            &:nth-child(3) {
+                border-top-color: var(--coolBlue);
+            }
+        }
+
+        /* the docket number, top-right, the way a real ticket carries one */
+        .cs-ticket-no {
+            position: absolute;
+            top: (14/16rem);
+            right: (14/16rem);
+            z-index: 2;
+            font-size: (10/16rem);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            background-color: var(--pageBgLight);
+            color: var(--caramel);
+            border: 1px solid rgba(201, 107, 43, 0.4);
+            border-radius: (4/16rem);
+            padding: (4/16rem) (8/16rem);
+        }
+
+        /* square window — aspect-ratio holds the card's shape before any
+           portrait exists, so the placeholder grid doesn't collapse */
+        .cs-picture {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background-color: rgba(47, 52, 50, 0.08);
+        }
+
+        .cs-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cs-ticket-body {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            padding: (24/16rem) (20/16rem) (22/16rem);
+        }
+
+        /* darkened palette tokens — the raw pastels fail contrast on a light
+           card, so each station label is a hand-darkened match for its cap */
+        .cs-station {
+            font-size: (10/16rem);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #8a6a12;
+            margin-bottom: (8/16rem);
+        }
+
+        .cs-ticket:nth-child(2) .cs-station {
+            color: #5f7030;
+        }
+
+        .cs-ticket:nth-child(3) .cs-station {
+            color: #4d6b81;
+        }
+
+        .cs-name {
+            font-size: (32/16rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--headerColor);
+        }
+
+        /* display:block is load-bearing — an inline span drops the vertical
+           margins and renders the rule along the text baseline */
+        .cs-perf {
+            display: block;
+            border-top: (1.5/16rem) dashed rgba(47, 52, 50, 0.25);
+            margin: (16/16rem) 0;
+        }
+
+        .cs-dish-label {
+            font-size: (10/16rem);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(47, 52, 50, 0.45);
+            margin-bottom: (6/16rem);
+        }
+
+        /* set in menu syntax — the pipe separators tie this straight back to
+           the menu page */
+        .cs-dish {
+            font-size: (15/16rem);
+            line-height: 1.5;
+            color: var(--headerColor);
+            margin-bottom: (14/16rem);
+        }
+
+        /* margin-top:auto pins the background line to the bottom of every
+           ticket so they align across a row despite uneven dish lists */
+        .cs-bio {
+            margin-top: auto;
+            font-size: (14/16rem);
+            line-height: 1.6;
+            color: rgba(47, 52, 50, 0.6);
+        }
+    }
+}
+
+/* Tablet - 600px */
+@media only screen and (min-width: 37.5rem) {
+    #crew-kitchen {
+        .cs-tickets {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #crew-kitchen {
+        /* baseline-aligned split — title anchors the left, the sentence sits
+           on the right rag sharing a bottom edge */
+        .cs-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: (48/16rem);
+        }
+
+        .cs-header-left {
+            flex: 1 1 auto;
+        }
+
+        .cs-text {
+            flex: 0 0 auto;
+            text-align: right;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #crew-kitchen {
+        .cs-header {
+            margin-bottom: (48/16rem);
+        }
+
+        .cs-tickets {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* transitions live here, not on mobile — nothing hovers on touch, so
+           declaring them at the base animated properties that never change */
+        .cs-ticket {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            .cs-img {
+                transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            }
+
+            &:hover {
+                transform: translateY((-6/16rem));
+                box-shadow: 0 (12/16rem) (28/16rem) rgba(47, 52, 50, 0.28);
+
+                .cs-img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---        Founder Story       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #founder-kitchen {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgDarkAlt);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: (36/16rem);
+        }
+
+        /* content first on mobile so the heading leads — order flips back at
+           1024 where the portrait takes the left column */
+        .cs-founder-picture {
+            order: 2;
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border-radius: (16/16rem);
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .cs-founder-content {
+            order: 1;
+        }
+
+        .cs-founder-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: capitalize;
+            color: var(--mustard);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-size: clamp(2.75rem, 12.5vw, 5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--bodyTextColorWhite);
+            max-width: unset;
+            margin: 0 0 (18/16rem);
+        }
+
+        .cs-text {
+            font-size: (17/16rem);
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.62);
+            max-width: (560/16rem);
+        }
+
+        /* ===== Fine-dining credit ===== */
+
+        /* two-column definition list — the keys stay a fixed width so the
+           values line up in a column regardless of label length */
+        .cs-credit {
+            display: grid;
+            grid-template-columns: (100/16rem) 1fr;
+            gap: (10/16rem) (20/16rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            padding: (22/16rem) 0;
+            margin: (28/16rem) 0;
+        }
+
+        .cs-credit-key {
+            font-size: (10/16rem);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .cs-credit-value {
+            font-family: var(--headerFont);
+            font-size: (20/16rem);
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--salt);
+        }
+
+        /* ===== Vision quote ===== */
+
+        .cs-quote-block {
+            border-left: (3/16rem) solid var(--caramel);
+            padding-left: (22/16rem);
+        }
+
+        /* the tight line-height plus a short fixed height lets the glyph
+           overhang its own box, so it reads large without pushing the quote
+           down by its full em */
+        .cs-quote-mark {
+            display: block;
+            font-family: var(--headerFont);
+            font-size: (54/16rem);
+            line-height: 0.6;
+            height: (30/16rem);
+            color: var(--caramel);
+        }
+
+        .cs-quote {
+            font-size: (19/16rem);
+            line-height: 1.6;
+            color: rgba(254, 251, 234, 0.92);
+            margin-bottom: (18/16rem);
+        }
+
+        .cs-attr {
+            display: flex;
+            flex-direction: column;
+            gap: (3/16rem);
+        }
+
+        .cs-attr-name {
+            font-size: (15/16rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--salt);
+        }
+
+        .cs-attr-role {
+            font-size: (13/16rem);
+            line-height: 1.4;
+            color: var(--caramel);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #founder-kitchen {
+        /* basis 0 on both columns is load-bearing — with basis auto the
+           content column's base size is its max-content width and it crushes
+           the portrait */
+        .cs-container {
+            flex-direction: row;
+            align-items: center;
+            gap: (72/16rem);
+        }
+
+        /* order flips back at desktop so the portrait takes the left column */
+        .cs-founder-picture {
+            order: 1;
+            flex: 0.85 1 0;
+            min-width: 0;
+        }
+
+        .cs-founder-content {
+            order: 2;
+            flex: 1 1 0;
+            min-width: 0;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---            CTA             -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #cta-kitchen {
+        padding: clamp((60/16rem), 8vw, (110/16rem)) 1rem;
+        background-color: var(--primary);
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* the whole headline is the link — no button, the type is the target */
+        .cs-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: clamp((14/16rem), 2.5vw, (28/16rem));
+            text-decoration: none;
+            color: var(--mustard);
+            text-align: center;
+
+            &:focus-visible {
+                outline: 2px solid var(--vanilla);
+                outline-offset: (8/16rem);
+            }
+        }
+
+        .cs-cta-text {
+            font-family: var(--headerFont);
+            font-size: clamp(2.5rem, 10vw, 5.5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+        }
+
+        /* flex:none stops the arrow collapsing when the headline wraps.
+           em units keep it locked to the type as the clamp scales. */
+        .cs-cta-icon {
+            flex: none;
+            width: 0.55em;
+            height: 0.55em;
+            font-size: clamp(2.5rem, 10vw, 5.5rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #cta-kitchen {
+        .cs-cta-link {
+            transition: color 0.3s ease;
+
+            .cs-cta-icon {
+                transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+            }
+
+            &:hover {
+                color: var(--vanilla);
+
+                .cs-cta-icon {
+                    transform: translateX((12/16rem));
+                }
+            }
+        }
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    #crew-kitchen,
+    #cta-kitchen {
+        .cs-ticket,
+        .cs-img,
+        .cs-cta-link,
+        .cs-cta-icon {
+            transition: none;
+        }
+    }
+}

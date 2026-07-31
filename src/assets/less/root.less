@@ -1,0 +1,333 @@
+/*-- -------------------------- -->
+<---        Core Styles         -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0px) {
+	/* All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
+	:root {
+	--primary: #c96b2b;
+	--primaryLight: #FFDE17;
+	--secondary: #b2c381;
+	--secondaryLight: #b2c381;
+	--headerColor: #2F3432;
+	--bodyTextColor: #4A4A4A;
+	--bodyTextColorWhite: #fefbea;
+
+	--pageBgLight: #fffef6;
+	--pageBgLightAlt: #EDEAE0;
+	--pageBgDark: #2F3432;
+	--pageBgDarkAlt: #1A1A1A;
+
+	/* Extended Brand Palette */
+	--vanilla: #fff7d4;
+	--mustard: #EEC659;
+	--solarYellow: #FFDE17;
+	--coolBlue: #9cb8cd;
+	--pistachioSage: #b2c381;
+	--caramel: #c96b2b;
+	--charcoal: #2F3432;
+	--salt: #fefbea;
+
+		
+		/* 13px - 16px */
+		--topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+		/* 31px - 49px */
+		--headerFontSize: clamp(3.25rem, 5.5vw, 5.25rem);
+		--bodyFontSize: 1rem;
+		/* 60px - 100px top and bottom */
+		--sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+
+		--headerFont: "Kenyan Coffee", Arial, sans-serif;
+		--bodyFont: "Poppins", Arial, sans-serif;
+		--topperFont: "Poppins", Arial, sans-serif;
+	}
+
+	
+
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		
+		font-family: var(--bodyFont);
+		font-size: 100%;
+		transition: background-color 0.3s;
+		color: var(--bodyTextColor);
+	}
+
+	html {
+    overflow-x: clip;
+}
+
+	*,
+	*:before,
+	*:after {
+		/* prevents padding from affecting height and width */
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	.cs-topper {
+		font-size: var(--topperFontSize);
+		font-family: var(--topperFont);
+		line-height: 1.2em;
+		text-transform: capitalize;
+		text-align: inherit;
+		font-weight: 700;
+		color: var(--charcoal);
+		margin-bottom: 0.25rem;
+		display: block;
+	}
+
+	.cs-title {
+		font-size: var(--headerFontSize);
+		font-weight: 900;
+		line-height: 1em;
+		text-align: inherit;
+		max-width: 43.75rem;
+		margin: 0 0 1rem 0;
+		color: var(--headerColor);
+		position: relative;
+		text-transform: uppercase;
+	}
+
+	.cs-text {
+		font-size: var(--bodyFontSize);
+		line-height: 1.5em;
+		text-align: inherit;
+		width: 100%;
+		max-width: 40.625rem;
+		margin: 0;
+		color: var(--bodyTextColor);
+	}
+}
+
+
+/* Components + Utilities */
+@media only screen and (min-width: 0px) {
+	// Hidden screen reader skip nav button
+	.skip {
+		z-index: -1111111;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+	}
+
+.cs-button-solid {
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    background-color: var(--headerColor);
+    width: auto;
+    padding: (12/16rem) (24/16rem);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: (14/16rem);
+    font-family: var(--bodyFont);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: (6/16rem);
+    border: 1.5px solid var(--headerColor);
+    overflow: hidden;
+    color: var(--bodyTextColorWhite);
+    transition: color 0.6s ease;
+    text-align: center;
+
+    &::before {
+        z-index: -1;
+        position: absolute;
+        bottom: 0;
+        left: -10%;
+        content: "";
+        display: block;
+        background-color: var(--caramel);
+        width: 120%;
+        height: 150%;
+        border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+        transform: translateY(100%);
+        transition: transform 0.9s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    &:hover {
+        color: var(--bodyTextColorWhite);
+        border-color: var(--caramel);
+        transition: color 0.6s ease, border-color 0.6s ease;
+
+        &::before {
+            transform: translateY(0);
+        }
+    }
+}
+
+.cs-button-outline {
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    width: auto;
+    padding: (12/16rem) (24/16rem);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: (16/16rem);
+    font-family: var(--bodyFont);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: (6/16rem);
+    border: 1.5px solid var(--headerColor);
+    overflow: hidden;
+    color: var(--headerColor);
+    transition: color 0.6s ease;
+    text-align: center;
+
+    &::before {
+        z-index: -1;
+        position: absolute;
+        bottom: 0;
+        left: -10%;
+        content: "";
+        display: block;
+        background-color: var(--headerColor);
+        width: 120%;
+        height: 150%;
+        border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+        transform: translateY(100%);
+        transition: transform 0.9s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    &:hover {
+        color: var(--bodyTextColorWhite);
+
+        &::before {
+            transform: translateY(0);
+        }
+    }
+}
+
+	// Utilities - small classes useful in various common situations
+	.cs-color {
+		color: var(--primary);
+	}
+
+	.cs-bold {
+		font-weight: 700;
+	}
+
+	.cs-hide-on-mobile {
+		display: none !important;
+	}
+
+	.cs-dark,
+	.dark {
+		display: none !important;
+	}
+
+	body.dark-mode {
+		.cs-light,
+		.light {
+			display: none !important;
+		}
+
+		.cs-dark,
+		.dark {
+			display: block !important;
+		}
+
+		.cs-button-outline {
+			border-color: #fff;
+			color: #fff;
+		}
+	}
+}
+
+/* Desktop Utilities */
+@media only screen and (min-width: 64rem) {
+	.cs-hide-on-mobile {
+		display: block !important;
+	}
+
+	.cs-hide-on-desktop {
+		display: none !important;
+	}
+}
+
+/* Base Element Styles */
+@media only screen and (min-width: 0px) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--headerFont);
+		line-height: 1.2em;
+		color: var(--headerColor);
+	}
+
+	p,
+	li,
+	a {
+		font-size: (16/16rem);
+		line-height: 1.5em;
+	}
+
+	p,
+	li {
+		color: var(--bodyTextColor);
+
+		a {
+			color: var(--primary);
+		}
+	}
+
+	a,
+	button {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	body.dark-mode {
+		background-color: var(--dark);
+
+		p,
+		li,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: #fff;
+		}
+	}
+}
+
+/* Fonts */
+@media only screen and (min-width: 0px) {
+	
+	@font-face {
+		font-style: bold;
+		font-family: "Kenyan Coffee";
+		font-weight: 700;
+		font-display: swap;
+		src: local(""), url("/assets/fonts/kenyan-coffee-bd.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("/assets/fonts/kenyan-coffee-bd.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+	@font-face {
+		font-style: normal;
+		font-family: "Poppins";
+		font-weight: 400;
+		font-display: swap;
+		src: local(""), url("/assets/fonts/poppins-regular.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("/assets/fonts/poppins-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+	@font-face {
+		font-style: bold;
+		font-family: "Poppins";
+		font-weight: 700;
+		font-display: swap;
+		src: local(""), url("/assets/fonts/poppins-bold.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("/assets/fonts/poppins-bold.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+}

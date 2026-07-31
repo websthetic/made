@@ -1,0 +1,516 @@
+---
+title: "Menu"
+description: "Meta description for the page"
+permalink: "/menu/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/menu.css">
+{% endblock %}
+
+{% block body %}
+
+<!-- ============================================ -->
+<!--                Inner Banner                -->
+<!-- ============================================ -->
+
+<section id="inner-banner-301">
+    <div class="cs-container">
+        <span class="cs-topper">MADE Menu</span>
+        <h2 class="cs-title">What's On The <span>Menu</span></h2>
+        <p class="cs-text">Menus are built custom. This is a sample of what we create, the real one is shaped around your program, your schedule, and your athletes.</p>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!--                 Menu Grid                    -->
+<!-- ============================================ -->
+
+<section id="menu-grid">
+    <div class="cs-container">
+
+        <div class="cs-note">
+            <p class="cs-note-text">What's below is a sample of our range, not a fixed list. Your actual rotation gets shaped around training load, travel days, allergies, and what your athletes will actually eat.</p>
+        </div>
+
+        <!-- ===== Filter bar ===== -->
+        <div class="cs-filter-bar">
+
+            <!-- Format tabs (single select) -->
+            <div class="cs-tabs" role="group" aria-label="Filter by format">
+                <button class="cs-tab cs-active" type="button" data-format="" aria-pressed="true">All</button>
+                <button class="cs-tab" type="button" data-format="individual" aria-pressed="false">Individual</button>
+                <button class="cs-tab" type="button" data-format="tray" aria-pressed="false">Trays</button>
+                <button class="cs-tab" type="button" data-format="build" aria-pressed="false">Build Your Own</button>
+                <button class="cs-tab" type="button" data-format="breakfast" aria-pressed="false">Breakfast</button>
+                <button class="cs-tab" type="button" data-format="hydration" aria-pressed="false">Hydration</button>
+            </div>
+
+            <!-- Dropdown pickers (multi select) -->
+            <div class="cs-filter-row">
+
+                <div class="cs-dropdown">
+                    <button class="cs-dd-trigger" type="button" id="dd-protein-trigger" aria-expanded="false" aria-controls="dd-protein-panel" aria-haspopup="true">
+                        <span class="cs-dd-label">Protein</span>
+                        <span class="cs-dd-badge" data-badge hidden>0</span>
+                        <svg class="cs-dd-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="cs-dd-panel" id="dd-protein-panel" role="group" aria-labelledby="dd-protein-trigger" hidden>
+                        <button class="cs-dd-option" type="button" data-group="protein" data-value="poultry" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Poultry</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="protein" data-value="beef" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Beef</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="protein" data-value="lamb" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Lamb</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="protein" data-value="pork" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Pork</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="protein" data-value="seafood" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Seafood</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="protein" data-value="eggs" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Eggs</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="protein" data-value="plant" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Plant-Based</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cs-dropdown">
+                    <button class="cs-dd-trigger" type="button" id="dd-dietary-trigger" aria-expanded="false" aria-controls="dd-dietary-panel" aria-haspopup="true">
+                        <span class="cs-dd-label">Dietary</span>
+                        <span class="cs-dd-badge" data-badge hidden>0</span>
+                        <svg class="cs-dd-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="cs-dd-panel" id="dd-dietary-panel" role="group" aria-labelledby="dd-dietary-trigger" hidden>
+                        <button class="cs-dd-option" type="button" data-group="dietary" data-value="gf" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Gluten Free</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="dietary" data-value="df" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Dairy Free</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="dietary" data-value="vegan" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Vegan</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cs-dropdown">
+                    <button class="cs-dd-trigger" type="button" id="dd-macro-trigger" aria-expanded="false" aria-controls="dd-macro-panel" aria-haspopup="true">
+                        <span class="cs-dd-label">Macro</span>
+                        <span class="cs-dd-badge" data-badge hidden>0</span>
+                        <svg class="cs-dd-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="cs-dd-panel cs-dd-panel-end" id="dd-macro-panel" role="group" aria-labelledby="dd-macro-trigger" hidden>
+                        <button class="cs-dd-option" type="button" data-group="macro" data-value="protein" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">High Protein</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="macro" data-value="carb" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Carb Load</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="macro" data-value="balanced" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Balanced</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                        <button class="cs-dd-option" type="button" data-group="macro" data-value="recovery" aria-pressed="false">
+                            <span class="cs-dd-box" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="4 12 10 18 20 6"/></svg>
+                            </span>
+                            <span class="cs-dd-name">Recovery</span>
+                            <span class="cs-dd-count" data-count>0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="cs-clear" type="button" data-all hidden>Clear all</button>
+
+                <p class="cs-count" role="status" aria-live="polite">38 items</p>
+            </div>
+        </div>
+
+        <!-- ===== Grid ===== -->
+        <ul class="cs-card-group">
+            <li
+                class="cs-item"
+                data-format="individual"
+                data-protein="poultry"
+                data-dietary="gf"
+                data-macro="balanced"
+            >
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/menu/made-adobo-chicken-bowl.png">
+                    <source media="(min-width: 601px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/menu/made-adobo-chicken-bowl.png">
+                    <img
+                        class="cs-img"
+                        loading="lazy"
+                        decoding="async"
+                        src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/menu/made-adobo-chicken-bowl.png"
+                        alt="Adobo Chicken Bowl"
+                        width="400"
+                        height="280"
+                    >
+                </picture>
+                <span class="cs-badge">Individual Meal</span>
+                <div class="cs-info">
+                    <h3 class="cs-h3">Adobo Chicken Bowl</h3>
+                    <p class="cs-item-text">Marinated Chicken | Pinto Beans | Pico | Lime Crema | Cabbage Slaw | Basmati Rice</p>
+                    <ul class="cs-tags">
+                        <li class="cs-tag cs-gf">GF</li>
+                    </ul>
+                    <div class="cs-price-row">
+                        <span class="cs-price-key">Per Serving</span>
+                        <span class="cs-price">$15</span>
+                    </div>
+                </div>
+            </li>
+            <li
+                class="cs-item"
+                data-format="individual"
+                data-protein="beef"
+                data-dietary="df"
+                data-macro="carb"
+            >
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/menu/made-korean-beef-and-rice.png">
+                    <source media="(min-width: 601px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/menu/made-korean-beef-and-rice.png">
+                    <img
+                        class="cs-img"
+                        loading="lazy"
+                        decoding="async"
+                        src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/menu/made-korean-beef-and-rice.png"
+                        alt="Korean Beef + Rice"
+                        width="400"
+                        height="280"
+                    >
+                </picture>
+                <span class="cs-badge">Individual Meal</span>
+                <div class="cs-info">
+                    <h3 class="cs-h3">Korean Beef + Rice</h3>
+                    <p class="cs-item-text">Gochujang-Style Sauce | Jasmine Rice | Cucumber and Carrot Salad</p>
+                    <ul class="cs-tags">
+                        <li class="cs-tag cs-df">DF</li>
+                    </ul>
+                    <div class="cs-price-row">
+                        <span class="cs-price-key">Per Serving</span>
+                        <span class="cs-price">$15</span>
+                    </div>
+                </div>
+            </li>
+            <li
+                class="cs-item"
+                data-format="individual"
+                data-protein="poultry"
+                data-dietary="gf"
+                data-macro="balanced"
+            >
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/menu/made-mediterranean-shawarma-bowl.png">
+                    <source media="(min-width: 601px)" srcset="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/menu/made-mediterranean-shawarma-bowl.png">
+                    <img
+                        class="cs-img"
+                        loading="lazy"
+                        decoding="async"
+                        src="https://websthetic.tor1.cdn.digitaloceanspaces.com/made/menu/made-mediterranean-shawarma-bowl.png"
+                        alt="Mediterranean Shawarma Bowl"
+                        width="400"
+                        height="280"
+                    >
+                </picture>
+                <span class="cs-badge">Individual Meal</span>
+                <div class="cs-info">
+                    <h3 class="cs-h3">Mediterranean Shawarma Bowl</h3>
+                    <p class="cs-item-text">Chicken Thigh | Garlic Yogurt Sauce | Herbed Wild Rice | Tomato Salad</p>
+                    <ul class="cs-tags">
+                        <li class="cs-tag cs-gf">GF</li>
+                    </ul>
+                    <div class="cs-price-row">
+                        <span class="cs-price-key">Per Serving</span>
+                        <span class="cs-price">$15</span>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Paste your remaining 35 <li class="cs-item"> blocks here, unchanged -->
+
+        </ul>
+
+        <p class="cs-empty" hidden>
+            Nothing matches that combination yet.
+            <button class="cs-clear-inline" type="button" data-all>Clear filters</button>
+        </p>
+
+        <!-- ===== Sticky CTA footer ===== -->
+        <div class="cs-sticky-cta">
+            <div class="cs-sticky-copy">
+                <p class="cs-sticky-text">Want this for your team?</p>
+                <p class="cs-sticky-sub">Costed proposal and a sample cycle in 15 minutes.</p>
+            </div>
+            <a class="cs-button-solid" href="/contact">
+                Start Your Program
+                <svg class="cs-arrow-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    (function () {
+        const section = document.querySelector("#menu-grid");
+        if (!section) return;
+
+        const items = Array.from(section.querySelectorAll(".cs-item"));
+        const tabs = Array.from(section.querySelectorAll(".cs-tab"));
+        const options = Array.from(section.querySelectorAll(".cs-dd-option"));
+        const dropdowns = Array.from(section.querySelectorAll(".cs-dropdown"));
+        const allBtns = Array.from(section.querySelectorAll("[data-all]"));
+        const clearBtn = section.querySelector(".cs-clear");
+        const count = section.querySelector(".cs-count");
+        const empty = section.querySelector(".cs-empty");
+
+        // format is single select and replaces, the other three are multi select
+        // and OR within themselves, AND across each other
+        const active = {
+            format: "",
+            protein: new Set(),
+            dietary: new Set(),
+            macro: new Set()
+        };
+
+        const MULTI = ["protein", "dietary", "macro"];
+
+        function owns(item, group, value) {
+            // dietary holds multiple space separated values, the rest hold one —
+            // splitting handles both without a separate branch
+            return (item.dataset[group] || "").split(/\s+/).filter(Boolean).indexOf(value) > -1;
+        }
+
+        // skipGroup lets the option counts ignore their own axis, so the number
+        // beside "Lamb" answers "how many would I get if I picked this too"
+        function matches(item, skipGroup) {
+            if (active.format && item.dataset.format !== active.format) return false;
+
+            for (let i = 0; i < MULTI.length; i++) {
+                const group = MULTI[i];
+                if (group === skipGroup) continue;
+
+                const chosen = active[group];
+                if (!chosen.size) continue;
+
+                let hit = false;
+                chosen.forEach(function (value) {
+                    if (owns(item, group, value)) hit = true;
+                });
+                if (!hit) return false;
+            }
+            return true;
+        }
+
+        function closeAll(except) {
+            dropdowns.forEach(function (dd) {
+                if (dd === except) return;
+                const trigger = dd.querySelector(".cs-dd-trigger");
+                const panel = dd.querySelector(".cs-dd-panel");
+                panel.hidden = true;
+                trigger.setAttribute("aria-expanded", "false");
+                dd.classList.remove("cs-open");
+            });
+        }
+
+        function refreshCounts() {
+            options.forEach(function (option) {
+                const group = option.dataset.group;
+                const value = option.dataset.value;
+                let n = 0;
+
+                items.forEach(function (item) {
+                    if (matches(item, group) && owns(item, group, value)) n++;
+                });
+
+                option.querySelector("[data-count]").textContent = n;
+                option.classList.toggle("cs-empty-option", n === 0);
+            });
+        }
+
+        function refreshBadges() {
+            dropdowns.forEach(function (dd) {
+                const trigger = dd.querySelector(".cs-dd-trigger");
+                const badge = dd.querySelector("[data-badge]");
+                const group = dd.querySelector(".cs-dd-option").dataset.group;
+                const n = active[group].size;
+
+                badge.textContent = n;
+                badge.hidden = n === 0;
+                trigger.classList.toggle("cs-active", n > 0);
+            });
+        }
+
+        function apply() {
+            let shown = 0;
+
+            items.forEach(function (item) {
+                const on = matches(item);
+                item.hidden = !on;
+                if (on) shown++;
+            });
+
+            count.textContent = shown === items.length
+                ? shown + " items"
+                : shown + " of " + items.length + " items";
+
+            empty.hidden = shown !== 0;
+
+            const anyActive = active.format !== "" ||
+                MULTI.some(function (g) { return active[g].size > 0; });
+            clearBtn.hidden = !anyActive;
+
+            refreshBadges();
+            refreshCounts();
+        }
+
+        tabs.forEach(function (tab) {
+            tab.addEventListener("click", function () {
+                active.format = tab.dataset.format || "";
+                tabs.forEach(function (t) {
+                    const on = t === tab;
+                    t.classList.toggle("cs-active", on);
+                    t.setAttribute("aria-pressed", String(on));
+                });
+                apply();
+            });
+        });
+
+        options.forEach(function (option) {
+            option.addEventListener("click", function () {
+                const group = option.dataset.group;
+                const value = option.dataset.value;
+                const on = active[group].has(value);
+
+                if (on) {
+                    active[group].delete(value);
+                } else {
+                    active[group].add(value);
+                }
+
+                option.setAttribute("aria-pressed", String(!on));
+                option.classList.toggle("cs-checked", !on);
+                apply();
+            });
+        });
+
+        dropdowns.forEach(function (dd) {
+            const trigger = dd.querySelector(".cs-dd-trigger");
+            const panel = dd.querySelector(".cs-dd-panel");
+
+            trigger.addEventListener("click", function () {
+                const open = trigger.getAttribute("aria-expanded") === "true";
+                closeAll(dd);
+                panel.hidden = open;
+                trigger.setAttribute("aria-expanded", String(!open));
+                dd.classList.toggle("cs-open", !open);
+            });
+        });
+
+        allBtns.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                active.format = "";
+                MULTI.forEach(function (g) { active[g].clear(); });
+
+                tabs.forEach(function (t, i) {
+                    t.classList.toggle("cs-active", i === 0);
+                    t.setAttribute("aria-pressed", String(i === 0));
+                });
+                options.forEach(function (o) {
+                    o.setAttribute("aria-pressed", "false");
+                    o.classList.remove("cs-checked");
+                });
+
+                closeAll();
+                apply();
+            });
+        });
+
+        document.addEventListener("click", function (e) {
+            if (!section.contains(e.target) || !e.target.closest(".cs-dropdown")) {
+                closeAll();
+            }
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key !== "Escape") return;
+            const open = section.querySelector(".cs-dropdown.cs-open");
+            if (!open) return;
+            closeAll();
+            open.querySelector(".cs-dd-trigger").focus();
+        });
+
+        apply();
+    })();
+</script>
+
+{% endblock %}

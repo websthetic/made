@@ -1,0 +1,1653 @@
+/*-- -------------------------- -->
+<---         Logo Bar           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0px) {
+    #logo-bar-1 {
+        padding: 0;
+        background-color: var(--mustard);
+        overflow: hidden;
+
+        .cs-inner {
+            width: 100%;
+            display: flex;
+            align-items: stretch;
+            min-height: (52/16rem);
+        }
+
+        /* Left label */
+        .cs-topper {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: (7/16rem);
+            padding: 0 (20/16rem);
+            border-right: (1/16rem) solid rgba(0, 0, 0, 0.12);
+            font-family: var(--bodyFont);
+            font-size: (10/16rem);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--pageBgDarkAlt);
+            white-space: nowrap;
+            margin-bottom: 0;
+            line-height: 1;
+
+            &:before {
+                content: "";
+                display: inline-block;
+                width: (5/16rem);
+                height: (5/16rem);
+                border-radius: 50%;
+                background-color: var(--pageBgDarkAlt);
+                flex-shrink: 0;
+            }
+        }
+
+        /* Marquee */
+        .cs-marquee-wrap {
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            -webkit-mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                black 5%,
+                black 95%,
+                transparent 100%
+            );
+            mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                black 5%,
+                black 95%,
+                transparent 100%
+            );
+        }
+
+        .cs-marquee-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            gap: 0;
+            animation: cs-marquee 45s linear infinite;
+        }
+
+        .cs-logo-name {
+            display: flex;
+            align-items: center;
+            height: (52/16rem);
+            padding: 0 (22/16rem);
+            border-right: (1/16rem) solid rgba(0, 0, 0, 0.1);
+            font-family: var(--bodyFont);
+            font-size: (11/16rem);
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            color: var(--pageBgDarkAlt);
+            white-space: nowrap;
+        }
+
+        /* Dot dividers replaced by CSS borders — hide old spans */
+        .cs-divider {
+            display: none;
+        }
+
+        @keyframes cs-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cs-marquee-track {
+                animation: none;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                padding: (16/16rem);
+            }
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #logo-bar-1 {
+        .cs-topper {
+            padding: 0 (32/16rem);
+        }
+
+        .cs-logo-name {
+            font-size: (11/16rem);
+            padding: 0 (28/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---          Find Your MADE    -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #quiz-1 {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+
+        /* ===== Left Panel ===== */
+
+        .cs-left {
+            background-color: var(--pageBgLight);
+            padding: clamp(3rem, 8vw, 5rem) (24rem/16);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: (40rem/16);
+            flex: 1;
+        }
+
+        .cs-left-top {
+            display: flex;
+            flex-direction: column;
+            gap: (20rem/16);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-size: var(--topperFontSize);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: capitalize;
+            color: var(--mustard);
+            margin-bottom: 0;
+            display: block;
+        }
+
+        .cs-title {
+            font-family: var(--headerFont);
+            font-size: clamp(3.5rem, 10vw, 5rem);
+            font-weight: 900;
+            color: var(--headerColor);
+            text-transform: uppercase;
+            line-height: 1.0;
+            letter-spacing: -0.02em;
+            margin: 0;
+            max-width: (480rem/16);
+        }
+
+        .cs-text {
+            font-family: var(--bodyFont);
+            font-size: (16/16rem);
+            color: #9a9078;
+            line-height: 1.7;
+            max-width: (380rem/16);
+            margin: 0;
+        }
+
+        /* ===== Credential Pills ===== */
+
+        .cs-credential-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (12rem/16);
+        }
+
+        .cs-credential {
+            display: flex;
+            align-items: center;
+            gap: (12rem/16);
+            padding: (14rem/16) (16rem/16);
+            background-color: var(--pageBgLightAlt);
+            border: (1rem/16) solid rgba(0, 0, 0, 0.07);
+            border-radius: (10rem/16);
+        }
+
+        .cs-credential-icon {
+            font-size: (20rem/16);
+            flex-shrink: 0;
+            width: (28rem/16);
+            text-align: center;
+        }
+
+        .cs-credential-body {
+            display: flex;
+            flex-direction: column;
+            gap: (2rem/16);
+        }
+
+        .cs-credential-title {
+            font-family: var(--bodyFont);
+            font-size: (13rem/16);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-credential-sub {
+            font-family: var(--bodyFont);
+            font-size: (11rem/16);
+            color: #9a9078;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* ===== Right Panel ===== */
+
+        .cs-right {
+            background-color: var(--caramel);
+            padding: clamp(3rem, 8vw, 5rem) (24rem/16);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        
+
+        /* ===== Quiz Card ===== */
+
+        .cs-card {
+            background-color: var(--pageBgDarkAlt);
+            border-radius: (20rem/16);
+            padding: (28rem/16) (24rem/16);
+            width: 100%;
+            max-width: (520rem/16);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== Card Header ===== */
+
+        .cs-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: (16rem/16);
+        }
+
+        .cs-card-label {
+            display: flex;
+            align-items: center;
+            gap: (8rem/16);
+        }
+
+        .cs-dot {
+            width: (8rem/16);
+            height: (8rem/16);
+            border-radius: 50%;
+            background-color: var(--mustard);
+            display: inline-block;
+        }
+
+        .cs-card-title {
+            font-family: var(--bodyFont);
+            font-size: (13rem/16);
+            font-weight: 700;
+            color: var(--bodyTextColorWhite);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .cs-card-meta {
+            font-family: var(--bodyFont);
+            font-size: (12rem/16);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ===== Progress ===== */
+
+        .cs-progress-bar {
+            width: 100%;
+            height: (3rem/16);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: (2rem/16);
+            margin-bottom: (8rem/16);
+            overflow: hidden;
+        }
+
+        .cs-progress-fill {
+            height: 100%;
+            background-color: var(--mustard);
+            border-radius: (2rem/16);
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .cs-progress-label {
+            font-family: var(--bodyFont);
+            font-size: (12rem/16);
+            color: rgba(255, 255, 255, 0.35);
+            display: block;
+            text-align: right;
+            margin-bottom: (24rem/16);
+        }
+
+        /* ===== Steps ===== */
+
+        .cs-step {
+            display: none;
+
+            &.cs-active {
+                display: block;
+            }
+        }
+
+        .cs-question {
+            font-family: var(--headerFont);
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 800;
+            color: var(--bodyTextColorWhite);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin: 0 0 (16rem/16);
+            padding-left: (12rem/16);
+            border-left: (3rem/16) solid var(--mustard);
+        }
+
+        /* ===== Options ===== */
+
+        .cs-options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (10rem/16);
+        }
+
+        .cs-option {
+            display: flex;
+            align-items: center;
+            gap: (14rem/16);
+            padding: (14rem/16) (16rem/16);
+            border-radius: (12rem/16);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.15s ease;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-color: var(--mustard);
+                transform: translateX((4rem/16));
+            }
+        }
+
+        .cs-icon {
+            font-size: (22rem/16);
+            flex-shrink: 0;
+            width: (36rem/16);
+            text-align: center;
+        }
+
+        .cs-option-title {
+            font-family: var(--bodyFont);
+            font-size: (14rem/16);
+            font-weight: 700;
+            color: var(--bodyTextColorWhite);
+            margin: 0 0 (2rem/16);
+        }
+
+        .cs-option-sub {
+            font-family: var(--bodyFont);
+            font-size: (12rem/16);
+            color: rgba(255, 255, 255, 0.45);
+            margin: 0;
+        }
+
+        /* ===== Result ===== */
+
+        .cs-result {
+            text-align: center;
+            padding: (12rem/16) 0;
+        }
+
+        .cs-result-label {
+            font-family: var(--bodyFont);
+            font-size: (12rem/16);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--mustard);
+            margin: 0 0 (8rem/16);
+        }
+
+        .cs-result-name {
+            font-family: var(--headerFont);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: var(--bodyTextColorWhite);
+            text-transform: uppercase;
+            margin: 0 0 (12rem/16);
+        }
+
+        .cs-result-desc {
+            font-family: var(--bodyFont);
+            font-size: (14rem/16);
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.6;
+            max-width: (360rem/16);
+            margin: 0 auto (24rem/16);
+        }
+
+        .cs-result-cta {
+            display: inline-block;
+            margin-bottom: (12rem/16);
+        }
+
+        .cs-restart {
+            display: block;
+            margin: 0 auto;
+            background: none;
+            border: none;
+            font-family: var(--bodyFont);
+            font-size: (13rem/16);
+            color: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+
+    } /* end #quiz-1 */
+
+} /* end mobile */
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+    #quiz-1 {
+        flex-direction: row;
+        min-height: 100vh;
+
+        .cs-left {
+            flex: 1;
+            padding: clamp(4rem, 8vw, 7rem) clamp(3rem, 6vw, 6rem);
+        }
+
+        .cs-right {
+            flex: 1;
+            padding: clamp(4rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem);
+        }
+
+    } /* end #quiz-1 */
+
+} /* end desktop */
+
+/*-- -------------------------- -->
+<---        How It Works        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #how-it-works-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgDarkAlt);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1200rem/16);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            text-align: center;
+            max-width: none;
+            margin: 0 0 (48rem/16);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-size: var(--topperFontSize);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            display: block;
+            margin-bottom: (8rem/16);
+        }
+
+        .cs-title {
+    font-family: var(--headerFont);
+    font-size: clamp(3.5rem, 10vw, 5rem); /* back to your preferred size */
+    font-weight: 800;
+    color: var(--bodyTextColorWhite);
+    text-transform: uppercase;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 (12rem/16);
+    white-space: normal; /* allows wrapping so it doesn't overflow */
+}
+
+        .cs-text {
+            font-family: var(--bodyFont);
+            font-size: (16/16rem);
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===== List ===== */
+
+        .cs-stats-list {
+            position: relative;
+            width: 100%;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (24rem/16);
+        }
+
+        .cs-curve,
+        .cs-knife {
+            display: none;
+        }
+
+        /* ===== Row ===== */
+
+        .cs-row {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+
+            opacity: 0;
+            transform: translateY((32rem/16));
+            transition:
+                opacity 0.55s ease,
+                transform 0.55s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+            &.cs-active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cs-row:nth-child(2) { transition-delay: 0.08s; }
+        .cs-row:nth-child(3) { transition-delay: 0.16s; }
+        .cs-row:nth-child(4) { transition-delay: 0.24s; }
+        .cs-row:nth-child(5) { transition-delay: 0.32s; }
+
+        /* ===== Watermark — mobile hidden ===== */
+
+        .cs-stat-bg {
+            display: none;
+        }
+
+        /* ===== Card (image container) ===== */
+
+        .cs-card {
+            position: relative;
+            width: 100%;
+            height: (360rem/16);
+            border-radius: (16rem/16);
+            overflow: hidden;
+        }
+
+        /* ===== Image ===== */
+
+        .cs-media {
+            position: absolute;
+            inset: 0;
+            border-radius: (16rem/16);
+        }
+
+        .cs-picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transform: scale(1.06);
+                transition: transform 6s ease-out;
+            }
+        }
+
+        .cs-row.cs-active .cs-picture img {
+            transform: scale(1);
+        }
+
+        .cs-scrim {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            border-radius: (16rem/16);
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.72) 0%,
+                rgba(0, 0, 0, 0.45) 45%,
+                rgba(0, 0, 0, 0.15) 100%
+            );
+        }
+
+        /* ===== Stat (overlaid) ===== */
+
+        .cs-stat {
+            position: absolute;
+            left: (32rem/16);
+            right: (32rem/16);
+            bottom: (28rem/16);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+
+            opacity: 0;
+            transform: translateY((12rem/16));
+            transition:
+                opacity 0.5s ease 0.2s,
+                transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0.2s;
+        }
+
+        .cs-row.cs-active .cs-stat {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cs-stat-number {
+            font-family: var(--headerFont);
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            font-weight: 900;
+            color: var(--bodyTextColorWhite);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin: 0 0 (10rem/16);
+            display: flex;
+            align-items: baseline;
+            gap: (3rem/16);
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 (2rem/16) (16rem/16) rgba(0, 0, 0, 0.5);
+        }
+
+        .cs-stat-suffix {
+            font-size: 0.4em;
+            font-weight: 700;
+            color: var(--mustard);
+        }
+
+        .cs-stat-label {
+            font-family: var(--bodyFont);
+            font-size: (13rem/16);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--bodyTextColorWhite);
+            margin: 0 0 (6rem/16);
+        }
+
+        .cs-stat-sub {
+            font-family: var(--bodyFont);
+            font-size: (14rem/16);
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+    } /* end #how-it-works-1 */
+
+} /* end mobile */
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+    #how-it-works-1 {
+
+        .cs-title {
+            font-size: clamp(2.75rem, 6.5vw, 5rem); /* restore desktop size */
+            white-space: nowrap; /* restore desktop single line */
+        }
+
+        .cs-stats-list {
+            gap: (64rem/16);
+            overflow: visible;
+            width: 100%;
+        }
+
+        /* ===== Row — alternating layout ===== */
+
+        .cs-row {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+
+            &:nth-child(odd) {
+                flex-direction: row;
+                justify-content: flex-start;
+
+                .cs-stat-bg {
+                    order: 2;
+                    text-align: left;
+                    padding-left: (24rem/16);
+                }
+
+                .cs-card {
+                    order: 1;
+                }
+            }
+
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+                justify-content: flex-start;
+
+                .cs-stat-bg {
+                    order: 2;
+                    text-align: right;
+                    padding-right: (24rem/16);
+                }
+
+                .cs-card {
+                    order: 1;
+                }
+            }
+        }
+
+        /* ===== Watermark — outside card, top corner ===== */
+
+        .cs-stat-bg {
+            display: block;
+            flex: 1 1 auto;
+            min-width: 0;
+            font-family: var(--headerFont);
+            font-size: clamp(3rem, 6vw, (90rem/16));
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: rgba(174, 160, 120, 0.18);
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+            align-self: flex-start;
+            overflow: hidden;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== Watermark colour — triggered when knife passes ===== */
+
+        .cs-stat-bg.cs-knife-passed {
+            color: var(--mustard);
+        }
+
+        /* ===== Card — locked size ===== */
+
+        .cs-card {
+            flex: 0 0 55%;
+            height: (420rem/16);
+        }
+
+        /* ===== Static dashed zig-zag line ===== */
+
+        .cs-curve {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: visible;
+
+            path {
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .cs-curve-line {
+                stroke: var(--vanilla);
+                stroke-width: 6;
+                stroke-dasharray: 30 26;
+                stroke-opacity: 0.2;
+            }
+        }
+
+        /* ===== Travelling knife ===== */
+
+        .cs-knife {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cs-knife-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: (44rem/16);
+            height: (150rem/16);
+            margin: (-75rem/16) 0 0 (-22rem/16);
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='150' viewBox='0 0 44 150'%3E%3Crect x='14' y='4' width='16' height='44' rx='8' fill='%23c96b2b'/%3E%3Ccircle cx='22' cy='17' r='2.8' fill='%23fff7d4'/%3E%3Ccircle cx='22' cy='28' r='2.8' fill='%23fff7d4'/%3E%3Crect x='13' y='46' width='18' height='8' rx='2' fill='%232F3432'/%3E%3Cpath d='M30 52 L30 128 Q29 144 20 143 Q10 142 10 108 L10 58 Q10 52 18 52 Z' fill='%23c96b2b'/%3E%3Cpath d='M30 128 Q29 144 20 143 Q10 142 10 108 L10 120 Q14 146 20 145 Q28 144 30 128 Z' fill='%23a85520' opacity='0.5'/%3E%3C/svg%3E") no-repeat center / contain;
+            will-change: transform;
+        }
+
+        .cs-stat {
+            transition-delay: 0.15s;
+        }
+
+        .cs-row.cs-active .cs-stat {
+            transition-delay: 0.15s;
+        }
+
+    } /* end #how-it-works-1 */
+
+} /* end desktop */
+
+/*-- -------------------------- -->
+<---         Scroll Strip       -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0rem) {
+
+    #scroll-strip-1 {
+        overflow: hidden;
+        background-color: var(--mustard);
+        padding: (20/16rem) 0;
+
+        .cs-strip-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            will-change: transform;
+        }
+
+        .cs-strip-text {
+            font-family: var(--headerFont);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            color: var(--bodyTextColorWhite);
+            white-space: nowrap;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            gap: (32/16rem);
+        }
+
+        .cs-dot {
+            color: var(--bodyTextColorWhite);
+            font-size: 0.6em;
+            line-height: 1;
+        }
+
+    }
+
+}
+
+/*-- -------------------------- -->
+<---       By The Numbers        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #brand-statement-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgLight);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1200rem/16);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48rem/16);
+        }
+
+        /* ===== Text block ===== */
+
+        .cs-content {
+            text-align: center;
+            max-width: (720rem/16);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (20rem/16);
+        }
+
+        .cs-topper {
+            font-family: var(--bodyFont);
+            font-size: var(--topperFontSize);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: capitalize;
+            color: var(--mustard);
+            margin-bottom: 0;
+            display: block;
+        }
+
+        .cs-title {
+            font-family: var(--headerFont);
+            font-size: clamp(3.5rem, 10vw, 5rem);
+            font-weight: 800;
+            color: var(--headerColor);
+            text-transform: uppercase;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        .cs-text {
+            font-family: var(--bodyFont);
+            font-size: (16/16rem);
+            color: var(--bodyTextColor);
+            line-height: 1.7;
+            max-width: (600rem/16);
+            margin: 0;
+        }
+
+        /* ===== Picture wrap ===== */
+
+        .cs-picture-wrap {
+    position: relative;
+    width: 100%;
+    max-width: (360rem/16); /* was 480 */
+    margin: 0 auto;
+    padding-top: (260rem/16); /* was 300, reduced to match smaller width */
+}
+
+        /* ===== Slides pin wrapper ===== */
+
+        .cs-slides-pin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: (260rem/16); /* was 300, match padding-top */
+}
+
+        /* ===== Slides ===== */
+
+        .cs-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            pointer-events: none;
+
+            &.cs-active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+
+        .cs-picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+                border-radius: (16rem/16);
+            }
+        }
+
+        /* ===== Stat cards — mobile stack below image ===== */
+
+        .cs-step-card {
+    position: relative;
+    background-color: var(--pageBgLightAlt);
+    border: (1rem/16) solid rgba(0, 0, 0, 0.08);
+    border-radius: (14rem/16);
+    padding: (20rem/16);
+    margin-top: (24rem/16);
+    text-align: center;
+    opacity: 0;
+    width: (240rem/16); /* add fixed width */
+    margin-left: auto;  /* center it */
+    margin-right: auto;
+
+    &.cs-visible {
+        opacity: 1;
+    }
+}
+
+        .cs-card-num {
+            font-family: var(--headerFont);
+            font-size: (44rem/16);
+            font-weight: 800;
+            color: var(--headerColor);
+            line-height: 1;
+            letter-spacing: -0.01em;
+            margin: 0 0 (8rem/16);
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: (2rem/16);
+        }
+
+        .cs-card-suffix {
+            font-family: var(--headerFont);
+            font-size: (24rem/16);
+            font-weight: 800;
+            color: var(--caramel);
+        }
+
+        .cs-card-label {
+            font-family: var(--bodyFont);
+            font-size: (11rem/16);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--caramel);
+            margin: 0 0 (6rem/16);
+        }
+
+        .cs-card-sub {
+            font-family: var(--bodyFont);
+            font-size: (13rem/16);
+            color: #7a7060;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+    } /* end #brand-statement-1 */
+
+} /* end mobile */
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+    #brand-statement-1 {
+
+        .cs-container {
+            gap: (80rem/16);
+        }
+
+        .cs-picture-wrap {
+            max-width: (1060rem/16);
+            width: 100%;
+            height: (440rem/16);
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .cs-slides-pin {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: (700rem/16);
+            height: (440rem/16);
+            z-index: 0;
+
+            &.is-fixed {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            &.is-done {
+                position: absolute;
+                top: auto;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .cs-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            &:first-child {
+                position: absolute;
+            }
+        }
+
+        .cs-picture {
+            height: 100%;
+        }
+
+        .cs-step-card {
+            position: absolute;
+            width: (260rem/16);
+            margin-top: 0;
+            background-color: #fff;
+            border: (1rem/16) solid rgba(0, 0, 0, 0.09);
+            z-index: 1;
+            will-change: transform, opacity;
+        }
+
+        .cs-card-1 { top: (40rem/16);    left: -(20rem/16);  }
+        .cs-card-2 { top: (40rem/16);    right: -(20rem/16); }
+        .cs-card-3 { bottom: (10rem/16); left: -(20rem/16);  }
+        .cs-card-4 { bottom: (10rem/16); right: -(20rem/16); }
+
+    } /* end #brand-statement-1 */
+
+    #brand-family-1 {
+        position: relative;
+        z-index: 10;
+        border-radius: (24rem/16) (24rem/16) 0 0;
+        box-shadow: 0 -(12rem/16) (48rem/16) rgba(0, 0, 0, 0.18);
+    }
+
+} /* end desktop */
+
+/*-- -------------------------- -->
+<---       The Brand Family     -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #brand-family-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgDarkAlt);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: (48/16rem);
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+        }
+
+        .cs-topper {
+            display: block;
+            font-family: var(--bodyFont);
+            font-size: (14/16rem);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: capitalize;
+            color: var(--mustard);
+            margin-bottom: (10/16rem);
+        }
+
+        .cs-title {
+            font-family: var(--headerFont);
+            font-size: clamp(3.5rem, 10vw, 5rem);
+            font-weight: 800;
+            color: var(--bodyTextColorWhite);
+            text-transform: uppercase;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            margin: 0 0 (12/16rem);
+        }
+
+        .cs-text {
+            font-family: var(--bodyFont);
+            font-size: (16/16rem);
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.6;
+            margin: 0;
+            max-width: (560/16rem);
+        }
+
+        /* ===== Carousel ===== */
+
+        .cs-carousel {
+            width: 100%;
+        }
+
+        .cs-track {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: (12/16rem);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+        /* ===== Cards ===== */
+
+        .cs-item {
+            flex: 0 0 85%;
+            scroll-snap-align: start;
+            border-radius: (14/16rem);
+            padding: (24/16rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: (10/16rem);
+            min-height: (260/16rem);
+            border: none;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+
+            &.cs-item-fuel {
+                background-color: var(--pistachioSage);
+
+                .cs-brand-label { color: rgba(255, 255, 255, 0.7); }
+                .cs-card-title  { color: #fefbea; }
+                .cs-card-desc   { color: rgba(255, 255, 255, 0.65); }
+                .cs-card-btn {
+                    background-color: rgba(255, 255, 255, 0.18);
+                    color: #fefbea;
+                    &:hover { background-color: rgba(255, 255, 255, 0.3); }
+                }
+            }
+
+            &.cs-item-fresh {
+                background-color: var(--caramel);
+
+                .cs-brand-label { color: rgba(255, 255, 255, 0.7); }
+                .cs-card-title  { color: #fefbea; }
+                .cs-card-desc   { color: rgba(255, 255, 255, 0.65); }
+                .cs-card-btn {
+                    background-color: rgba(255, 255, 255, 0.18);
+                    color: #fefbea;
+                    &:hover { background-color: rgba(255, 255, 255, 0.3); }
+                }
+            }
+
+            &.cs-item-cold {
+                background-color: var(--coolBlue);
+
+                .cs-brand-label { color: rgba(255, 255, 255, 0.7); }
+                .cs-card-title  { color: #fefbea; }
+                .cs-card-desc   { color: rgba(255, 255, 255, 0.65); }
+                .cs-card-btn {
+                    background-color: rgba(255, 255, 255, 0.18);
+                    color: #fefbea;
+                    &:hover { background-color: rgba(255, 255, 255, 0.3); }
+                }
+            }
+
+            &.cs-item-upcoming {
+                background-color: transparent;
+                border: (1/16rem) solid rgba(255, 255, 255, 0.1);
+
+                .cs-brand-label { color: rgba(255, 255, 255, 0.3); }
+                .cs-card-title  { color: rgba(255, 255, 255, 0.2); }
+                .cs-card-desc   { color: rgba(255, 255, 255, 0.2); }
+
+                .cs-coming-soon {
+                    font-family: var(--bodyFont);
+                    font-size: (10/16rem);
+                    font-weight: 700;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: rgba(255, 255, 255, 0.35);
+                    background-color: rgba(255, 255, 255, 0.07);
+                    border-radius: (6/16rem);
+                    padding: (4/16rem) (10/16rem);
+                    transition: background-color 0.2s ease, color 0.2s ease;
+                }
+
+                .cs-card-btn-outline {
+                    border-color: rgba(255, 255, 255, 0.15);
+                    color: rgba(255, 255, 255, 0.3);
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.07);
+                        color: rgba(255, 255, 255, 0.6);
+                    }
+                }
+
+                &:hover {
+                    background-color: var(--mustard);
+                    border-color: var(--mustard);
+
+                    .cs-brand-label { color: var(--pageBgDarkAlt); }
+                    .cs-card-title  { color: var(--pageBgDarkAlt); }
+                    .cs-card-desc   { color: rgba(26, 26, 26, 0.6); }
+
+                    .cs-coming-soon {
+                        background-color: rgba(26, 26, 26, 0.12);
+                        color: var(--pageBgDarkAlt);
+                    }
+
+                    .cs-card-btn-outline {
+                        border-color: var(--pageBgDarkAlt);
+                        color: var(--pageBgDarkAlt);
+                    }
+                }
+            }
+        }
+
+        .cs-item-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cs-brand-label {
+            font-family: var(--bodyFont);
+            font-size: (11/16rem);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .cs-card-title {
+            font-family: var(--headerFont);
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: 0.01em;
+            margin: 0;
+            flex: 1;
+            transition: color 0.2s ease;
+        }
+
+        .cs-card-desc {
+            font-family: var(--bodyFont);
+            font-size: (12/16rem);
+            line-height: 1.6;
+            margin: 0;
+            transition: color 0.2s ease;
+        }
+
+        .cs-card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--bodyFont);
+            font-size: (11/16rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: (8/16rem) (16/16rem);
+            border-radius: (8/16rem);
+            align-self: flex-start;
+            border: (1/16rem) solid transparent;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+            &.cs-card-btn-outline {
+                background-color: transparent;
+                border: (1/16rem) solid rgba(255, 255, 255, 0.15);
+            }
+        }
+
+        /* ===== Controls ===== */
+
+        .cs-carousel-controls {
+            margin-top: (28/16rem);
+            display: flex;
+            align-items: center;
+            gap: (24/16rem);
+        }
+
+        .cs-progress {
+            flex: 1 1 auto;
+            height: (3/16rem);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: (100/16rem);
+            overflow: hidden;
+        }
+
+        .cs-progress-fill {
+            width: 0%;
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: (100/16rem);
+            transition: width 0.15s linear;
+        }
+
+        .cs-arrows {
+            display: flex;
+            gap: (8/16rem);
+            flex: none;
+        }
+
+        .cs-arrow {
+            width: (48/16rem);
+            height: (48/16rem);
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--bodyTextColorWhite);
+            cursor: pointer;
+            transition: border-color 0.3s, background-color 0.3s, color 0.3s, opacity 0.3s;
+
+            svg {
+                width: (20/16rem);
+                height: (20/16rem);
+            }
+
+            &:hover {
+                background-color: var(--primary);
+                border-color: var(--primary);
+                color: #fff;
+            }
+
+            &:disabled {
+                opacity: 0.2;
+                pointer-events: none;
+            }
+        }
+
+    } /* end #brand-family-1 */
+
+} /* end mobile */
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+
+    #brand-family-1 {
+
+        .cs-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: (48/16rem);
+        }
+
+        .cs-track {
+            gap: (16/16rem);
+        }
+
+        .cs-item {
+            flex: 0 0 52%;
+            min-height: (300/16rem);
+        }
+
+    }
+
+} /* end tablet */
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+    #brand-family-1 {
+
+        .cs-container {
+            overflow: visible; /* allow carousel to bleed out */
+        }
+
+        .cs-carousel {
+            width: calc(100vw - (50vw - 640px)); /* stretch to viewport right edge */
+            overflow: visible;
+        }
+
+        .cs-track {
+            overflow-x: auto;
+            padding-right: (48/16rem);
+        }
+
+        .cs-item {
+            flex: 0 0 38%;
+            min-height: (320/16rem);
+        }
+
+    }
+
+} /* end desktop */
+
+/*-- -------------------------- -->
+<---       Teams Marquee        -->
+<--- -------------------------- -*/
+
+@keyframes marquee-right {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-left {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+}
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #teams-1 {
+        padding: var(--sectionPadding);
+        background-color: var(--pageBgLight);
+        overflow: hidden;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (32/16rem);
+        }
+
+        /* ===== Header ===== */
+
+        .cs-header {
+            text-align: center;
+             max-width: (800/16rem);
+        }
+
+        .cs-title {
+            font-family: var(--headerFont);
+            font-size: clamp(3.5rem, 10vw, 5rem);
+            font-weight: 800;
+            color: var(--headerColor);
+            text-transform: uppercase;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            margin: 0 0 (12/16rem);
+        }
+
+        .cs-text {
+            font-family: var(--bodyFont);
+            font-size: (16/16rem);
+            color: rgba(0, 0, 0, 0.4);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===== Marquee ===== */
+
+        .cs-marquee-wrap {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            gap: (14/16rem);
+        }
+
+        .cs-marquee {
+            display: flex;
+            width: max-content;
+
+            &.cs-marquee-right {
+                animation: marquee-right 60s linear infinite;
+            }
+
+            &.cs-marquee-left {
+                animation: marquee-left 60s linear infinite;
+            }
+
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        .cs-tag-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: (14/16rem);
+            padding-right: (14/16rem);
+        }
+
+        .cs-tag {
+            font-family: var(--headerFont);
+            font-size: (13/16rem);
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.03);
+            border: (1/16rem) solid rgba(0, 0, 0, 0.08);
+            border-radius: (12/16rem);
+            padding: (28/16rem) (48/16rem);
+            white-space: nowrap;
+            min-width: (220/16rem);
+            min-height: (110/16rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+
+            &:hover {
+                color: var(--mustard);
+                border-color: var(--mustard);
+                background-color: rgba(238, 198, 89, 0.08);
+            }
+        }
+
+    } /* end #teams-1 */
+
+} /* end mobile */
